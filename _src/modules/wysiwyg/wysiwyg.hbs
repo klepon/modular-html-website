@@ -1,0 +1,95 @@
+{{!--
+* background for background-color, auto set padded if set
+--}}
+<div class="wysiwyg{{#if background}} padded {{/if}}"{{#if background}} style="background-color:{{background}};{{/if}}">
+  <h1>Heading 1</h1>
+
+  <p>Lorem ipsum dolor sit amet, id has quem dicam. Eam at stet verear expetendis. Odio elit liber per an, delectus apeirian vel ea. Ad vero adipisci vituperata sed, summo docendi accusata et mea.</p>
+
+  <p>Ex mundi inermis ius, nemore omnesque in per, ius an reque nostro. Ad nonumy facilisi vim. Ipsum alienum qui ut. Ex vel case feugiat constituam, no utroque consequat referrentur sit, ut accusam appetere sententiae eum. Eum aliquam iudicabit eu, nulla mundi ei cum. Pro ad efficiendi vituperatoribus, iuvaret scaevola his et, est dicit adversarium ex. Vim at recteque patrioque.</p>
+
+  <ul>
+    <li>Lorem ipsum dolor sit amet</li>
+    <li>Lorem ipsum dolor sit amet, id has quem dicam. Eam at stet verear expetendis. Odio elit liber per an</li>
+    <li>Lorem ipsum dolor sit amet</li>
+    <li>Lorem ipsum dolor sit amet
+      <ul>
+        <li>Lorem ipsum dolor sit amet</li>
+        <li>Lorem ipsum dolor sit amet, id has quem dicam. Eam at stet verear expetendis. Odio elit liber per an</li>
+        <li>Lorem ipsum dolor sit amet</li>
+        <li>Lorem ipsum dolor sit amet
+          <ul>
+            <li>Lorem ipsum dolor sit amet</li>
+            <li>Lorem ipsum dolor sit amet, id has quem dicam. Eam at stet verear expetendis. Odio elit liber per an</li>
+            <li>Lorem ipsum dolor sit amet</li>
+            <li>Lorem ipsum dolor sit amet</li>
+            <li>Lorem ipsum dolor sit amet</li>
+          </ul>
+        </li>
+        <li>Lorem ipsum dolor sit amet</li>
+      </ul>
+    </li>
+    <li>Lorem ipsum dolor sit amet</li>
+  </ul>
+
+  <p>Lorem ipsum dolor sit amet, id has quem dicam. Eam at stet verear expetendis. Odio elit liber per an, delectus apeirian vel ea. Ad vero adipisci vituperata sed, summo docendi accusata et mea.</p>
+
+  <ol>
+    <li>Lorem ipsum dolor sit amet</li>
+    <li>Lorem ipsum dolor sit amet, id has quem dicam. Eam at stet verear expetendis. Odio elit liber per an</li>
+    <li>Lorem ipsum dolor sit amet</li>
+    <li>Lorem ipsum dolor sit amet
+      <ol>
+        <li>Lorem ipsum dolor sit amet</li>
+        <li>Lorem ipsum dolor sit amet, id has quem dicam. Eam at stet verear expetendis. Odio elit liber per an</li>
+        <li>Lorem ipsum dolor sit amet</li>
+        <li>Lorem ipsum dolor sit amet
+          <ol>
+            <li>Lorem ipsum dolor sit amet</li>
+            <li>Lorem ipsum dolor sit amet, id has quem dicam. Eam at stet verear expetendis. Odio elit liber per an</li>
+            <li>Lorem ipsum dolor sit amet</li>
+            <li>Lorem ipsum dolor sit amet</li>
+            <li>Lorem ipsum dolor sit amet</li>
+          </ol>
+        </li>
+        <li>Lorem ipsum dolor sit amet</li>
+      </ol>
+    </li>
+    <li>Lorem ipsum dolor sit amet</li>
+  </ol>
+
+  <h2>Heading 2</h2>
+
+  <p>Lorem ipsum dolor sit amet, id has quem dicam. Eam at stet verear expetendis. Odio elit liber per an, delectus apeirian vel ea. Ad vero adipisci vituperata sed, summo docendi accusata et mea.</p>
+
+  <blockquote>case feugiat constituam, no utroque consequat referrentur sit, ut accusam appetere sententiae eum. Eum aliquam iudicabit eu, nulla mundi ei cum. Pro ad efficiendi vituperatorib</blockquote>
+
+  <p>Ex mundi inermis ius, nemore omnesque in per, ius an reque nostro. Ad nonumy facilisi vim. Ipsum alienum qui ut. Ex vel case feugiat constituam, no utroque consequat referrentur sit, ut accusam appetere sententiae eum. Eum aliquam iudicabit eu, nulla mundi ei cum. Pro ad efficiendi vituperatoribus, iuvaret scaevola his et, est dicit adversarium ex. Vim at recteque patrioque.</p>
+
+  <h3>Heading 3</h3>
+
+  <p>Lorem ipsum dolor sit amet, id has quem dicam. Eam at stet verear expetendis. Odio elit liber per an, delectus apeirian vel ea. Ad vero adipisci vituperata sed, summo docendi accusata et mea.</p>
+
+  {{> image-placeholder/image-placeholder
+    width = 2120
+    height = 600
+  }}
+
+  <p>Ex mundi inermis ius, nemore omnesque in per, ius an reque nostro. Ad nonumy facilisi vim. Ipsum alienum qui ut. Ex vel case feugiat constituam, no utroque consequat referrentur sit, ut accusam appetere sententiae eum. Eum aliquam iudicabit eu, nulla mundi ei cum. Pro ad efficiendi vituperatoribus, iuvaret scaevola his et, est dicit adversarium ex. Vim at recteque patrioque.</p>
+
+  <h4>Heading 4</h4>
+
+  <p>Lorem ipsum dolor sit amet, id has quem dicam. Eam at stet verear expetendis. Odio elit liber per an, delectus apeirian vel ea. Ad vero adipisci vituperata sed, summo docendi accusata et mea.</p>
+  <p>Ex mundi inermis ius, nemore omnesque in per, ius an reque nostro. Ad nonumy facilisi vim. Ipsum alienum qui ut. Ex vel case feugiat constituam, no utroque consequat referrentur sit, ut accusam appetere sententiae eum. Eum aliquam iudicabit eu, nulla mundi ei cum. Pro ad efficiendi vituperatoribus, iuvaret scaevola his et, est dicit adversarium ex. Vim at recteque patrioque.</p>
+
+  <h5>Heading 5</h5>
+
+  <p>Lorem ipsum dolor sit amet, id has quem dicam. Eam at stet verear expetendis. Odio elit liber per an, delectus apeirian vel ea. Ad vero adipisci vituperata sed, summo docendi accusata et mea.</p>
+  <p>Ex mundi inermis ius, nemore omnesque in per, ius an reque nostro. Ad nonumy facilisi vim. Ipsum alienum qui ut. Ex vel case feugiat constituam, no utroque consequat referrentur sit, ut accusam appetere sententiae eum. Eum aliquam iudicabit eu, nulla mundi ei cum. Pro ad efficiendi vituperatoribus, iuvaret scaevola his et, est dicit adversarium ex. Vim at recteque patrioque.</p>
+
+  <h6>Heading 6</h6>
+
+  <p>Lorem ipsum dolor sit amet, id has quem dicam. Eam at stet verear expetendis. Odio elit liber per an, delectus apeirian vel ea. Ad vero adipisci vituperata sed, summo docendi accusata et mea.</p>
+  <p>Ex mundi inermis ius, nemore omnesque in per, ius an reque nostro. Ad nonumy facilisi vim. Ipsum alienum qui ut. Ex vel case feugiat constituam, no utroque consequat referrentur sit, ut accusam appetere sententiae eum. Eum aliquam iudicabit eu, nulla mundi ei cum. Pro ad efficiendi vituperatoribus, iuvaret scaevola his et, est dicit adversarium ex. Vim at recteque patrioque.</p>
+
+</div>

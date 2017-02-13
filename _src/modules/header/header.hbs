@@ -1,0 +1,69 @@
+{{!-- dependency header utility --}}
+<header>
+  <section>
+    <div class="content-container">
+      <div class="site-identity">
+        {{> image-placeholder/image-placeholder
+          width = 120
+          height = 80
+          class = "logo"
+        }}
+
+        <div class="text">
+          <p class="site-name">Company branding</p>
+          <p class="site-desc">Company quote/desc</p>
+        </div>
+      </div>
+
+      <div class="nav-container">
+        <nav class="slider-menu">
+          <div href="/" title="" class="header">
+            <span>Company branding</span>
+            {{> svg/svg icon = "cross" cssModifier = "js-menu"}}
+          </div>
+
+          <ul>
+            <li>
+              <a href="/" title="">Home</a>
+            </li>
+            <li>
+              <a href="#" title="">Sample module pages</a>
+              <ul>
+                <li>
+                  <a href="/module-accordion.html" title="">Accordion</a>
+                </li>
+                <li>
+                  <a href="/module-article-text.html" title="">Article text</a>
+                </li>
+                <li>
+                  <a href="/module-heading-title.html" title="">Heading - title page</a>
+                </li>
+                <li>
+                  <a href="/module-image-text-panel-horizontal.html" title="">Image text panel horizontal</a>
+                </li>
+                <li>
+                  <a href="/module-image-text-panel-vertical.html" title="">Image text panel vertical</a>
+                </li>
+                <li>
+                  <a href="/module-slick-carousel.html" title="">Slick carousel</a>
+                </li>
+                <li>
+                  <a href="/module-tabs.html" title="">Tabs</a>
+                </li>
+                <li>
+                  <a href="/module-wysiwyg.html" title="">Wysiwyg</a>
+                </li>
+                <li>
+                  <a href="/module-wysiwyg-bg.html" title="">Wysiwyg with background</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="ref-section.html" title="">Section page</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </section>
+</header>

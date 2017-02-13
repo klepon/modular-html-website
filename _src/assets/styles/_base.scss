@@ -1,0 +1,266 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-size: inherit;
+}
+
+html {
+  font-size: $base-rem-size;
+}
+
+body {
+  font-family: $base-font-family;
+  color: $base-text-color;
+  line-height: $base-line-height;
+  font-size: $base-font-size;
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4, h5, h6, p, blockquote, ul, ol, submit {
+  box-sizing: content-box;
+}
+
+h1, h2, h3, h4, h5, h6, p, blockquote, ul, ol {
+  margin-bottom: $content-padding-xs;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+}
+
+h1 {
+  font-size: $h1-size;
+  line-height: $h1-line-height;
+}
+
+h2 {
+  font-size: $h2-size;
+  line-height: $h2-line-height;
+}
+
+h3 {
+  font-size: $h3-size;
+  line-height: $h3-line-height;
+}
+
+blockquote,
+h4 {
+  font-size: $h4-size;
+  line-height: $h4-line-height;
+}
+
+h5 {
+  font-size: $h5-size;
+  line-height: $h5-line-height;
+}
+
+h6 {
+  font-size: $h6-size;
+  line-height: $h6-line-height;
+}
+
+blockquote {
+  font-style: italic;
+  border-left: solid $content-padding-md $secondary-3;
+  padding-left: $content-padding-xs;
+}
+
+ul ul,
+ol ol {
+  margin-bottom: 0;
+}
+
+a {
+  color: $link-color;
+  text-decoration: none;
+
+  &:hover {
+    color: $primary;
+    text-decoration: underline;
+  }
+
+  &:hover svg.icon {
+    color: $primary;
+  }
+
+  &.btn:hover {
+    color: $button-color;
+  }
+}
+
+select {
+    line-height: $field-heigth;
+    height: $field-heigth;
+    background: transparent;
+    border-radius: $border-radius;
+}
+
+.btn,
+button {
+  border: none;
+  padding: $button-padding;
+  box-sizing: content-box;
+  border-radius: $border-radius;
+  background-color: $button-background;
+  color: $button-color;
+
+  &:hover {
+    box-shadow: $box-shadow;
+    border-color: $button-border-hover;
+    background-color: $button-background-hover;
+  }
+}
+
+section {
+  padding: 0 $content-padding-xs $content-padding-xs;
+}
+
+svg.icon {
+  color: $icon-color;
+  fill: currentColor;
+  width: $icon-size;
+  height: $icon-size;
+  padding: 0;
+
+  &:hover {
+    color: $primary;
+  }
+}
+
+svg,
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.hide {
+  display: none;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  border: 0;
+}
+
+.btn {
+  display: inline-block;
+}
+
+.small {
+  font-size: 90%;
+}
+
+.content-container {
+  max-width: $max-width;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.padded {
+  padding: $content-padding-xs;
+}
+
+.padding-bottom {
+  padding-bottom: $content-padding-xs;
+}
+
+.no-padding {
+  padding: 0;
+}
+
+.no-padding-bottom {
+  padding-bottom: 0;
+}
+
+.svg-icon-lib {
+  border: 0 !important;
+  clip: rect(0 0 0 0) !important;
+  height: 1px !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  position: absolute !important;
+  width: 1px !important;
+}
+
+.opac-transiton {
+  &::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: $dark;
+    z-index: -999;
+    opacity: 0;
+    transition: opacity 0.18s ease-in;
+  }
+}
+
+.opac-show {
+  overflow: hidden;
+  position: relative;
+
+  &::before {
+    z-index: 5;
+    opacity: 0.4;
+  }
+}
+
+@media screen and (min-width: $screen-sm) {
+  section {
+    padding: 0 $content-padding-sm $content-padding-sm;
+  }
+
+  .padded {
+      padding: $content-padding-sm;
+  }
+
+  .padding-bottom {
+    padding-bottom: $content-padding-sm;
+  }
+}
+
+@media screen and (min-width: $screen-md) {
+  section {
+    padding: 0 $content-padding-sm $content-padding-md;
+  }
+
+  .padded {
+      padding: $content-padding-md;
+  }
+
+  .padding-bottom {
+    padding-bottom: $content-padding-md;
+  }
+}
+
+@media screen and (min-width: $screen-md + 1) {
+  .no-padding {
+    padding: 0 $content-padding-sm $content-padding-md;
+  }
+}
+
+@media screen and (min-width: $screen-lg) {
+  .no-padding,
+  section {
+    padding: 0 $content-padding-sm $content-padding-lg;
+  }
+
+  .padded {
+      padding: $content-padding-lg;
+  }
+
+  .padding-bottom {
+    padding-bottom: $content-padding-lg;
+  }
+}

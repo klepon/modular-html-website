@@ -1,0 +1,133 @@
+.show-menu header {
+  .nav-container {
+    width: 100%;
+    z-index: 10;
+  }
+
+  .slider-menu {
+    right: 0;
+  }
+}
+
+header {
+  margin-top: $content-padding-xs * -2;
+
+  .logo {
+    width: auto;
+    height: 50px;
+  }
+
+  .text {
+    display: none;
+  }
+
+  .nav-container {
+    width: 0;
+    height: 100vh;
+    position: absolute;
+    overflow: hidden;
+    top: 0;
+    right: 0;
+    z-index: -1;
+    transition: all 0.18s ease-in;
+    overflow-y: auto;
+  }
+
+  .slider-menu {
+    width: 80%;
+    max-width: 400px;
+    background: $base-content-background;
+    position: absolute;
+    top: 0;
+    right: -80%;
+    bottom: 0;
+    transition: right 0.18s ease-in;
+    padding: ($icon-size + $content-padding-xs) 0 $content-padding-xs;
+    z-index: 15;
+    overflow: scroll;
+  }
+
+  .slider-menu .header {
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: $button-background;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    cursor: default;
+    color: $button-color;
+    align-items: center;
+    padding-left: $content-padding-xs;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  .slider-menu .header .icon {
+    color: $button-color;
+    cursor: pointer;
+    padding: $content-padding-xs / 2;
+    box-sizing: content-box;
+  }
+
+  .slider-menu ul,
+  .slider-menu li {
+    margin: 0;
+    padding: 0;
+  }
+
+  .slider-menu li {
+    list-style: none;
+    position: relative;
+
+    &.open > a {
+      background-color: $link-hover-bg;
+      border-color: $link-color;
+    }
+  }
+
+  .slider-menu li li a {
+    padding-left: $content-padding-xs + ($content-padding-xs / 2);
+  }
+
+  .slider-menu li li li a {
+    padding-left: $content-padding-xs * 2;
+  }
+
+  .slider-menu li a {
+    padding: $content-padding-xs;
+    border-bottom: solid 1px $link-hover-bg;
+    background-color: transparent;
+    display: block;
+    transition: background-color 0.25s ease-in;
+    @include hover-block-a();
+  }
+
+  .slider-menu .has-child ul {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.18s ease-in;
+  }
+
+  .slider-menu .has-child.open > ul {
+    max-height: 1000px;
+    transition: max-height 0.18s ease-out;
+  }
+
+  .slider-menu .has-child > svg.icon {
+    position: absolute;
+    top: 2px;
+    right: 0;
+    width: 55px;
+    height: 55px;
+    padding: 15px;
+    transform: rotate(0deg);
+    transition: all 0.18s ease-out;
+  }
+
+  .slider-menu .has-child.open > svg.icon {
+    transform: rotate(180deg);
+  }
+}

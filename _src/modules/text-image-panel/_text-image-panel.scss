@@ -1,0 +1,136 @@
+.text-image-panel.vertical {
+  .row {
+    margin-bottom: $content-padding-md;
+  }
+}
+
+.text-image-panel {
+  .thumbnail-container {
+    min-height: 60vw;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .thumbnail {
+    background-position: center;
+    background-size: cover;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.18s ease-in;
+
+    &:hover {
+      width: 130%;
+      height: 130%;
+    }
+  }
+
+  .padding-bottom .detail:not(.padded) {
+    padding-top: 0;
+  }
+
+  .detail:not(.padded) {
+    padding: $content-padding-xs 0;
+  }
+
+  .detail h2 {
+    margin-bottom: 0;
+  }
+
+  .detail .small {
+    opacity: 0.7;
+  }
+
+  .detail p:last-of-type {
+    margin-bottom: 0;
+  }
+}
+
+@media screen and (min-width: $screen-sm) {
+  .one-col .text-image-panel.vertical {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    .row {
+      width: calc(50% - #{$content-padding-sm / 2});
+    }
+  }
+
+  .text-image-panel.vertical {
+    .row {
+      flex-direction: column;
+    }
+
+    .row.reverse {
+      flex-direction: column-reverse;
+    }
+
+    .thumbnail-container {
+      height: 230px;
+    }
+
+    .reverse .detail:not(.padded),
+    .detail:not(.padded) {
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    .reverse .detail:not(.padded) {
+      padding-top: 0;
+    }
+  }
+
+  .text-image-panel {
+    .thumbnail-container {
+      min-height: 0;
+    }
+
+    .reverse .detail:not(.padded) {
+      padding: $content-padding-sm $content-padding-sm $content-padding-sm 0;
+    }
+
+    .detail:not(.padded) {
+      padding: $content-padding-sm 0 $content-padding-sm $content-padding-sm;
+    }
+  }
+}
+
+@media screen and (min-width: $screen-md) {
+  .one-col .text-image-panel.vertical {
+    .row {
+      width: calc(100% / 3 - #{$content-padding-sm / 2});
+    }
+  }
+
+  .four-cols .text-image-panel.vertical {
+    .thumbnail-container {
+      height: 150px;
+    }
+  }
+
+  .text-image-panel {
+    .reverse .detail:not(.padded) {
+      padding: $content-padding-md $content-padding-md $content-padding-md 0;
+    }
+
+    .detail:not(.padded) {
+      padding: $content-padding-md 0 $content-padding-md $content-padding-md;
+    }
+  }
+}
+
+@media screen and (min-width: $screen-lg) {
+  .text-image-panel {
+    .reverse .detail:not(.padded) {
+      padding: $content-padding-lg $content-padding-lg $content-padding-lg 0;
+    }
+
+    .detail:not(.padded) {
+      padding: $content-padding-lg 0 $content-padding-lg $content-padding-lg;
+    }
+  }
+}

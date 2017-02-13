@@ -1,0 +1,30 @@
+.heading-page {
+  margin-left: $content-padding-xs * - 1;
+  margin-right: $content-padding-xs * - 1;
+
+  h1,
+  p {
+    margin-bottom: 0;
+  }
+}
+
+@media screen and (min-width: $screen-sm) {
+  .heading-page {
+    margin-left: $content-padding-sm * - 1;
+    margin-right: $content-padding-sm * - 1;
+  }
+}
+
+@media screen and (min-width: $screen-md) {
+  .heading-page {
+    margin-left: $content-padding-md * - 1;
+    margin-right: $content-padding-md * - 1;
+  }
+}
+
+@media screen and (min-width: $screen-md + 1) {
+  .heading-page {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}

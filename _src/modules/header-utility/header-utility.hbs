@@ -1,0 +1,42 @@
+{{!-- dependency header --}}
+{{!--
+* add or remove icon, max is 3 icon/menu + lang
+--}}
+<section class="header-utility-search">
+  <div class="content-container">
+    <label for="site-search">
+      <input type="text" id="site-search">
+    </label>
+    <button>{{submitText}}</button>
+    {{> svg/svg icon = "cross" cssModifier = "js-close-search"}}
+  </div>
+</section>
+
+<div class="overlay-button hide">&nbsp;</div>
+
+<section class="header-utility-link">
+  <div class="content-container">
+
+    <label for="select-site-language">
+      <select class="select-language" id="select-site-language">
+        <option value="en" selected="selected">en</option>
+        <option value="id">id</option>
+      </select>
+    </label>
+
+    <a href="/wp-admin" title="" class="login">
+      {{> svg/svg icon = "head"}}
+      <span>Login</span>
+    </a>
+
+    <a href="#" title="" class="js-search-form search">
+      {{> svg/svg icon = "search"}}
+      <span>Search</span>
+    </a>
+
+    <a href="#" title="" class="js-menu burger-menu">
+      {{> svg/svg icon = "burger-menu"}}
+    </a>
+
+  </div>
+</section>

@@ -1,0 +1,22 @@
+{{!--
+* ratio equal : 50:50
+* ratio sidebar: 30:70
+* ratio sidebar, reverse: 70:30
+--}}
+<section class="{{cssModifier}}">
+  <div class="content-container row {{reverse}} two-col-{{ratio }}">
+
+    <div class="col-item col-one">
+      {{#> content-section-one }}
+        No content section found
+      {{/content-section-one }}
+    </div>
+
+    <div class="col-item col-two">
+      {{#> content-section-two }}
+        No content section found
+      {{/content-section-two }}
+    </div>
+
+  </div>
+</section>

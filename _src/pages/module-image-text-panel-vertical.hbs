@@ -1,0 +1,256 @@
+{{#> master
+  title="Double side row Template" }}
+  {{#*inline "content-body" }}
+
+    {{!-- one col --}}
+    {{#> section-one-col}}
+      {{#*inline "content-section" }}
+
+        {{> heading/title
+          h3 = true
+          title="vertical image text in one col"
+        }}
+
+        {{#> text-image-panel/text-image-panel vertical = true }}
+          {{#*inline "double-side-row" }}
+
+            {{> text-image-panel/text-image-row
+              vertical = true
+              thumbnail = "/assets/images/dummy-content/image-1.jpg"
+              title = ""
+              buttonText = "read more"
+              link = "#"
+              text = "Lorem ipsum dolor sit amet, id has quem dicam. Eam at stet verear expetendis. Odio elit liber per an, delectus apeirian vel ea. Ad vero adipisci vituperata sed, summo docendi accusata et mea."
+            }}
+
+            {{> text-image-panel/text-image-row
+              reverse = "reverse"
+              vertical = true
+              thumbnail = "/assets/images/dummy-content/image-1.jpg"
+              title = ""
+              text = "Lorem ipsum dolor sit amet, id has quem dicam. Eam at stet verear expetendis. Odio elit liber per an, delectus apeirian vel ea. Ad vero adipisci vituperata sed, summo docendi accusata et mea."
+            }}
+
+            {{> text-image-panel/text-image-row
+              vertical = true
+              thumbnail = "/assets/images/dummy-content/image-1.jpg"
+              title = ""
+              background = "#fff"
+              text = "Lorem ipsum dolor sit amet, id has quem dicam. Eam at stet verear expetendis. Odio elit liber per an, delectus apeirian vel ea. Ad vero adipisci vituperata sed, summo docendi accusata et mea."
+            }}
+
+            {{> text-image-panel/text-image-row
+              vertical = true
+              thumbnail = "/assets/images/dummy-content/image-1.jpg"
+              title = ""
+              background = "#fff"
+              text = "Lorem ipsum dolor sit amet, id has quem dicam. Eam at stet verear expetendis. Odio elit liber per an, delectus apeirian vel ea. Ad vero adipisci vituperata sed, summo docendi accusata et mea."
+            }}
+
+          {{/inline}}
+        {{/text-image-panel/text-image-panel }}
+
+      {{/inline}}
+    {{/section-one-col }}
+
+    {{#> section-one-col cssModifier = "no-padding-bottom"}}
+      {{#*inline "content-section" }}
+        {{> heading/title
+          h3 = true
+          title="vertical image text in two col"
+        }}
+      {{/inline}}
+    {{/section-one-col }}
+
+    {{!-- two col sidebar --}}
+    {{#> section-two-col ratio="equal"}}
+      {{#*inline "content-section-one" }}
+
+        {{#> text-image-panel/text-image-panel vertical = true }}
+          {{#*inline "double-side-row" }}
+
+            {{> text-image-panel/text-image-row
+              vertical = true
+              reverse = "reverse"
+              thumbnail = "/assets/images/dummy-content/image-1.jpg"
+              title = ""
+              background = "#fff"
+              text = "Lorem ipsum dolor sit amet, id has quem dicam. Eam at stet verear expetendis. Odio elit liber per an, delectus apeirian vel ea. Ad vero adipisci vituperata sed, summo docendi accusata et mea."
+            }}
+
+          {{/inline}}
+        {{/text-image-panel/text-image-panel }}
+
+      {{/inline}}
+
+      {{#*inline "content-section-two" }}
+
+        {{#> text-image-panel/text-image-panel vertical = true }}
+          {{#*inline "double-side-row" }}
+
+            {{> text-image-panel/text-image-row
+              vertical = true
+              thumbnail = "/assets/images/dummy-content/image-1.jpg"
+              title = ""
+              background = "#fff"
+              text = "Lorem ipsum dolor sit amet, id has quem dicam. Eam at stet verear expetendis. Odio elit liber per an, delectus apeirian vel ea. Ad vero adipisci vituperata sed, summo docendi accusata et mea."
+            }}
+
+          {{/inline}}
+        {{/text-image-panel/text-image-panel }}
+
+      {{/inline}}
+    {{/section-two-col}}
+
+    {{#> section-one-col cssModifier = "no-padding-bottom"}}
+      {{#*inline "content-section" }}
+
+        {{> heading/title
+          h3 = true
+          title="vertical image text in three col"
+        }}
+      {{/inline}}
+    {{/section-one-col }}
+
+    {{!-- three col sidebar --}}
+    {{#> section-three-col}}
+      {{#*inline "content-section-one" }}
+
+        {{#> text-image-panel/text-image-panel vertical = true }}
+          {{#*inline "double-side-row" }}
+
+            {{> text-image-panel/text-image-row
+              vertical = true
+              thumbnail = "/assets/images/dummy-content/image-1.jpg"
+              title = ""
+              background = "#fff"
+              text = "Lorem ipsum dolor sit amet, id has quem dicam. Eam at stet verear expetendis. Odio elit liber per an, delectus apeirian vel ea. Ad vero adipisci vituperata sed, summo docendi accusata et mea."
+            }}
+
+          {{/inline}}
+        {{/text-image-panel/text-image-panel }}
+
+      {{/inline}}
+
+      {{#*inline "content-section-two" }}
+
+        {{#> text-image-panel/text-image-panel vertical = true }}
+          {{#*inline "double-side-row" }}
+
+            {{> text-image-panel/text-image-row
+              vertical = true
+              thumbnail = "/assets/images/dummy-content/image-1.jpg"
+              title = ""
+              text = "Lorem ipsum dolor sit amet, id has quem dicam. Eam at stet verear expetendis. Odio elit liber per an, delectus apeirian vel ea. Ad vero adipisci vituperata sed, summo docendi accusata et mea."
+            }}
+
+          {{/inline}}
+        {{/text-image-panel/text-image-panel }}
+
+      {{/inline}}
+
+      {{#*inline "content-section-three" }}
+
+        {{#> text-image-panel/text-image-panel vertical = true }}
+          {{#*inline "double-side-row" }}
+
+            {{> text-image-panel/text-image-row
+              vertical = true
+              thumbnail = "/assets/images/dummy-content/image-1.jpg"
+              title = ""
+              background = "#fff"
+              text = "Lorem ipsum dolor sit amet, id has quem dicam. Eam at stet verear expetendis. Odio elit liber per an, delectus apeirian vel ea. Ad vero adipisci vituperata sed, summo docendi accusata et mea."
+            }}
+
+          {{/inline}}
+        {{/text-image-panel/text-image-panel }}
+
+      {{/inline}}
+    {{/section-three-col}}
+
+    {{#> section-one-col cssModifier = "no-padding-bottom"}}
+      {{#*inline "content-section" }}
+
+        {{> heading/title
+          h3 = true
+          title="vertical image text in four col"
+        }}
+      {{/inline}}
+    {{/section-one-col }}
+
+    {{!-- four col sidebar --}}
+    {{#> section-four-col}}
+      {{#*inline "content-section-one" }}
+
+        {{#> text-image-panel/text-image-panel vertical = true }}
+          {{#*inline "double-side-row" }}
+
+            {{> text-image-panel/text-image-row
+              vertical = true
+              thumbnail = "/assets/images/dummy-content/image-1.jpg"
+              title = ""
+              background = "#fff"
+              text = "Lorem ipsum dolor sit amet, id has quem dicam. Eam at stet verear expetendis. Odio elit liber per an, delectus apeirian vel ea. Ad vero adipisci vituperata sed, summo docendi accusata et mea."
+            }}
+
+          {{/inline}}
+        {{/text-image-panel/text-image-panel }}
+
+      {{/inline}}
+
+      {{#*inline "content-section-two" }}
+
+        {{#> text-image-panel/text-image-panel vertical = true }}
+          {{#*inline "double-side-row" }}
+
+            {{> text-image-panel/text-image-row
+              vertical = true
+              thumbnail = "/assets/images/dummy-content/image-1.jpg"
+              title = ""
+              text = "Lorem ipsum dolor sit amet, id has quem dicam. Eam at stet verear expetendis. Odio elit liber per an, delectus apeirian vel ea. Ad vero adipisci vituperata sed, summo docendi accusata et mea."
+            }}
+
+          {{/inline}}
+        {{/text-image-panel/text-image-panel }}
+
+      {{/inline}}
+
+      {{#*inline "content-section-three" }}
+
+        {{#> text-image-panel/text-image-panel vertical = true }}
+          {{#*inline "double-side-row" }}
+
+            {{> text-image-panel/text-image-row
+              vertical = true
+              thumbnail = "/assets/images/dummy-content/image-1.jpg"
+              title = ""
+              background = "#fff"
+              text = "Lorem ipsum dolor sit amet, id has quem dicam. Eam at stet verear expetendis. Odio elit liber per an, delectus apeirian vel ea. Ad vero adipisci vituperata sed, summo docendi accusata et mea."
+            }}
+
+          {{/inline}}
+        {{/text-image-panel/text-image-panel }}
+
+      {{/inline}}
+
+      {{#*inline "content-section-four" }}
+
+        {{#> text-image-panel/text-image-panel vertical = true }}
+          {{#*inline "double-side-row" }}
+
+            {{> text-image-panel/text-image-row
+              vertical = true
+              thumbnail = "/assets/images/dummy-content/image-1.jpg"
+              title = ""
+              background = "#fff"
+              text = "Lorem ipsum dolor sit amet, id has quem dicam. Eam at stet verear expetendis. Odio elit liber per an, delectus apeirian vel ea. Ad vero adipisci vituperata sed, summo docendi accusata et mea."
+            }}
+
+          {{/inline}}
+        {{/text-image-panel/text-image-panel }}
+
+      {{/inline}}
+    {{/section-four-col}}
+
+  {{/inline}}
+{{/master }}

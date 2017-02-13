@@ -1,0 +1,80 @@
+{{#> master
+  title="Section grid" }}
+  {{#*inline "content-body" }}
+
+    {{!-- one col --}}
+    {{#> section-one-col}}
+      {{#*inline "content-section" }}
+          {{> wysiwyg/simple-lorem title="one col" }}
+      {{/inline}}
+    {{/section-one-col }}
+
+    {{!-- two col equal --}}
+    {{#> section-two-col ratio="equal"}}
+      {{#*inline "content-section-one" }}
+        {{> wysiwyg/simple-lorem title="two col" }}
+      {{/inline}}
+
+      {{#*inline "content-section-two" }}
+        {{> wysiwyg/simple-lorem title="two col" }}
+      {{/inline}}
+    {{/section-two-col}}
+
+    {{!-- two col sidebar --}}
+    {{#> section-two-col ratio="sidebar"}}
+      {{#*inline "content-section-one" }}
+        {{> wysiwyg/simple-lorem title="two col" }}
+      {{/inline}}
+
+      {{#*inline "content-section-two" }}
+        {{> wysiwyg/simple-lorem title="two col" }}
+      {{/inline}}
+    {{/section-two-col}}
+
+    {{!-- two col sidebar reverse --}}
+    {{#> section-two-col ratio="sidebar" reverse="reverse"}}
+      {{#*inline "content-section-one" }}
+        {{> wysiwyg/simple-lorem title="two col" }}
+      {{/inline}}
+
+      {{#*inline "content-section-two" }}
+        {{> wysiwyg/simple-lorem title="two col" }}
+      {{/inline}}
+    {{/section-two-col}}
+
+    {{!-- three cols --}}
+    {{#> section-three-col}}
+      {{#*inline "content-section-one" }}
+        {{> wysiwyg/simple-lorem title="three col" }}
+      {{/inline}}
+
+      {{#*inline "content-section-two" }}
+        {{> wysiwyg/simple-lorem title="three col" }}
+      {{/inline}}
+
+      {{#*inline "content-section-three" }}
+        {{> wysiwyg/simple-lorem title="three col" }}
+      {{/inline}}
+    {{/section-three-col}}
+
+    {{!-- four cols --}}
+    {{#> section-four-col}}
+      {{#*inline "content-section-one" }}
+        {{> wysiwyg/simple-lorem title="four col" }}
+      {{/inline}}
+
+      {{#*inline "content-section-two" }}
+        {{> wysiwyg/simple-lorem title="four col" }}
+      {{/inline}}
+
+      {{#*inline "content-section-three" }}
+        {{> wysiwyg/simple-lorem title="four col" }}
+      {{/inline}}
+
+      {{#*inline "content-section-four" }}
+        {{> wysiwyg/simple-lorem title="four col" }}
+      {{/inline}}
+    {{/section-four-col}}
+
+  {{/inline}}
+{{/master }}

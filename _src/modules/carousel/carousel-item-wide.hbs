@@ -1,0 +1,33 @@
+{{!--
+* thumbnail: for bg image
+* title: main text
+* text: sort description text
+* textLink: cta link must inlcude link
+* link: cta target
+* videoUrl: complete video url to play inside iframe
+* videoButton: video play button text for SEO and screen reader
+--}}
+<div class="item">
+  <div class="thumbnail" style="background-image:url({{thumbnail}})">&nbsp;</div>
+
+  <div class="detail">
+    {{#if title }}
+      <h2>{{title}}</h2>
+    {{/if }}
+
+    {{#if text }}
+      <p>{{text}}</p>
+    {{/if }}
+
+    {{#if link }}
+      <a class="btn" href="{{link}}" title="{{textLink}}">{{textLink}}</a>
+    {{/if }}
+
+    {{#if videoUrl }}
+      <a class="btn-play js-popup" href="#" title="{{videoButton}}" data-iframe="video" data-url="{{videoUrl}}">
+        <span class="sr-only">{{videoButton}}</span>
+        {{> svg/svg icon = "play"}}
+      </a>
+    {{/if }}
+  </div>
+</div>

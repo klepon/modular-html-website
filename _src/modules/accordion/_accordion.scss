@@ -1,0 +1,31 @@
+.accordion {
+  .accordion-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: $secondary-2;
+    padding: $content-padding-xs / 4 $content-padding-xs;
+    margin-bottom: 1px;
+    font-size: $h4-size;
+  }
+
+  .accordion-heading .icon {
+    width: $content-padding-xs;
+    height: $content-padding-xs;
+    transition: all 0.18s ease-in;
+  }
+
+  .accordion-heading.open .icon {
+    transform: rotate(180deg);
+  }
+
+  .accordion-content {
+    background-color: $base-content-background;
+    margin-bottom: $content-padding-xs;
+  }
+
+  .accordion-content > * {
+    background-color: transparent !important;
+    padding: 0;
+  }
+}

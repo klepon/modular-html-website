@@ -1,0 +1,283 @@
+{{#> master
+  title="Started Template" }}
+  {{#*inline "content-body" }}
+
+    {{!-- one col page header --}}
+    {{#> section-one-col cssModifier = "no-padding-bottom" }}
+      {{#*inline "content-section" }}
+          {{> heading/heading background="#509bf4" color="#fff" }}
+      {{/inline}}
+    {{/section-one-col }}
+
+    {{!-- one col 1 item --}}
+    {{#> section-one-col cssModifier = "no-padding" }}
+      {{#*inline "content-section" }}
+          {{#> carousel/slick-carousel
+            slidesToShow = 1
+            slidesToScroll = 1
+            speed = 300
+            autoplaySpeed = 5000
+          }}
+            {{#*inline "carousel-items" }}
+
+              {{> carousel/carousel-item-wide
+                thumbnail = "/assets/images/dummy-content/image-1.jpg"
+                title = "Promo text here better sort text"
+                text = "Lorem ipsum dolor sit amet, id has quem dicam. Eam at stet verear expetendis."
+                link = "#"
+                textLink = "more info"
+                videoUrl = "http://localhost:9001/"
+                videoButton = "play video"
+              }}
+
+              {{> carousel/carousel-item-wide
+                thumbnail = "/assets/images/dummy-content/image-1.jpg"
+                title = "Promo text here better sort text"
+                text = "Lorem ipsum dolor sit amet, id has quem dicam. Eam at stet verear expetendis."
+                link = "#"
+                textLink = "more info"
+              }}
+
+              {{> carousel/carousel-item-wide
+                thumbnail = "/assets/images/dummy-content/image-1.jpg"
+                title = "Promo text here better sort text"
+                text = "Lorem ipsum dolor sit amet, id has quem dicam. Eam at stet verear expetendis."
+              }}
+
+              {{> carousel/carousel-item-wide
+                thumbnail = "/assets/images/dummy-content/image-1.jpg"
+                title = "Promo text here better sort text"
+                text = "Lorem ipsum dolor sit amet, id has quem dicam. Eam at stet verear expetendis."
+                videoUrl = "#youtube"
+                videoButton = "play video"
+              }}
+
+              {{> carousel/carousel-item-wide
+                thumbnail = "/assets/images/dummy-content/image-1.jpg"
+                title = "Promo text here better sort text"
+                text = "Lorem ipsum dolor sit amet, id has quem dicam. Eam at stet verear expetendis."
+              }}
+
+            {{/inline}}
+          {{/carousel/slick-carousel}}
+      {{/inline}}
+    {{/section-one-col }}
+
+    {{!-- one col 1 item --}}
+    {{#> section-one-col }}
+      {{#*inline "content-section" }}
+          {{#> carousel/slick-carousel
+            slidesToShow = 1
+            slidesToScroll = 1
+            speed = 300
+            autoplaySpeed = 5000
+          }}
+            {{#*inline "carousel-items" }}
+
+              {{> carousel/carousel-item-wide
+                thumbnail = "/assets/images/dummy-content/image-1.jpg"
+                title = "Promo text here better sort text"
+                text = "Lorem ipsum dolor sit amet, id has quem dicam. Eam at stet verear expetendis."
+                link = "#"
+                textLink = "more info"
+                videoUrl = "#youtube"
+                videoButton = "play video"
+              }}
+
+              {{> carousel/carousel-item-wide
+                thumbnail = "/assets/images/dummy-content/image-1.jpg"
+                title = "Promo text here better sort text"
+                text = "Lorem ipsum dolor sit amet, id has quem dicam. Eam at stet verear expetendis."
+                link = "#"
+                textLink = "more info"
+              }}
+
+              {{> carousel/carousel-item-wide
+                thumbnail = "/assets/images/dummy-content/image-1.jpg"
+                title = "Promo text here better sort text"
+                text = "Lorem ipsum dolor sit amet, id has quem dicam. Eam at stet verear expetendis."
+              }}
+
+              {{> carousel/carousel-item-wide
+                thumbnail = "/assets/images/dummy-content/image-1.jpg"
+                title = "Promo text here better sort text"
+                text = "Lorem ipsum dolor sit amet, id has quem dicam. Eam at stet verear expetendis."
+                videoUrl = "#youtube"
+                videoButton = "play video"
+              }}
+
+              {{> carousel/carousel-item-wide
+                thumbnail = "/assets/images/dummy-content/image-1.jpg"
+                title = "Promo text here better sort text"
+                text = "Lorem ipsum dolor sit amet, id has quem dicam. Eam at stet verear expetendis."
+              }}
+
+            {{/inline}}
+          {{/carousel/slick-carousel}}
+      {{/inline}}
+    {{/section-one-col }}
+
+    {{!-- one col 2 item --}}
+    {{#> section-one-col }}
+      {{#*inline "content-section" }}
+          {{#> carousel/slick-carousel
+            slidesToShow = 2
+            slidesToScroll = 2
+            speed = 300
+            autoplaySpeed = 2000
+          }}
+            {{#*inline "carousel-items" }}
+
+            {{> carousel/carousel-item-wide
+              thumbnail = "/assets/images/dummy-content/image-1.jpg"
+              title = "Promo text here better sort text"
+              text = "Lorem ipsum dolor sit amet, id has quem dicam. Eam at stet verear expetendis."
+              link = "#"
+              textLink = "more info"
+              videoUrl = "#youtube"
+              videoButton = "play video"
+            }}
+
+            {{> carousel/carousel-item-wide
+              thumbnail = "/assets/images/dummy-content/image-1.jpg"
+              title = "Promo text here better sort text"
+              text = "Lorem ipsum dolor sit amet, id has quem dicam. Eam at stet verear expetendis."
+              link = "#"
+              textLink = "more info"
+            }}
+
+            {{> carousel/carousel-item-wide
+              thumbnail = "/assets/images/dummy-content/image-1.jpg"
+              title = "Promo text here better sort text"
+              text = "Lorem ipsum dolor sit amet, id has quem dicam. Eam at stet verear expetendis."
+            }}
+
+            {{> carousel/carousel-item-wide
+              thumbnail = "/assets/images/dummy-content/image-1.jpg"
+              title = "Promo text here better sort text"
+              text = "Lorem ipsum dolor sit amet, id has quem dicam. Eam at stet verear expetendis."
+              videoUrl = "#youtube"
+              videoButton = "play video"
+            }}
+
+            {{> carousel/carousel-item-wide
+              thumbnail = "/assets/images/dummy-content/image-1.jpg"
+              title = "Promo text here better sort text"
+              text = "Lorem ipsum dolor sit amet, id has quem dicam. Eam at stet verear expetendis."
+            }}
+
+            {{/inline}}
+          {{/carousel/slick-carousel}}
+      {{/inline}}
+    {{/section-one-col }}
+
+    {{!-- one col 3 item --}}
+    {{#> section-one-col }}
+      {{#*inline "content-section" }}
+          {{#> carousel/slick-carousel
+            slidesToShow = 3
+            slidesToScroll = 3
+            speed = 300
+            autoplaySpeed = 2000
+          }}
+            {{#*inline "carousel-items" }}
+
+            {{> carousel/carousel-item-wide
+              thumbnail = "/assets/images/dummy-content/image-1.jpg"
+              title = "Promo text here better sort text"
+              text = "Lorem ipsum dolor sit amet, id has quem dicam. Eam at stet verear expetendis."
+              link = "#"
+              textLink = "more info"
+              videoUrl = "#youtube"
+              videoButton = "play video"
+            }}
+
+            {{> carousel/carousel-item-wide
+              thumbnail = "/assets/images/dummy-content/image-1.jpg"
+              title = "Promo text here better sort text"
+              text = "Lorem ipsum dolor sit amet, id has quem dicam. Eam at stet verear expetendis."
+              link = "#"
+              textLink = "more info"
+            }}
+
+            {{> carousel/carousel-item-wide
+              thumbnail = "/assets/images/dummy-content/image-1.jpg"
+              title = "Promo text here better sort text"
+              text = "Lorem ipsum dolor sit amet, id has quem dicam. Eam at stet verear expetendis."
+            }}
+
+            {{> carousel/carousel-item-wide
+              thumbnail = "/assets/images/dummy-content/image-1.jpg"
+              title = "Promo text here better sort text"
+              text = "Lorem ipsum dolor sit amet, id has quem dicam. Eam at stet verear expetendis."
+              videoUrl = "#youtube"
+              videoButton = "play video"
+            }}
+
+            {{> carousel/carousel-item-wide
+              thumbnail = "/assets/images/dummy-content/image-1.jpg"
+              title = "Promo text here better sort text"
+              text = "Lorem ipsum dolor sit amet, id has quem dicam. Eam at stet verear expetendis."
+            }}
+
+            {{/inline}}
+          {{/carousel/slick-carousel}}
+      {{/inline}}
+    {{/section-one-col }}
+
+    {{!-- one col 4 item--}}
+    {{#> section-one-col }}
+      {{#*inline "content-section" }}
+          {{#> carousel/slick-carousel
+            slidesToShow = 4
+            slidesToScroll = 4
+            speed = 300
+            autoplaySpeed = 2000
+          }}
+            {{#*inline "carousel-items" }}
+
+            {{> carousel/carousel-item-wide
+              thumbnail = "/assets/images/dummy-content/image-1.jpg"
+              title = "Promo text here better sort text"
+              text = "Lorem ipsum dolor sit amet, id has quem dicam. Eam at stet verear expetendis."
+              link = "#"
+              textLink = "more info"
+              videoUrl = "#youtube"
+              videoButton = "play video"
+            }}
+
+            {{> carousel/carousel-item-wide
+              thumbnail = "/assets/images/dummy-content/image-1.jpg"
+              title = "Promo text here better sort text"
+              text = "Lorem ipsum dolor sit amet, id has quem dicam. Eam at stet verear expetendis."
+              link = "#"
+              textLink = "more info"
+            }}
+
+            {{> carousel/carousel-item-wide
+              thumbnail = "/assets/images/dummy-content/image-1.jpg"
+              title = "Promo text here better sort text"
+              text = "Lorem ipsum dolor sit amet, id has quem dicam. Eam at stet verear expetendis."
+            }}
+
+            {{> carousel/carousel-item-wide
+              thumbnail = "/assets/images/dummy-content/image-1.jpg"
+              title = "Promo text here better sort text"
+              text = "Lorem ipsum dolor sit amet, id has quem dicam. Eam at stet verear expetendis."
+              videoUrl = "#youtube"
+              videoButton = "play video"
+            }}
+
+            {{> carousel/carousel-item-wide
+              thumbnail = "/assets/images/dummy-content/image-1.jpg"
+              title = "Promo text here better sort text"
+              text = "Lorem ipsum dolor sit amet, id has quem dicam. Eam at stet verear expetendis."
+            }}
+
+            {{/inline}}
+          {{/carousel/slick-carousel}}
+      {{/inline}}
+    {{/section-one-col }}
+
+  {{/inline}}
+{{/master }}

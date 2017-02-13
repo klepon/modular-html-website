@@ -1,0 +1,14 @@
+.wysiwyg {
+  max-width: $max-text-width;
+
+  ul, ol {
+    margin-left: 20px; // static to bullet distance
+  }
+
+  // ol { counter-reset: item }
+  // li { display: block }
+  // li:before {
+  //   content: counters(item, ".") " ";
+  //   counter-increment: item
+  // }
+}

@@ -1,0 +1,41 @@
+{{#> master
+  title="Heading and Title Template" }}
+  {{#*inline "content-body" }}
+
+    {{!-- one col --}}
+    {{#> section-one-col}}
+      {{#*inline "content-section" }}
+          {{> heading/title title="heading h1" h1=true }}
+      {{/inline}}
+    {{/section-one-col }}
+
+    {{!-- one col --}}
+    {{#> section-one-col}}
+      {{#*inline "content-section" }}
+          {{> heading/heading background="#509bf4" color="#fff" }}
+      {{/inline}}
+    {{/section-one-col }}
+
+      {{!-- one col --}}
+      {{#> section-one-col}}
+        {{#*inline "content-section" }}
+            {{> heading/title title="heading h2" h2=true }}
+        {{/inline}}
+      {{/section-one-col }}
+
+    {{!-- one col --}}
+    {{#> section-one-col}}
+      {{#*inline "content-section" }}
+          {{> heading/heading background="#f06e57" color="#222" }}
+      {{/inline}}
+    {{/section-one-col }}
+
+    {{!-- one col --}}
+    {{#> section-one-col}}
+      {{#*inline "content-section" }}
+          {{> heading/title title="heading h3" h3=true }}
+      {{/inline}}
+    {{/section-one-col }}
+
+  {{/inline}}
+{{/master }}

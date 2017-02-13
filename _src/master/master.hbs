@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  {{> head/head
+    title= title
+  }}
+
+  <body class="opac-transiton">
+    {{#if dev }}
+    {{!-- include svg symbol to use by image-placeholder --}}
+    {{> image-placeholder/image-placeholder symbol=true }}
+    {{/if}}
+
+    {{!--include svg sprite --}}
+    {{> svg-symbols }}
+
+    {{!-- search, login, lang --}}
+    {{> header-utility/header-utility
+      submitText = "submit" }}
+
+    {{!-- header; logo menu --}}
+    {{> header/header }}
+
+    {{!-- main content --}}
+    <main>
+      {{#> content-body }}
+        No content body found
+      {{/content-body }}
+    </main>
+
+    {{!-- main content --}}
+    {{> footer/footer }}
+
+    {{> popup/popup }}
+  </body>
+</html>

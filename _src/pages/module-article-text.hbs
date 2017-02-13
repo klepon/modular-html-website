@@ -1,0 +1,31 @@
+{{#> master
+  title="Article Text Template" }}
+  {{#*inline "content-body" }}
+
+    {{!-- one col --}}
+    {{#> section-one-col}}
+      {{#*inline "content-section" }}
+          {{> article-text/article-text background="#fff" }}
+      {{/inline}}
+    {{/section-one-col }}
+
+      {{!-- one col --}}
+      {{#> section-one-col}}
+        {{#*inline "content-section" }}
+            {{> article-text/article-text}}
+        {{/inline}}
+      {{/section-one-col }}
+
+      {{!-- two col sidebar --}}
+      {{#> section-two-col ratio="sidebar"}}
+        {{#*inline "content-section-one" }}
+          {{> wysiwyg/simple-lorem title="two col" background="#fff" }}
+        {{/inline}}
+
+        {{#*inline "content-section-two" }}
+          {{> article-text/article-text background="#fff" }}
+        {{/inline}}
+      {{/section-two-col}}
+
+  {{/inline}}
+{{/master }}

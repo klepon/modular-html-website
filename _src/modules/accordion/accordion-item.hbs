@@ -1,0 +1,13 @@
+{{!--
+* title
+* any padded class directly under accordion-content will be eliminated
+* any bacckground-color directly under accordion-content will be eliminated
+--}}
+<div class="item">
+  <h2 class="accordion-heading js-accordion-heading">{{title}} {{> svg/svg icon = "chevron-down"}}</h2>
+  <div class="accordion-content js-accordion-content padded">
+    {{#> accordion-content-wysiwyg }}
+      accordion item wysiwyg
+    {{/accordion-content-wysiwyg }}
+  </div>
+</div>

@@ -1,0 +1,20 @@
+@media screen and (min-width: $screen-sm) {
+  .two-col-sidebar .article-text {
+    column-count: 1;
+  }
+
+  .article-text {
+    column-count: 2;
+  }
+}
+
+@media screen and (min-width: $screen-md) {
+  .two-col-sidebar .article-text {
+    column-count: 2;
+  }
+
+  .article-text {
+    column-count: 3;
+    column-gap: $content-padding-md;
+  }
+}

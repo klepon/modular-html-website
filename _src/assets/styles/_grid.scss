@@ -1,0 +1,72 @@
+.row {
+  .col-item {
+    margin-bottom: $content-padding-xs;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+@media screen and (min-width: $screen-sm) {
+  .row {
+    display: flex;
+    justify-content: space-between;
+
+    &.four-cols {
+      flex-wrap: wrap;
+    }
+
+    &.reverse {
+      flex-direction: row-reverse;
+    }
+
+    .col-50 {
+      width: 50%;
+    }
+
+    .col-one {
+      width: 30%;
+    }
+
+    .col-two {
+      width: 70%;
+    }
+
+    .col-item {
+      margin-bottom: 0;
+    }
+
+    &.one-col .col-item {
+      width: 100%;
+    }
+
+    &.four-cols .col-item,
+    &.two-col-equal .col-item {
+      width: calc(50% - #{$content-padding-sm / 2});
+    }
+
+    &.two-col-sidebar .col-one {
+      width: calc(30% - #{$content-padding-sm / 2});
+    }
+
+    &.two-col-sidebar .col-two {
+      width: calc(70% - #{$content-padding-sm / 2});
+    }
+
+    &.three-cols .col-item {
+      width: calc(100% / 3 - #{$content-padding-sm / 2});
+    }
+  }
+}
+
+@media screen and (min-width: $screen-md) {
+  .row {
+    &.four-cols .col-item {
+      width: calc(25% - #{$content-padding-md / 2});
+    }
+  }
+}
+
+@media screen and (min-width: $screen-lg) {
+
+}

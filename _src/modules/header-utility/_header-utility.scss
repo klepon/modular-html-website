@@ -1,0 +1,110 @@
+.show-search-form {
+  .header-utility-search {
+    max-height: 84px;
+  }
+
+  .overlay-button {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 6;
+  }
+}
+
+.header-utility-search {
+  background: $base-content-background;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.18s ease-in;
+  z-index: 10;
+  position: relative;
+  padding-bottom: 0;
+
+  .content-container {
+    padding-top: $content-padding-sm;
+    padding-bottom: $content-padding-sm;
+    display: flex;
+    height: 84px;
+  }
+
+  label {
+    width: 100%;
+    max-width: 400px;
+    flex-shrink: 1;
+    margin-right: $field-padding;
+    margin-left: auto;
+  }
+
+  input[type="text"] {
+    border-radius: $border-radius;
+    box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.2);
+    border: none;
+    font-size: $base-font-size;
+    padding: $input-padding;
+    line-height: $base-font-size;
+    width: 100%;
+  }
+
+  button, svg {
+    flex-shrink: 0;
+  }
+
+  button {
+    width: 50px;
+    height: $field-heigth;
+    line-height: $field-heigth;
+    margin-right: $field-padding;
+  }
+
+  .icon.cross {
+    cursor: pointer;
+  }
+}
+
+.header-utility-link {
+  padding-bottom: 0;
+  padding-top: $content-padding-xs;
+
+  .content-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  .content-container > * {
+    margin-left: $field-padding;
+    align-items: center;
+    display: flex;
+    position: relative;
+  }
+
+  .content-container span {
+    display: none;
+  }
+
+  .content-container a:not(:last-child) svg {
+    width: 26px;
+    height: auto;
+  }
+}
+
+@media screen and (min-width: $screen-sm) {
+  .header-utility-link {
+    padding-top: $content-padding-sm;
+  }
+}
+
+@media screen and (min-width: $screen-md) {
+  .header-utility-link {
+    padding-top: $content-padding-md;
+  }
+}
+
+@media screen and (min-width: $screen-lg) {
+  .header-utility-link {
+    padding-top: $content-padding-lg;
+  }
+}

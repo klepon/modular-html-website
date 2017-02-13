@@ -1,0 +1,42 @@
+{{!--
+* reverse: will reverse flex order
+* vertical: set true for vertical image text
+* thumbnail: square bg image for side panel
+* background: detail background-color
+* title: h2 title
+* link: target link
+* subTitle: subtitle text
+* text: description text, text area non rich text
+* buttonText: text on cta button, use same link as title
+--}}
+<div class="row {{reverse}}">
+  <div class="thumbnail-container{{#unless vertical}} col-50{{/unless}}">
+    <div class="thumbnail" style="background-image:url({{thumbnail}})">&nbsp;</div>
+  </div>
+
+  <div class="detail{{#unless vertical}} col-50{{/unless}}{{#if background}} padded{{/if}}"{{#if background}} style="background-color:{{background}};{{/if}}">
+    {{#if title }}
+      <h2>
+        {{#if link}}
+          <a href="{{link}}" title="{{title}}">
+        {{/if }}
+
+        {{title}}
+
+        {{#if link}}
+          </a>
+        {{/if }}
+      </h2>
+    {{/if }}
+
+    {{#if subTitle}}
+      <p class="small">{{subTitle}}</p>
+    {{/if}}
+
+    <p>{{text}}</p>
+
+    {{#if buttonText }}
+      <p><a href="{{link}}" title="{{buttonText}}" class="btn">{{buttonText}}</a></p>
+    {{/if}}
+  </div>
+</div>

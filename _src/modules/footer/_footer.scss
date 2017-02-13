@@ -1,0 +1,117 @@
+footer {
+  border-top: solid 3px $primary;
+  background-color: $base-content-background;
+
+  .link-container {
+    padding-top: $content-padding-xs;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .link-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: $content-padding-xs;
+  }
+
+  .link-group a {
+    padding: $content-padding-xs;
+    @include hover-block-a();
+  }
+
+  .link-group:not(.icon-group) a {
+    border-bottom: solid 1px $secondary-2;
+
+    &:first-of-type {
+      border-top: solid 1px $secondary-2;
+    }
+  }
+
+  .link-group strong {
+    padding: $content-padding-xs $content-padding-xs / 2 $content-padding-xs / 2;
+  }
+
+  .with-icon a {
+    display: flex;
+    align-items: center;
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    @include hover-icon-link();
+  }
+
+  .with-icon a .icon {
+    width: $base-line-height + $content-padding-xs;
+    height: $base-line-height + $content-padding-xs;
+    margin-top: $content-padding-xs / 2;
+    margin-bottom: $content-padding-xs / 2;
+    margin-right: $content-padding-xs / 2;
+  }
+
+  .icon-group {
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-top: $base-line-height + $content-padding-xs + $content-padding-xs / 2;
+  }
+
+  .icon-group a {
+    width: calc(50% - #{$content-padding-xs / 2});
+    margin-bottom: $content-padding-xs;
+    text-align: center;
+    padding: 0;
+    @include hover-icon-link();
+  }
+}
+
+@media screen and (min-width: $screen-sm) {
+  footer {
+    .link-container {
+      padding-top: $content-padding-sm;
+      flex-wrap: wrap;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    .link-group {
+      width: calc(50% - #{$content-padding-sm / 2});
+    }
+  }
+}
+
+@media screen and (min-width: $screen-md) {
+  footer {
+    .link-container {
+      padding-top: $content-padding-md;
+    }
+
+    .link-group {
+      width: calc(25% - #{$content-padding-md / 2});
+    }
+
+    .link-group:not(.icon-group) a {
+      @include no-hover-block-a();
+      border: none;
+
+      &:first-of-type {
+        border: none;
+      }
+    }
+
+    .link-group:not(.with-icon):not(.icon-group) a {
+      padding: $content-padding-md / 3 0;
+    }
+
+    .link-group strong {
+      padding-left: 0;
+    }
+  }
+}
+
+@media screen and (min-width: $screen-lg) {
+  footer {
+    .link-container {
+      padding-top: $content-padding-lg;
+    }
+  }
+}

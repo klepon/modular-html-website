@@ -1,0 +1,86 @@
+{{#> master
+  title="Started Template" }}
+  {{#*inline "content-body" }}
+
+    {{#> section-one-col cssModifier = "no-padding-bottom"}}
+      {{#*inline "content-section" }}
+
+        {{> heading/title
+          h3 = true
+          title="Carousel on one col"
+        }}
+      {{/inline}}
+    {{/section-one-col }}
+
+    {{!-- one col --}}
+    {{#> section-one-col}}
+      {{#*inline "content-section" }}
+
+        {{#> accordion/accordion }}
+          {{#*inline "accordion-item-content"}}
+
+            {{#> accordion/accordion-item
+              title = "Accordion title, question 1"
+            }}
+              {{#*inline "accordion-content-wysiwyg"}}
+                {{> wysiwyg/simple-lorem background = "#ff0000"}}
+              {{/inline}}
+            {{/accordion/accordion-item }}
+
+            {{#> accordion/accordion-item
+              title = "Accordion title, question 2"
+            }}
+              {{#*inline "accordion-content-wysiwyg"}}
+                {{> wysiwyg/wysiwyg }}
+              {{/inline}}
+            {{/accordion/accordion-item }}
+
+          {{/inline}}
+        {{/accordion/accordion }}
+
+      {{/inline}}
+    {{/section-one-col }}
+
+    {{#> section-one-col cssModifier = "no-padding-bottom"}}
+      {{#*inline "content-section" }}
+
+        {{> heading/title
+          h3 = true
+          title="Carousel on two col sidebar"
+        }}
+      {{/inline}}
+    {{/section-one-col }}
+
+    {{!-- two col sidebar --}}
+    {{#> section-two-col ratio="sidebar"}}
+      {{#*inline "content-section-one" }}
+        {{> wysiwyg/simple-lorem title="two col" }}
+      {{/inline}}
+
+      {{#*inline "content-section-two" }}
+        {{#> accordion/accordion }}
+          {{#*inline "accordion-item-content"}}
+
+            {{#> accordion/accordion-item
+              title = "Accordion title, question 1"
+            }}
+              {{#*inline "accordion-content-wysiwyg"}}
+                {{> wysiwyg/simple-lorem background = "#ff0000"}}
+              {{/inline}}
+            {{/accordion/accordion-item }}
+
+            {{#> accordion/accordion-item
+              title = "Accordion title, question 2"
+            }}
+              {{#*inline "accordion-content-wysiwyg"}}
+                {{> wysiwyg/wysiwyg }}
+              {{/inline}}
+            {{/accordion/accordion-item }}
+
+          {{/inline}}
+        {{/accordion/accordion }}
+      {{/inline}}
+    {{/section-two-col}}
+
+  {{/inline}}
+{{/master }}

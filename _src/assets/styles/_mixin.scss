@@ -1,0 +1,24 @@
+@mixin hover-block-a() {
+  &:hover {
+    background-color: $link-hover-bg;
+    border-color: $link-color;
+  }
+}
+
+@mixin no-hover-block-a() {
+  &:hover {
+    background-color: transparent;
+    border-color: transparent;
+  }
+}
+
+@mixin hover-icon-link {
+  &:hover {
+    background-color: transparent;
+  }
+
+  &:hover svg,
+  &:hover img {
+    box-shadow: $box-shadow;
+  }
+}

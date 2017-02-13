@@ -1,0 +1,24 @@
+{{#> master
+  title="Wysiwyg Template" }}
+  {{#*inline "content-body" }}
+
+    {{!-- one col --}}
+    {{#> section-one-col}}
+      {{#*inline "content-section" }}
+          {{> wysiwyg/wysiwyg background="#fff" }}
+      {{/inline}}
+    {{/section-one-col }}
+
+    {{!-- two col sidebar --}}
+    {{#> section-two-col ratio="sidebar"}}
+      {{#*inline "content-section-one" }}
+        {{> wysiwyg/simple-lorem title="two col" }}
+      {{/inline}}
+
+      {{#*inline "content-section-two" }}
+        {{> wysiwyg/wysiwyg background="#fff" }}
+      {{/inline}}
+    {{/section-two-col}}
+
+  {{/inline}}
+{{/master }}
