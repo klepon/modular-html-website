@@ -21,9 +21,6 @@ $ gulp test-accessibility
 $ gulp html-validator
 
 # todo
-form
-- col 1, 2 wide
-
 popup
 - video iframe - done
 - inline content
