@@ -3,6 +3,10 @@ function showHidePopup() {
     content = $('.popup .content'),
     iframe = $('<iframe />');
 
+  if(el.length === 0) {
+    return;
+  }
+
   $('.js-close-popup').click(function(){
     $('body').toggleClass('show-popup opac-show');
     content.html("").parent().removeClass('video-iframe');
@@ -13,10 +17,6 @@ function showHidePopup() {
       carousel.removeClass('paused').slick('slickPlay');
     }
   });
-
-  if(el.length === 0) {
-    return;
-  }
 
   el.click(function(e){
     e.preventDefault();
