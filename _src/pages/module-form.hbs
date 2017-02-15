@@ -1,0 +1,24 @@
+{{#> master
+  title="Form Template" }}
+  {{#*inline "content-body" }}
+
+    {{!-- one col --}}
+    {{#> section-one-col}}
+      {{#*inline "content-section" }}
+          {{> form/form }}
+      {{/inline}}
+    {{/section-one-col }}
+
+    {{!-- two col sidebar --}}
+    {{#> section-two-col ratio="sidebar"}}
+      {{#*inline "content-section-one" }}
+        {{> wysiwyg/simple-lorem title="two col" }}
+      {{/inline}}
+
+      {{#*inline "content-section-two" }}
+        {{> form/form }}
+      {{/inline}}
+    {{/section-two-col}}
+
+  {{/inline}}
+{{/master }}

@@ -76,44 +76,17 @@ a {
   text-decoration: none;
 
   &:hover {
-    color: $primary;
+    color: $link-color-hover;
     text-decoration: underline;
   }
 
   &:hover svg.icon {
-    color: $primary;
+    color: $link-color-hover;
   }
 
   &.btn:hover {
-    color: $button-color;
+    color: $link-color-hover;
   }
-}
-
-select {
-    line-height: $field-heigth;
-    height: $field-heigth;
-    background: transparent;
-    border-radius: $border-radius;
-}
-
-.btn,
-button {
-  border: none;
-  padding: $button-padding;
-  box-sizing: content-box;
-  border-radius: $border-radius;
-  background-color: $button-background;
-  color: $button-color;
-
-  &:hover {
-    box-shadow: $box-shadow;
-    border-color: $button-border-hover;
-    background-color: $button-background-hover;
-  }
-}
-
-section {
-  padding: 0 $content-padding-xs $content-padding-xs;
 }
 
 svg.icon {
@@ -124,7 +97,7 @@ svg.icon {
   padding: 0;
 
   &:hover {
-    color: $primary;
+    color: $icon-color-hover;
   }
 }
 
@@ -132,6 +105,10 @@ svg,
 img {
   max-width: 100%;
   height: auto;
+}
+
+section {
+  padding: 0 $content-padding-xs $content-padding-xs;
 }
 
 .hide {
