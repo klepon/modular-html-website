@@ -1,0 +1,106 @@
+.form {
+  max-width: $max-text-width;
+}
+
+.alert {
+  display: block;
+  border-radius: $border-radius;
+  padding: $content-padding-xs / 2;
+  color: $white;
+}
+
+.alert.error {
+  background: $red-2;
+}
+
+.alert.warning {
+  background: $yellow;
+}
+
+.alert.success {
+  background: $green;
+}
+
+.field {
+  padding: $content-padding-xs / 2 0;
+  margin-bottom: $content-padding-xs / 2;
+  display: flex;
+  flex-direction: column;
+}
+
+.error {
+  input {
+    border-color: $field-border-error;
+  }
+
+  span {
+    color: $red;
+  }
+}
+
+input {
+  background: $field-background;
+  border: solid 1px $field-border;
+  border-radius: $border-radius;
+  padding: $field-padding;
+  box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.2);
+  width: 100%;
+
+  &:focus {
+    box-shadow: $box-shadow;
+  }
+
+  &:disabled {
+    background: $field-background-disabled;
+  }
+}
+
+select {
+  line-height: $select-height;
+  height: $select-height;
+  background: transparent;
+  border-radius: $border-radius;
+}
+
+textarea {
+  min-height: $content-padding-xs * 5;
+  padding: $field-padding;
+}
+
+.btn,
+button {
+  border: none;
+  padding: $button-padding;
+  box-sizing: content-box;
+  border-radius: $border-radius;
+  background-color: $button-background;
+  color: $button-color;
+  height: $select-height;
+  line-height: $select-height;
+
+  &:hover {
+    box-shadow: $box-shadow;
+    border-color: $button-border-hover;
+    background-color: $button-background-hover;
+  }
+}
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: $shades-2;
+  opacity: 0.5;
+}
+
+::-moz-placeholder { /* Firefox 19+ */
+  color: $shades-2;
+  opacity: 0.5;
+}
+
+:-ms-input-placeholder { /* IE 10+ */
+  color: $shades-2;
+  opacity: 0.5;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+  color: $shades-2;
+  opacity: 0.5;
+}

@@ -8,7 +8,7 @@ $max-width      : $screen-md;
 
 // main color
 $primary      : #003377;
-$secondary-1  : #509bf4;
+$secondary-1  : #4c97f0;
 $secondary-2  : #c0dbfb;
 $secondary-3  : #edf5fd;
 $white        : #fff;
@@ -16,20 +16,36 @@ $dark         : #222;
 $shades-1     : #f4f4f4;
 $shades-2     : #666;
 $shades-3     : #fefefe;
+$red          : #ff5930;
+$red-2        : #f06e57;
+$yellow       : #ffcc33;
+$green        : #60c49d;
 
 // specific color
 $base-content-background  : $white;
 $base-text-color          : $dark;
+
 $icon-color               : $primary;
+$icon-color-hover         : $primary;
+
 $link-color               : $primary;
+$link-color-hover         : $secondary-1;
 $link-hover-bg            : $secondary-3;
+
 $button-border            : transparent;
-$button-background        : $secondary-1;
+$button-background        : $primary;
 $button-color             : $white;
 $button-border-hover      : transparent;
-$button-background-hover  : $primary;
+$button-background-hover  : $secondary-1;
+
 $inactive-tabs            : $shades-3;
 $border-tabs              : $shades-2;
+
+$field-border             : $shades-1;
+$field-border-error       : $red;
+$field-background         : $white;
+$field-background-disabled: $shades-1;
+
 
 // padding and margin
 $content-padding-xs : 2.0rem;
@@ -37,13 +53,13 @@ $content-padding-sm : 2.5rem;
 $content-padding-md : 3.0rem;
 $content-padding-lg : 3.0rem;
 $field-padding      : 1rem;
-$input-padding      : 1rem;
-$button-padding     : 0.2rem 1rem;
+$button-padding     : 0 1rem;
 
 // size
 $icon-size      : 3.5rem;
 $border-radius  : 0.3rem;
 $field-heigth   : 3rem;
+$select-height  : 4rem;
 
 // font and heading
 $base-font-family : Arimo, sans-serif;

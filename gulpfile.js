@@ -114,9 +114,9 @@ gulp.task('serve-and-watch', ['server'], function(){
 			gulp.start('sprites');
 	});
 
-	gulp.watch([src.htmlsCheck, dist.styles], function() {
-			gulp.start('test-accessibility');
-	});
+	// gulp.watch([src.htmlsCheck, dist.styles], function() {
+	// 		gulp.start('test-accessibility');
+	// });
 
 	gulp.watch(src.htmlCheck, function() {
 			gulp.start('html-validator');

@@ -12,6 +12,14 @@ set templateData.dev == false on gulp task "handlebars"
 
 $ gulp
 
+# manually test accessibility
+
+$ gulp test-accessibility
+
+# manually test accessibility
+
+$ gulp html-validator
+
 # todo
 form
 - col 1, 2 wide
