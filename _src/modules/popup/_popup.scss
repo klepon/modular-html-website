@@ -2,7 +2,6 @@
   .popup {
     height: auto;
     overflow: auto;
-    padding-top: $content-padding-xs;
   }
 }
 
@@ -19,10 +18,14 @@
   transition: all 0.38s ease-in;
 
   .wrapper {
-    width: 80%;
+    width: 100%;
     max-width: $screen-md / 10 * 8;
     position: relative;
-    height: calc(100vh - #{$content-padding-xs});
+    height: 100vh;
+  }
+
+  .wrapper.image {
+    width: auto;
   }
 
   .close,
@@ -33,6 +36,11 @@
   .close {
     justify-content: flex-end;
     display: flex;
+    position: absolute;
+    z-index: 25;
+    right: 5px;
+    top: 5px;
+    box-shadow: $box-shadow;
   }
 
   .close .icon {
@@ -41,14 +49,23 @@
 
   .content {
     padding: 0 $content-padding-xs $content-padding-xs;
+    box-shadow: 0 3px 8px 2px rgba(0, 0, 0, 0.4);
+  }
+
+  .content > * {
+    position: relative;
+    z-index: 2;
   }
 
   .content iframe {
+  	position: absolute;
+  	top: 0;
+  	left: 0;
+  	width: 100%;
+  	height: 100%;
     border: none;
-    width: 100%;
   }
 
-  // video content
   .video-iframe .content {
     position: relative;
     padding-bottom: 56.25%; /* 16:9 */
@@ -56,13 +73,85 @@
     height: 0;
   }
 
-  .video-iframe .content iframe {
-  	position: absolute;
-  	top: 0;
-  	left: 0;
-  	width: 100%;
-  	height: 100%;
+  .video-iframe.iframe .content {
+    height: 100vh;
+    padding: 0;
   }
-  // end video content
 
+  .inline .content {
+    padding-top: $content-padding-xs * 3;
+  }
+
+  .image .content {
+    padding: 0;
+  }
+
+  .image img {
+    display: block;
+    max-height: 100vh;
+  }
+
+  .image.group img {
+    max-height: calc(100vh - 30px);
+    min-width: 300px;
+    min-height: 200px;
+  }
+
+  .group .content {
+    position: relative;
+
+    &::before,
+    &::after {
+      content: "";
+      display: block;
+      width: 80px;
+      height: 80px;
+      position: absolute;
+      border: solid 3px $red;
+      border-radius: 50%;
+      top: 50%;
+      left: 50%;
+      z-index: 1;
+      border-left-color: transparent;
+      animation: rotating 4s linear infinite;
+    }
+
+    &::before {
+      width: 64px;
+      height: 64px;
+      border-color: $primary;
+      border-left-color: transparent;
+      animation: rotating 2s linear infinite reverse;
+    }
+  }
+
+  .group .content a {
+    height: 30px;
+    display: flex;
+    align-items: center;
+    padding: 0 $content-padding-xs / 2;
+  }
+
+  .group .content div {
+    display: flex;
+    align-items: center;
+  }
+
+  .group .content svg.icon {
+    width: 25px;
+    height: 25px;
+  }
+
+  .group .content .next svg.icon {
+    transform: rotate(180deg);
+  }
+
+  .group .content .disabled {
+    opacity: 0.5;
+    cursor: default;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
 }

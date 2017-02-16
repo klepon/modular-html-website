@@ -80,7 +80,7 @@ a {
     text-decoration: underline;
   }
 
-  &:hover svg.icon {
+  &:hover:not(.disabled) svg.icon {
     color: $link-color-hover;
   }
 
@@ -239,5 +239,22 @@ section {
 
   .padding-bottom {
     padding-bottom: $content-padding-lg;
+  }
+}
+
+@-webkit-keyframes rotating {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+@keyframes rotating {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
   }
 }
