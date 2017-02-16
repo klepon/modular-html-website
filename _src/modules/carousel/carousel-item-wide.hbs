@@ -24,7 +24,7 @@
     {{/if }}
 
     {{#if videoUrl }}
-      <a class="btn-play js-popup" href="#" title="{{videoButton}}" data-iframe="video" data-url="{{videoUrl}}">
+      <a class="btn-play js-popup" href="{{videoUrl}}" title="{{videoButton}}" data-popup="video">
         <span class="sr-only">{{videoButton}}</span>
         {{> svg/svg icon = "play"}}
       </a>
