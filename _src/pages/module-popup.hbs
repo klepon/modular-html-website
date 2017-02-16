@@ -1,0 +1,57 @@
+{{#> master
+  title="Started Template" }}
+  {{#*inline "content-body" }}
+
+    {{!-- one col --}}
+    {{#> section-one-col}}
+      {{#*inline "content-section" }}
+        <p>
+          <a class="js-popup" href="http://localhost:9001/" title="" data-popup="video">
+            <span class="">video, sample using iframe url</span>
+          </a>
+        </p>
+
+        <p>
+          <a class="js-popup" href="http://localhost:9001/" title="" data-popup="iframe">
+            <span class="">iframe, equal to video but full height</span>
+          </a>
+        </p>
+
+        <p>
+          <a class="js-popup" href="#inline-content" title="" data-popup="inline">
+            <span class="">inline element</span>
+          </a>
+        </p>
+
+        <p>
+          <a class="js-popup" href="/assets/images/dummy-content/image-1.jpg" title="" data-popup="image">
+            <span class="">single image</span>
+          </a>
+        </p>
+
+        <p>
+          <a class="js-popup" href="/assets/images/dummy-content/image-1.jpg" title="" data-popup="image" data-rel="group-1">
+            <span class="">Image 1 groups 1</span>
+          </a>
+        </p>
+
+        <p>
+          <a class="js-popup xx" href="/assets/images/dummy-content/image-2.jpg" title="" data-popup="image" data-rel="group-1">
+            <span class="">Image 2 groups 1</span>
+          </a>
+        </p>
+
+        <div class="hide" id="inline-content">
+          <div class="inline-content-to-show">
+            <h1>Heading 1</h1>
+
+            <p>Lorem ipsum dolor sit amet, id has quem dicam. Eam at stet verear expetendis. Odio elit liber per an, delectus apeirian vel ea. Ad vero adipisci vituperata sed, summo docendi accusata et mea.</p>
+
+            <p>Ex mundi inermis ius, nemore omnesque in per, ius an reque nostro. Ad nonumy facilisi vim. Ipsum alienum qui ut. Ex vel case feugiat constituam, no utroque consequat referrentur sit, ut accusam appetere sententiae eum. Eum aliquam iudicabit eu, nulla mundi ei cum. Pro ad efficiendi vituperatoribus, iuvaret scaevola his et, est dicit adversarium ex. Vim at recteque patrioque.</p>
+          </div>
+        </div>
+      {{/inline}}
+    {{/section-one-col }}
+
+  {{/inline}}
+{{/master }}

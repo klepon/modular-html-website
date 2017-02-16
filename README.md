@@ -21,12 +21,6 @@ $ gulp test-accessibility
 $ gulp html-validator
 
 # todo
-popup
-- video iframe - done
-- inline content
-- website iframe
-- single image
-- image/library
 
 image panel
 - image bg, text overlay on hover

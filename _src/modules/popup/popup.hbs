@@ -1,3 +1,7 @@
+{{!--
+* this is popup content-container
+* usage sample in pages/module-popup.hbs
+--}}
 <div class="popup">
   <div class="wrapper">
     <div class="close">
@@ -6,5 +10,12 @@
     <div class="content">
       &nbsp;
     </div>
+  </div>
+</div>
+<div class="hide" id="popup-nav-tpl">
+  <div>
+    <a href="#" class="prev">{{> svg/svg icon="arrow-left"}}</a>
+    <span class="current">0</span>&nbsp;&nbsp;-&nbsp;&nbsp;<span class="total">0</span>
+    <a href="#" class="next">{{> svg/svg icon="arrow-left"}}</a>
   </div>
 </div>
