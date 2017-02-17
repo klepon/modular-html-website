@@ -63,14 +63,21 @@
   .text-image-panel.vertical {
     .row {
       flex-direction: column;
+      justify-content: flex-start;
     }
 
-    .row.reverse {
+    .row.reverse:not(.overlay) {
       flex-direction: column-reverse;
+      justify-content: flex-end;
     }
 
     .thumbnail-container {
       height: 230px;
+      flex-shrink: 0;
+    }
+
+    .detail {
+      height: 100%;
     }
 
     .reverse .detail:not(.padded),
@@ -81,6 +88,38 @@
 
     .reverse .detail:not(.padded) {
       padding-top: 0;
+    }
+
+    .overlay {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .overlay .thumbnail:hover {
+      width: 100%;
+      height: 100%;
+    }
+
+    .overlay .detail {
+      background: transparent !important;
+      position: absolute;
+      @include overlay();
+      @include pullOverlayBack();
+      top: auto;
+      bottom: -70px;
+      height: auto;
+      max-height: 70px;
+      overflow: hidden;
+      padding: 10px;
+      transition: all 0.28s ease-in-out;
+    }
+
+    .overlay:hover .detail {
+      bottom: 0;
+    }
+
+    .overlay .detail > * {
+      color: $white;
     }
   }
 
