@@ -168,19 +168,8 @@ section {
 }
 
 .opac-transiton {
-  &::before {
-    content: "";
-    display: block;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: $dark;
-    z-index: -999;
-    opacity: 0;
-    transition: opacity 0.18s ease-in;
-  }
+  @include overlay(0);
+  z-index: -999;
 }
 
 .opac-show {

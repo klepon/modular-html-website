@@ -12,7 +12,7 @@
   }
 }
 
-@mixin hover-icon-link {
+@mixin hover-icon-link() {
   &:hover {
     background-color: transparent;
   }
@@ -21,4 +21,31 @@
   &:hover img {
     box-shadow: $box-shadow;
   }
+}
+
+@mixin overlay($opac: 0.5) {
+  &::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: $dark;
+    opacity: $opac;
+    transition: opacity 0.18s ease-in;
+    z-index: 1;
+  }
+}
+
+@mixin pullOverlayBack() {
+  > * {
+    position: relative;
+    z-index: 2;
+  }
+
+
+
+
 }

@@ -1,6 +1,7 @@
 {{!--
 * reverse: will reverse flex order
 * vertical: set true for vertical image text
+* overlay: set true to show text overlay on hover image, automatic vertical true, reverse false, background null
 * thumbnail: square bg image for side panel
 * background: detail background-color
 * title: h2 title
@@ -9,7 +10,7 @@
 * text: description text, text area non rich text
 * buttonText: text on cta button, use same link as title
 --}}
-<div class="row {{reverse}}">
+<div class="row {{reverse}}{{#if overlay}} overlay{{/if}}">
   <div class="thumbnail-container{{#unless vertical}} col-50{{/unless}}">
     <div class="thumbnail" style="background-image:url({{thumbnail}})">&nbsp;</div>
   </div>

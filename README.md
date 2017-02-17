@@ -21,12 +21,7 @@ $ gulp test-accessibility
 $ gulp html-validator
 
 # todo
-
-image panel
-- image bg, text overlay on hover
-- col 3, 4
-
-sliding door accordion horoiontal
+sliding door accordion horizontal
 - title, link
 - col 1, 2 wide
 
