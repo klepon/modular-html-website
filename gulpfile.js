@@ -3,25 +3,18 @@ let src = {
 	stylesLib			: ['_src/assets/styles/lib/*.scss', '_src/assets/styles/lib/*.less', '_src/assets/styles/lib/*.css'],
 	styles				: ['_src/assets/styles/*.scss',
 										'_src/modules/**/*.scss',
-										'_src/modules/**',
-										'_src/modules/',
-										'!**/*.js',
-										'!**/*jsx',
-										'!**/*.hbs'],
+									],
 	scriptsLib		: ['_src/assets/scripts/lib/*.js'],
 	scripts				: ['_src/assets/scripts/*.js',
 										'_src/modules/**/*.js',
-										'_src/modules/*/*.jsx',
-										'_src/modules/**',
-										'_src/modules/',
-										'!**/*.scss',
-										'!**/*.hbs'],
+										'_src/modules/**/*.jsx',
+									],
 	images				: '_src/assets/images/**',
-	allHtmls			: ['_src/pages/*.hbs'
-										, '_src/modules/**/*.hbs', '_src/modules/**', '_src/modules/'
-										, '_src/master/**/*.hbs', '_src/master/**', '_src/master/'
-										, '_src/section/**/*.hbs', '_src/section/**', '_src/section/'
-										, '!**/*.scss', '!**/*.js', '!**/*jsx'],
+	allHtmls			: ['_src/pages/*.hbs',
+										'_src/modules/**/*.hbs',
+										'_src/master/**/*.hbs',
+										'_src/section/**/*.hbs',
+									],
 	pages					: '_src/pages/*.hbs',
 	fonts					: '_src/fonts/**',
 	htmlsCheck		: 'dist/*.html',
@@ -40,6 +33,8 @@ dist = {
 	htmls 	: 'dist/',
 },
 
+watch = [dist.scripts +'*.js', dist.images +'**.**', dist.fonts +'**.**'];
+
 fileName = {
 	styleLib	: 'style.min.lib.css',
 	style			: 'style.min.css',
@@ -50,6 +45,7 @@ fileName = {
 // include required plugin
 const	clean = require('gulp-clean'),
 	gulp = require('gulp'),
+	gulpWatch = require('gulp-watch'),
 	sass = require('gulp-sass'),
 	concat = require('gulp-concat'),
 	uglify = require('gulp-uglify'),
@@ -60,14 +56,15 @@ const	clean = require('gulp-clean'),
 	access = require('gulp-accessibility'),
 	rename = require('gulp-rename'),
 	htmlv = require('gulp-html-validator'),
-	connect = require('gulp-connect'),
 	babel = require('gulp-babel'),
 	copy = require('gulp-copy'),
 	cmq = require('gulp-combine-mq'),
 	handlebars = require('handlebars'),
 	svgmin = require('gulp-svgmin'),
 	svgSymbols = require('gulp-svg-symbols'),
-	gulpHandlebars = require('gulp-handlebars-html')(handlebars);
+	gulpHandlebars = require('gulp-handlebars-html')(handlebars),
+	browserSync = require('browser-sync'),
+	reload = browserSync.reload;
 
 gulp.task('default', ['del-dist', 'sprites'], function(){
 	return gulp.start('compile');
@@ -82,45 +79,47 @@ gulp.task('validate', ['test-accessibility', 'html-validator'], function(){
 });
 
 gulp.task('serve-and-watch', ['server'], function(){
-	gulp.watch(src.stylesLib, function() {
+	gulpWatch(src.stylesLib, function() {
 			gulp.start('stylesLib');
 	});
 
-	gulp.watch(src.styles, function() {
+	gulpWatch(src.styles, function() {
 			gulp.start('styles');
 	});
 
-	gulp.watch(src.scriptsLib, function() {
+	gulpWatch(src.scriptsLib, function() {
 			gulp.start('scriptsLib');
 	});
 
-	gulp.watch(src.scripts, function() {
+	gulpWatch(src.scripts, function() {
 			gulp.start('scripts');
 	});
 
-	gulp.watch(src.allHtmls, function() {
+	gulpWatch(src.allHtmls, function() {
 			gulp.start('handlebars');
 	});
 
-	gulp.watch(src.fonts, function() {
+	gulpWatch(src.fonts, function() {
 			gulp.start('copy-fonts');
 	});
 
-	gulp.watch(src.images, function() {
+	gulpWatch(src.images, function() {
 			gulp.start('copy-images');
 	});
 
-	gulp.watch(src.svgIcons, function() {
+	gulpWatch(src.svgIcons, function() {
 			gulp.start('sprites');
 	});
 
-	// gulp.watch([src.htmlsCheck, dist.styles], function() {
+	// gulpWatch([src.htmlsCheck, dist.styles], function() {
 	// 		gulp.start('test-accessibility');
 	// });
 
-	gulp.watch(src.htmlCheck, function() {
-			gulp.start('html-validator');
-	});
+	// gulpWatch(src.htmlCheck, function() {
+	// 		gulp.start('html-validator');
+	// });
+
+	gulpWatch(watch).on("change", reload);
 });
 
 // remove dist
@@ -155,7 +154,7 @@ gulp.task('stylesLib', function(){
 		}))
 		.pipe(concat(fileName.styleLib))
 		.pipe(gulp.dest(dist.styles))
-		.pipe(connect.reload());
+		.pipe(reload({ stream:true }));
 		// .pipe(notify("Styles Lib compiled"));
 });
 
@@ -189,7 +188,7 @@ gulp.task('styles', function(){
     }))
     .pipe(concat(fileName.style))
     .pipe(gulp.dest(dist.styles))
-		.pipe(connect.reload())
+		.pipe(reload({ stream:true }))
     .pipe(notify("Styles compiled"));
 });
 
@@ -198,8 +197,7 @@ gulp.task('scriptsLib', function(){
     return gulp.src(src.scriptsLib)
       .pipe(uglify())
       .pipe(concat(fileName.scriptLib))
-      .pipe(gulp.dest(dist.scripts))
-			.pipe(connect.reload());
+      .pipe(gulp.dest(dist.scripts));
       // .pipe(notify("Scripts library compiled"));
 });
 
@@ -217,12 +215,15 @@ gulp.task('scripts', function(){
       .pipe(uglify())
       .pipe(concat(fileName.script))
       .pipe(gulp.dest(dist.scripts))
-			.pipe(connect.reload())
       .pipe(notify("Scripts compiled"));
 });
 
 // include handlebars
-gulp.task('handlebars', function() {
+gulp.task('handlebars', ['compile-hbs'], function() {
+	reload();
+});
+
+gulp.task('compile-hbs', function() {
 	const templateData = {
 			dev: true
 		},
@@ -234,23 +235,20 @@ gulp.task('handlebars', function() {
 	.pipe(gulpHandlebars(templateData, options))
 	.pipe(rename({extname: '.html'}))
 	.pipe(gulp.dest(dist.htmls))
-	.pipe(connect.reload())
 	.pipe(notify("Html compiled"));
 });
 
 // copy fonts
 gulp.task('copy-fonts', function(){
 	return gulp.src(src.fonts)
-	  .pipe(copy(dist.fonts, {prefix: 2}))
-		.pipe(connect.reload());
+	  .pipe(copy(dist.fonts, {prefix: 2}));
 		// .pipe(notify("Fonts copied"));
 });
 
 // copy images
 gulp.task('copy-images', function(){
 	return gulp.src(src.images)
-	  .pipe(copy(dist.images, {prefix: 3}))
-		.pipe(connect.reload());
+	  .pipe(copy(dist.images, {prefix: 3}));
 		// .pipe(notify("Images copied"));
 });
 
@@ -285,9 +283,9 @@ gulp.task('html-validator', function () {
 
 // run local server
 gulp.task("server", function(){
-  connect.server({
-    root : "./dist",
-    livereload : true,
-    port : 9001
+  browserSync({
+    server: {
+      baseDir: './dist'
+    }
   });
 });

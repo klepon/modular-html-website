@@ -35,17 +35,12 @@
     background: $dark;
     opacity: $opac;
     transition: opacity 0.18s ease-in;
-    z-index: 1;
   }
 }
 
 @mixin pullOverlayBack() {
   > * {
     position: relative;
-    z-index: 2;
+    z-index: 1;
   }
-
-
-
-
 }
