@@ -20,6 +20,25 @@ $ gulp test-accessibility
 
 $ gulp html-validator
 
+# modules
+accordion
+
+article text
+
+slick carousel
+
+form
+
+popup
+
+sliding door
+
+tabs
+
+multi implementation text image panel
+
+rich text editor / wysiwyg
+
 # todo
 react listing product with filter; reusable, option and feature via json data
 - image, title, detail link, description, price, cta, filter; category, size, color, etc
