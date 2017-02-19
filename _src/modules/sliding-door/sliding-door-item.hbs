@@ -1,0 +1,19 @@
+{{!--
+* link: self explain
+* linkText: self explain
+* active: set true as default
+* bgColor: set item background color
+* darkBg: set true for dark bg to get white text color
+* imageUrl: image background, will ignore darkBg, will use text with overlay
+* max link is 5;
+--}}
+<a href="{{link}}" title="{{linkText}}" class="{{#if active}}active{{/if}}{{#if darkBg}} dark{{/if}}{{#if imageUrl}} with-image{{/if}}"{{#if bgColor}} style="background-color:{{bgColor}};"{{/if}}>
+  {{#if imageUrl}}
+    <span class="background-image" style="background-image:url({{imageUrl}})">&nbsp;</span>
+  {{/if}}
+  <span class="text">
+    <span>
+      {{linkText}}
+    </span>
+  </span>
+</a>

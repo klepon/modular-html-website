@@ -93,6 +93,7 @@
     .overlay {
       position: relative;
       overflow: hidden;
+      display: table;
     }
 
     .overlay .thumbnail:hover {
