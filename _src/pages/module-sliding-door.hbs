@@ -1,0 +1,189 @@
+{{#> master
+  title="Sliding Door Template" }}
+  {{#*inline "content-body" }}
+
+    {{#> section-one-col cssModifier = "no-padding-bottom"}}
+      {{#*inline "content-section" }}
+
+        {{> heading/title
+          h3 = true
+          title="Sliding door on one col"
+        }}
+      {{/inline}}
+    {{/section-one-col }}
+
+    {{!-- one col --}}
+    {{#> section-one-col}}
+      {{#*inline "content-section" }}
+
+        {{#> sliding-door/sliding-door }}
+          {{#*inline "sliding-door-item-content"}}
+
+              {{> sliding-door/sliding-door-item
+                linkText = "Menu 1 sliding door"
+                link = "#"
+                bgColor = "#60c49d"
+                darkBg = true
+                active = true
+              }}
+              {{> sliding-door/sliding-door-item
+                linkText = "Menu 2 sliding door"
+                link = "#"
+                bgColor = "#ff5930"
+                darkBg = true
+              }}
+              {{> sliding-door/sliding-door-item
+                linkText = "Menu 3 sliding door"
+                link = "#"
+                bgColor = "#ffcc33"
+              }}
+
+          {{/inline}}
+        {{/sliding-door/sliding-door }}
+
+      {{/inline}}
+    {{/section-one-col }}
+
+    {{#> section-one-col cssModifier = "no-padding-bottom"}}
+      {{#*inline "content-section" }}
+
+        {{> heading/title
+          h3 = true
+          title="Sliding door on two col sidebar"
+        }}
+      {{/inline}}
+    {{/section-one-col }}
+
+    {{!-- two col sidebar --}}
+    {{#> section-two-col ratio="sidebar"}}
+      {{#*inline "content-section-one" }}
+        {{> wysiwyg/simple-lorem title="two col" }}
+      {{/inline}}
+
+      {{#*inline "content-section-two" }}
+
+        {{#> sliding-door/sliding-door }}
+          {{#*inline "sliding-door-item-content"}}
+
+              {{> sliding-door/sliding-door-item
+                linkText = "Menu 1 sliding door with long long text in it"
+                link = "#"
+                bgColor = "#60c49d"
+                darkBg = true
+              }}
+              {{> sliding-door/sliding-door-item
+                linkText = "Menu 2 sliding door"
+                link = "#"
+                bgColor = "#ff5930"
+                darkBg = true
+                active = true
+              }}
+              {{> sliding-door/sliding-door-item
+                linkText = "Menu 3 sliding door"
+                link = "#"
+                bgColor = "#ffcc33"
+              }}
+
+          {{/inline}}
+        {{/sliding-door/sliding-door }}
+
+      {{/inline}}
+    {{/section-two-col}}
+
+    {{#> section-one-col cssModifier = "no-padding-bottom"}}
+      {{#*inline "content-section" }}
+
+        {{> heading/title
+          h3 = true
+          title="Sliding door with image on one col"
+        }}
+      {{/inline}}
+    {{/section-one-col }}
+
+    {{!-- one col --}}
+    {{#> section-one-col}}
+      {{#*inline "content-section" }}
+
+        {{#> sliding-door/sliding-door }}
+          {{#*inline "sliding-door-item-content"}}
+
+              {{> sliding-door/sliding-door-item
+                imageUrl = "/assets/images/dummy-content/image-2.jpg"
+                linkText = "Menu 1 sliding door"
+                link = "#"
+                bgColor = "#60c49d"
+                darkBg = true
+                active = true
+              }}
+              {{> sliding-door/sliding-door-item
+                imageUrl = "/assets/images/dummy-content/image-1.jpg"
+                linkText = "Menu 2 sliding door"
+                link = "#"
+                bgColor = "#ff5930"
+                darkBg = true
+              }}
+              {{> sliding-door/sliding-door-item
+                imageUrl = "/assets/images/dummy-content/image-2.jpg"
+                linkText = "Menu 3 sliding door"
+                link = "#"
+                bgColor = "#ffcc33"
+              }}
+
+          {{/inline}}
+        {{/sliding-door/sliding-door }}
+
+      {{/inline}}
+    {{/section-one-col }}
+
+    {{#> section-one-col cssModifier = "no-padding-bottom"}}
+      {{#*inline "content-section" }}
+
+        {{> heading/title
+          h3 = true
+          title="Sliding door with image on two col sidebar"
+        }}
+      {{/inline}}
+    {{/section-one-col }}
+
+    {{!-- two col sidebar --}}
+    {{#> section-two-col ratio="sidebar"}}
+      {{#*inline "content-section-one" }}
+        {{> wysiwyg/simple-lorem title="two col" }}
+      {{/inline}}
+
+      {{#*inline "content-section-two" }}
+
+        {{#> sliding-door/sliding-door }}
+          {{#*inline "sliding-door-item-content"}}
+
+              {{> sliding-door/sliding-door-item
+                imageUrl = "/assets/images/dummy-content/image-1.jpg"
+                linkText = "Menu 1 sliding door with long long text in it"
+                link = "#"
+                bgColor = "#60c49d"
+                darkBg = true
+              }}
+              {{> sliding-door/sliding-door-item
+                imageUrl = "/assets/images/dummy-content/image-2.jpg"
+                linkText = "Menu 2 sliding door"
+                link = "#"
+                bgColor = "#ff5930"
+                darkBg = true
+                active = true
+              }}
+              {{> sliding-door/sliding-door-item
+                imageUrl = "/assets/images/dummy-content/image-1.jpg"
+                linkText = "Menu 3 sliding door"
+                link = "#"
+                bgColor = "#ffcc33"
+              }}
+
+          {{/inline}}
+        {{/sliding-door/sliding-door }}
+
+      {{/inline}}
+    {{/section-two-col}}
+
+
+  {{/inline}}
+{{/master }}

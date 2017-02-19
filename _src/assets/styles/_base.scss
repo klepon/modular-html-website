@@ -168,8 +168,7 @@ section {
 }
 
 .opac-transiton {
-  @include overlay(0);
-  z-index: -999;
+  @include overlay(0, -999);
 }
 
 .opac-show {

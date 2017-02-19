@@ -23,7 +23,7 @@
   }
 }
 
-@mixin overlay($opac: 0.5) {
+@mixin overlay($opac: 0.5, $zindex: 1) {
   &::before {
     content: "";
     display: block;
@@ -35,7 +35,7 @@
     background: $dark;
     opacity: $opac;
     transition: opacity 0.18s ease-in;
-    z-index: 1;
+    z-index: $zindex;
   }
 }
 
@@ -44,8 +44,4 @@
     position: relative;
     z-index: 2;
   }
-
-
-
-
 }
