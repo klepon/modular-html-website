@@ -21,10 +21,6 @@ $ gulp test-accessibility
 $ gulp html-validator
 
 # todo
-sliding door accordion horizontal
-- title, link, image
-- col 1, 2 wide
-
 react listing product with filter; reusable, option and feature via json data
 - image, title, detail link, description, price, cta, filter; category, size, color, etc
 - col 1
