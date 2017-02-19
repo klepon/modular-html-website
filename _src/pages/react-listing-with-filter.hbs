@@ -1,0 +1,15 @@
+{{#> master
+  title="React listing with filter Template" }}
+  {{#*inline "content-body" }}
+
+    {{!-- one col --}}
+    {{#> section-one-col}}
+      {{#*inline "content-section" }}
+          {{> react-listing-with-filter/react-listing-with-filter
+            dev = true
+          }}
+      {{/inline}}
+    {{/section-one-col }}
+
+  {{/inline}}
+{{/master }}

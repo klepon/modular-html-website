@@ -1,0 +1,20 @@
+<div class="filtered-listing">
+  <div class="react-app" id="react-app">
+  </div>
+
+  <div class="json-text-data hide">
+    {{> react-listing-with-filter/json-text-data }}
+  </div>
+</div>
+
+{{#if dev}}
+  <hr />
+  <h2>static view</h2>
+  <p>for developer only, set 'dev = false' to remove this</p>
+  <div class="filtered-listing">
+    <div class="react-app">
+      {{> react-listing-with-filter/filter/filter-top }}
+      {{> react-listing-with-filter/listing/listing }}
+    </div>
+  </div>
+{{/if}}

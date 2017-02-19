@@ -1,0 +1,181 @@
+{
+  option: {
+    perPage: 10,
+    filterOnTop: true,
+    keywordPlaceholder: "search content",
+    maxPagging: 10,
+    keywordLookUp: ['title', 'description']
+  },
+
+  categories: [
+    {
+      id: 1,
+      name: "Category 1"
+    },
+    {
+      id: 2,
+      name: "Category 2"
+    },
+    {
+      id: 3,
+      name: "Category 3"
+    },
+    {
+      id: 4,
+      name: "Category 4"
+    }
+  ],
+
+  tags: [
+    {
+      id: 1,
+      name: "Tags 1"
+    },
+    {
+      id: 2,
+      name: "Tags 2"
+    },
+    {
+      id: 3,
+      name: "Tags 3"
+    },
+    {
+      id: 4,
+      name: "Tags 4"
+    }
+  ],
+
+  filter: [
+    {
+      name: "Category",
+      lookup: "categories",
+      option: [
+        {
+          value: -1,
+          displayText: "All"
+        },
+        {
+          value: 1,
+          displayText: "Category 1"
+        },
+        {
+          value: 2,
+          displayText: "Category 2"
+        },
+        {
+          value: 3,
+          displayText: "Category 3"
+        },
+        {
+          value: 4,
+          displayText: "Category 4"
+        }
+      ]
+    },
+
+    {
+      name: "Tags",
+      lookup: "tags",
+      option: [
+        {
+          value: -1,
+          displayText: "All"
+        },
+        {
+          value: 1,
+          displayText: "Tags 1"
+        },
+        {
+          value: 2,
+          displayText: "Tags 2"
+        },
+        {
+          value: 3,
+          displayText: "Tags 3"
+        },
+        {
+          value: 4,
+          displayText: "Tags 4"
+        }
+      ]
+    },
+
+    {
+      name: "Price",
+      lookup: "price",
+      option: [
+        {
+          value: -1,
+          displayText: "All"
+        },
+        {
+          value: 1000,
+          displayText: "USD 1,000.00"
+        },
+        {
+          value: 2000,
+          displayText: "USD 2,000.00"
+        },
+        {
+          value: 3000,
+          displayText: "USD 3,000.00"
+        },
+        {
+          value: 4000,
+          displayText: "USD 4,000.00"
+        }
+      ]
+    }
+  ],
+
+  data: [
+    {
+      title: "Title listing 1",
+      description: "Lorem ipsum 1 dolor sit amet, id has quem dicam. Eam at stet verear expetendis. Odio elit liber per an, delectus apeirian vel ea. Ad vero adipisci vituperata sed, summo docendi accusata et mea.",
+      detailUrl: "#link-1"
+      filters: [
+        categories: {
+          displayInList: true,
+          position: "footer"
+          item: [
+            {
+              value: 1,
+              id: 1,
+            },
+
+            {
+              value: 3,
+              id: 3,
+            }
+          ]
+        },
+        tags: {
+          displayInList: false,
+          position: "footer"
+          item: [
+            {
+              value: 2,
+            },
+
+            {
+              value: 4,
+            }
+          ]
+        },
+        price: {
+          displayInList: true,
+          position: "footer"
+          item: [
+            {
+              value: 2,
+            },
+
+            {
+              value: 4,
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
