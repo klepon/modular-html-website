@@ -11,6 +11,7 @@
 * subTitleLink: sub title target link
 * text: description text, text area non rich text
 * buttonText: text on cta button, use same link as title
+* buttonLink: button link target, will use link as default if buttonLink not set
 * footer: display footer item with price, discount, rating, button
 * price: product price, automaticaly set line trough if discount exist
 * discPrice: product price after discount
@@ -83,14 +84,14 @@
         {{/if}}
 
         {{#if buttonText }}
-          <a href="{{ link }}" title="{{ buttonText }}" class="btn">{{ buttonText }}</a>
+          <a href="{{#if buttonLink}}{{ buttonLink }}{{/if}}{{#unless buttonLink}}{{ link }}{{/unless}}" title="{{ buttonText }}" class="btn">{{ buttonText }}</a>
         {{/if}}
       </p>
     {{/if}}
 
     {{#if buttonText }}
       {{#unless footer }}
-        <p><a href="{{ link }}" title="{{ buttonText }}" class="btn">{{ buttonText }}</a></p>
+        <p><a href="{{#if buttonLink}}{{ buttonLink }}{{/if}}{{#unless buttonLink}}{{ link }}{{/unless}}" title="{{ buttonText }}" class="btn">{{ buttonText }}</a></p>
       {{/unless}}
     {{/if}}
   </div>
