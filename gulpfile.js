@@ -254,6 +254,8 @@ gulp.task('copy-images', function(){
 
 // check accessibility
 gulp.task('test-accessibility', function() {
+	return;
+
 	let option = { // https://github.com/yargalot/AccessSniff
 		force: true,
 		accessibilityLevel: 'WCAG2AA', //WCAG2A, WCAG2AA, and WCAG2AAA
@@ -275,6 +277,8 @@ gulp.task('test-accessibility', function() {
 
 // w3c validator
 gulp.task('html-validator', function () {
+	return;
+	
   return gulp.src(src.htmlsCheck)
     .pipe(htmlv())
     .pipe(gulp.dest('_reports/W3C'));

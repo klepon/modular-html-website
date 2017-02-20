@@ -6,38 +6,92 @@
 * background: detail background-color
 * title: h2 title
 * link: target link
+* smallTitle: set true to use small title
 * subTitle: subtitle text
+* subTitleLink: sub title target link
 * text: description text, text area non rich text
 * buttonText: text on cta button, use same link as title
+* footer: display footer item with price, discount, rating, button
+* price: product price, automaticaly set line trough if discount exist
+* discPrice: product price after discount
+* discount: discount text ie: 0% off
+* rating: product rating 0 - 5, increament 0.5
 --}}
-<div class="row {{reverse}}{{#if overlay}} overlay{{/if}}">
-  <div class="thumbnail-container{{#unless vertical}} col-50{{/unless}}">
-    <div class="thumbnail" style="background-image:url({{thumbnail}})">&nbsp;</div>
+<div class="row {{ reverse }}{{#if overlay }} overlay{{/if}}">
+  <div class="thumbnail-container{{#unless vertical }} col-50{{/unless}}">
+    <div class="thumbnail" style="background-image:url({{ thumbnail }})">&nbsp;</div>
   </div>
 
-  <div class="detail{{#unless vertical}} col-50{{/unless}}{{#if background}} padded{{/if}}"{{#if background}} style="background-color:{{background}};{{/if}}">
+  <div class="detail{{#unless vertical }} col-50{{/unless}}{{#if background }} padded{{/if}}"{{#if background }} style="background-color:{{ background }};"{{/if}}>
     {{#if title }}
-      <h2>
-        {{#if link}}
-          <a href="{{link}}" title="{{title}}">
+      <h2{{#if smallTitle }} class="small"{{/if}}>
+        {{#if link }}
+          <a href="{{ link }}" title="{{ title }}">
         {{/if }}
 
-        {{title}}
+        {{ title }}
 
-        {{#if link}}
+        {{#if link }}
           </a>
         {{/if }}
       </h2>
     {{/if }}
 
-    {{#if subTitle}}
-      <p class="small">{{subTitle}}</p>
+    {{#if subTitle }}
+      <p class="small">
+        {{#if subTitleLink }}
+          <a href="{{ subTitleLink }}" title="{{ subTitle}}">
+        {{/if}}
+
+        {{ subTitle }}
+
+        {{#if subTitleLink }}
+          </a>
+        {{/if}}
+      </p>
     {{/if}}
 
-    <p>{{text}}</p>
+    {{#if text }}
+      <p>{{ text }}</p>
+    {{/if}}
+
+    {{#if footer }}
+      <p class="item-footer">
+        <span class="price">
+          {{#if discPrice }}
+            <span>{{ discPrice }}</span>
+          {{/if}}
+
+          {{#if price }}
+            <span{{#if discPrice }} class="through"{{/if}}>{{ price }}</span>
+          {{/if}}
+        </span>
+
+        {{#if discount }}
+          <span class="discount">
+            <span class="discount-text">{{ discount }}</span>
+        {{/if}}
+
+        {{#if rating }}
+          <span class="rating">
+            <span style="width:calc(100% * {{ rating }} / 5)">&nbsp;</span>
+          </span>
+        {{/if}}
+
+        {{#if discount }}
+          </span>
+        {{/if}}
+
+        {{#if buttonText }}
+          <a href="{{ link }}" title="{{ buttonText }}" class="btn">{{ buttonText }}</a>
+        {{/if}}
+      </p>
+    {{/if}}
 
     {{#if buttonText }}
-      <p><a href="{{link}}" title="{{buttonText}}" class="btn">{{buttonText}}</a></p>
+      {{#unless footer }}
+        <p><a href="{{ link }}" title="{{ buttonText }}" class="btn">{{ buttonText }}</a></p>
+      {{/unless}}
     {{/if}}
   </div>
 </div>
