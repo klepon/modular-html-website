@@ -19,6 +19,7 @@
     "gulp-concat": "^2.6.0",
     "gulp-copy": "^1.0.0",
     "gulp-cssnano": "^2.1.2",
+    "gulp-download": "0.0.1",
     "gulp-handlebars-html": "0.0.2",
     "gulp-html-validator": "0.0.5",
     "gulp-htmlmin": "^2.0.0",

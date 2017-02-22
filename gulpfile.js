@@ -72,6 +72,7 @@ const	clean = require('gulp-clean'),
 	reload = browserSync.reload,
 	sourcemaps = require('gulp-sourcemaps'),
 	newer = require('gulp-newer')
+	download = require("gulp-download")
 	;
 
 gulp.task('default', ['del-dist', 'sprites'], function(){
@@ -273,18 +274,30 @@ gulp.task('compile-hbs', function() {
 
 // copy react from npm modules
 gulp.task('copy-react', function() {
-  return gulp.src('node_modules/react/dist/react.js')
-    .pipe(newer(src.scriptsLibFolder +'01.react.js'))
-		.pipe(concat('01.react.js'))
-    .pipe(gulp.dest(src.scriptsLibFolder));
+	let fs = require('fs'),
+      file = src.scriptsLibFolder +'01.react.js';
+
+  if (!fs.existsSync(file)) {
+		return download('https://unpkg.com/react@15/dist/react.min.js')
+			// .pipe(newer(src.scriptsLibFolder +'01.react.js'))
+			.pipe(concat('01.react.js'))
+			.pipe(gulp.dest(src.scriptsLibFolder))
+			.pipe(notify("React copied"));
+  }
 });
 
 // copy react-dom from npm modules
 gulp.task('copy-react-dom', function() {
-  return gulp.src('node_modules/react-dom/dist/react-dom.js')
-    .pipe(newer(src.scriptsLibFolder +'02.react-dom.js'))
-		.pipe(concat('02.react-dom.js'))
-    .pipe(gulp.dest(src.scriptsLibFolder));
+	let fs = require('fs'),
+      file = src.scriptsLibFolder +'01.react.js';
+
+	if (!fs.existsSync(file)) {
+		return download('https://unpkg.com/react-dom@15/dist/react-dom.min.js')
+	    // .pipe(newer(src.scriptsLibFolder +'02.react-dom.js'))
+			.pipe(concat('02.react-dom.js'))
+	    .pipe(gulp.dest(src.scriptsLibFolder))
+			.pipe(notify("React DOM copied"));
+	}
 });
 
 // copy fonts
