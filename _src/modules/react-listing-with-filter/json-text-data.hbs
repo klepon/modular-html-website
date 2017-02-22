@@ -1,49 +1,11 @@
 {
   option: {
     perPage: 10,
+    maxPagging: 10,
     filterOnTop: true,
     keywordPlaceholder: "search content",
-    maxPagging: 10,
     keywordLookUp: ['title', 'description']
   },
-
-  categories: [
-    {
-      id: 1,
-      name: "Category 1"
-    },
-    {
-      id: 2,
-      name: "Category 2"
-    },
-    {
-      id: 3,
-      name: "Category 3"
-    },
-    {
-      id: 4,
-      name: "Category 4"
-    }
-  ],
-
-  tags: [
-    {
-      id: 1,
-      name: "Tags 1"
-    },
-    {
-      id: 2,
-      name: "Tags 2"
-    },
-    {
-      id: 3,
-      name: "Tags 3"
-    },
-    {
-      id: 4,
-      name: "Tags 4"
-    }
-  ],
 
   filter: [
     {
@@ -51,23 +13,23 @@
       lookup: "categories",
       option: [
         {
-          value: -1,
+          id: -1,
           displayText: "All"
         },
         {
-          value: 1,
+          id: 1,
           displayText: "Category 1"
         },
         {
-          value: 2,
+          id: 2,
           displayText: "Category 2"
         },
         {
-          value: 3,
+          id: 3,
           displayText: "Category 3"
         },
         {
-          value: 4,
+          id: 4,
           displayText: "Category 4"
         }
       ]
@@ -78,23 +40,23 @@
       lookup: "tags",
       option: [
         {
-          value: -1,
+          id: -1,
           displayText: "All"
         },
         {
-          value: 1,
+          id: 1,
           displayText: "Tags 1"
         },
         {
-          value: 2,
+          id: 2,
           displayText: "Tags 2"
         },
         {
-          value: 3,
+          id: 3,
           displayText: "Tags 3"
         },
         {
-          value: 4,
+          id: 4,
           displayText: "Tags 4"
         }
       ]
@@ -105,23 +67,23 @@
       lookup: "price",
       option: [
         {
-          value: -1,
+          id: -1,
           displayText: "All"
         },
         {
-          value: 1000,
+          id: 1000,
           displayText: "USD 1,000.00"
         },
         {
-          value: 2000,
+          id: 2000,
           displayText: "USD 2,000.00"
         },
         {
-          value: 3000,
+          id: 3000,
           displayText: "USD 3,000.00"
         },
         {
-          value: 4000,
+          id: 4000,
           displayText: "USD 4,000.00"
         }
       ]
@@ -136,44 +98,243 @@
       filters: [
         categories: {
           displayInList: true,
-          position: "footer"
-          item: [
-            {
-              value: 1,
-              id: 1,
-            },
-
-            {
-              value: 3,
-              id: 3,
-            }
-          ]
+          item: [1, 3]
         },
         tags: {
           displayInList: false,
-          position: "footer"
-          item: [
-            {
-              value: 2,
-            },
-
-            {
-              value: 4,
-            }
-          ]
+          item: [2, 4]
         },
         price: {
           displayInList: true,
-          position: "footer"
-          item: [
-            {
-              value: 2,
-            },
-
-            {
-              value: 4,
-            }
-          ]
+          item: [2000, 4000]
+        }
+      ]
+    },
+    {
+      title: "Title listing 2",
+      description: "Lorem ipsum 2 dolor sit amet, id has quem dicam. Eam at stet verear expetendis. Odio elit liber per an, delectus apeirian vel ea. Ad vero adipisci vituperata sed, summo docendi accusata et mea.",
+      detailUrl: "#link-2"
+      filters: [
+        categories: {
+          displayInList: true,
+          item: [2, 3]
+        },
+        tags: {
+          displayInList: false,
+          item: [1, 2]
+        },
+        price: {
+          displayInList: true,
+          item: [1000, 2000]
+        }
+      ]
+    },
+    {
+      title: "Title listing 3",
+      description: "Lorem ipsum 3 dolor sit amet, id has quem dicam. Eam at stet verear expetendis. Odio elit liber per an, delectus apeirian vel ea. Ad vero adipisci vituperata sed, summo docendi accusata et mea.",
+      detailUrl: "#link-3"
+      filters: [
+        categories: {
+          displayInList: true,
+          item: [1, 2, 3]
+        },
+        tags: {
+          displayInList: false,
+          item: [2]
+        },
+        price: {
+          displayInList: true,
+          item: [3000]
+        }
+      ]
+    },
+    {
+      title: "Title listing 4",
+      description: "Lorem ipsum 4 dolor sit amet, id has quem dicam. Eam at stet verear expetendis. Odio elit liber per an, delectus apeirian vel ea. Ad vero adipisci vituperata sed, summo docendi accusata et mea.",
+      detailUrl: "#link-4"
+      filters: [
+        categories: {
+          displayInList: true,
+          item: [3]
+        },
+        tags: {
+          displayInList: false,
+          item: [3, 4]
+        },
+        price: {
+          displayInList: true,
+          item: [3000, 4000]
+        }
+      ]
+    },
+    {
+      title: "Title listing 4",
+      description: "Lorem ipsum 4 dolor sit amet, id has quem dicam. Eam at stet verear expetendis. Odio elit liber per an, delectus apeirian vel ea. Ad vero adipisci vituperata sed, summo docendi accusata et mea.",
+      detailUrl: "#link-4"
+      filters: [
+        categories: {
+          displayInList: true,
+          item: [3]
+        },
+        tags: {
+          displayInList: false,
+          item: [3, 4]
+        },
+        price: {
+          displayInList: true,
+          item: [3000, 4000]
+        }
+      ]
+    },
+    {
+      title: "Title listing 5",
+      description: "Lorem ipsum 5 dolor sit amet, id has quem dicam. Eam at stet verear expetendis. Odio elit liber per an, delectus apeirian vel ea. Ad vero adipisci vituperata sed, summo docendi accusata et mea.",
+      detailUrl: "#link-5"
+      filters: [
+        categories: {
+          displayInList: true,
+          item: [3]
+        },
+        tags: {
+          displayInList: false,
+          item: [3, 4]
+        },
+        price: {
+          displayInList: true,
+          item: [3000, 4000]
+        }
+      ]
+    },
+    {
+      title: "Title listing 6",
+      description: "Lorem ipsum 6 dolor sit amet, id has quem dicam. Eam at stet verear expetendis. Odio elit liber per an, delectus apeirian vel ea. Ad vero adipisci vituperata sed, summo docendi accusata et mea.",
+      detailUrl: "#link-6"
+      filters: [
+        categories: {
+          displayInList: true,
+          item: [3]
+        },
+        tags: {
+          displayInList: false,
+          item: [3, 4]
+        },
+        price: {
+          displayInList: true,
+          item: [3000, 4000]
+        }
+      ]
+    },
+    {
+      title: "Title listing 7",
+      description: "Lorem ipsum 7 dolor sit amet, id has quem dicam. Eam at stet verear expetendis. Odio elit liber per an, delectus apeirian vel ea. Ad vero adipisci vituperata sed, summo docendi accusata et mea.",
+      detailUrl: "#link-7"
+      filters: [
+        categories: {
+          displayInList: true,
+          item: [3]
+        },
+        tags: {
+          displayInList: false,
+          item: [3, 4]
+        },
+        price: {
+          displayInList: true,
+          item: [3000, 4000]
+        }
+      ]
+    },
+    {
+      title: "Title listing 8",
+      description: "Lorem ipsum 8 dolor sit amet, id has quem dicam. Eam at stet verear expetendis. Odio elit liber per an, delectus apeirian vel ea. Ad vero adipisci vituperata sed, summo docendi accusata et mea.",
+      detailUrl: "#link-8"
+      filters: [
+        categories: {
+          displayInList: true,
+          item: [3]
+        },
+        tags: {
+          displayInList: false,
+          item: [3, 4]
+        },
+        price: {
+          displayInList: true,
+          item: [3000, 4000]
+        }
+      ]
+    },
+    {
+      title: "Title listing 9",
+      description: "Lorem ipsum 9 dolor sit amet, id has quem dicam. Eam at stet verear expetendis. Odio elit liber per an, delectus apeirian vel ea. Ad vero adipisci vituperata sed, summo docendi accusata et mea.",
+      detailUrl: "#link-9"
+      filters: [
+        categories: {
+          displayInList: true,
+          item: [3]
+        },
+        tags: {
+          displayInList: false,
+          item: [3, 4]
+        },
+        price: {
+          displayInList: true,
+          item: [3000, 4000]
+        }
+      ]
+    },
+    {
+      title: "Title listing 10",
+      description: "Lorem ipsum 10 dolor sit amet, id has quem dicam. Eam at stet verear expetendis. Odio elit liber per an, delectus apeirian vel ea. Ad vero adipisci vituperata sed, summo docendi accusata et mea.",
+      detailUrl: "#link-10"
+      filters: [
+        categories: {
+          displayInList: true,
+          item: [3]
+        },
+        tags: {
+          displayInList: false,
+          item: [3, 4]
+        },
+        price: {
+          displayInList: true,
+          item: [3000, 4000]
+        }
+      ]
+    },
+    {
+      title: "Title listing 11",
+      description: "Lorem ipsum 11 dolor sit amet, id has quem dicam. Eam at stet verear expetendis. Odio elit liber per an, delectus apeirian vel ea. Ad vero adipisci vituperata sed, summo docendi accusata et mea.",
+      detailUrl: "#link-11"
+      filters: [
+        categories: {
+          displayInList: true,
+          item: [3]
+        },
+        tags: {
+          displayInList: false,
+          item: [3, 4]
+        },
+        price: {
+          displayInList: true,
+          item: [3000, 4000]
+        }
+      ]
+    },
+    {
+      title: "Title listing 12",
+      description: "Lorem ipsum 12 dolor sit amet, id has quem dicam. Eam at stet verear expetendis. Odio elit liber per an, delectus apeirian vel ea. Ad vero adipisci vituperata sed, summo docendi accusata et mea.",
+      detailUrl: "#link-12"
+      filters: [
+        categories: {
+          displayInList: true,
+          item: [3]
+        },
+        tags: {
+          displayInList: false,
+          item: [3, 4]
+        },
+        price: {
+          displayInList: true,
+          item: [3000, 4000]
         }
       ]
     }

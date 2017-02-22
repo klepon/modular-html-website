@@ -1,0 +1,130 @@
+$filter-box-shadow: 0 8px 12px 0 rgba(34, 34, 34, 0.3);
+$transition: all 0.18s ease-in-out;
+
+.filtered-listing .filter-con {
+    .filter-group {
+      position: relative;
+      width: 100%;
+    }
+
+    .filter-group:hover .title,
+    .filter-group.hover .title,
+    .filter-group:hover .filter-item-con,
+    .filter-group.hover .filter-item-con {
+      box-shadow: $filter-box-shadow;
+      z-index: 2;
+    }
+
+    .filter-group:hover .title,
+    .filter-group.hover .title {
+      margin-left: 0;
+      margin-right: 0;
+      border: none;
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+
+    .filter-group:hover .title .chevron-down,
+    .filter-group.hover .title .chevron-down {
+      transform: rotate(180deg);
+    }
+
+    .filter-group:hover .filter-item-con,
+    .filter-group.hover .filter-item-con {
+      max-height: 1000px;
+      margin-top: $content-padding-xs * -1;
+    }
+
+    .title {
+      font-size: $base-font-size;
+      line-height: $base-line-height;
+      background-color: $white;
+      padding: $content-padding-xs / 2 $content-padding-xs;
+      position: relative;
+      z-index: 1;
+      transition: $transition;
+      border: solid 1px $field-border;
+      box-shadow: inset 1px 1px 2px rgba(0,0,0,.2);
+      margin: 0 $border-radius $content-padding-xs 0;
+      border-radius: $border-radius;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .title .chevron-down {
+      width: 25px;
+      height: 25px;
+      transition: $transition;
+    }
+
+    .filter-item-con {
+      display: flex;
+      flex-direction: column;
+      padding: 0 $content-padding-xs;
+      position: absolute;
+      z-index: 1;
+      background: $white;
+      width: 100%;
+      box-sizing: border-box;
+      overflow: hidden;
+      max-height: 0;
+      transition: $transition;
+    }
+
+    .filter-item {
+      position: relative;
+      padding-left: $content-padding-xs * 2;
+      margin-bottom: $content-padding-xs;
+
+      &:before {
+        content: "";
+        display: block;
+        width: $content-padding-xs;
+        height: $content-padding-xs;
+        border: solid 2px $icon-color;
+        position: absolute;
+        left: 0;
+        top: ($base-line-height - $content-padding-xs) / 4;
+      }
+
+      &:first-child {
+        margin-top: $content-padding-xs;
+      }
+    }
+
+    .filter-item .tick {
+      position: absolute;
+      left: $content-padding-xs / 5;
+      top: 0px;
+      height: $content-padding-xs * 5 / 4;
+      width: $content-padding-xs * 5 / 4;
+      display: none;
+    }
+
+    .filter-item.checked .tick {
+      display: block;
+    }
+}
+
+@media screen and (min-width: $screen-sm) {
+  .filtered-listing .filter-con {
+    display: flex;
+
+    .col-1 .filter-group {
+      width: 100%;
+    }
+
+    .col-2 .filter-group {
+      width: 50%;
+    }
+
+    .col-3 .filter-group {
+      width: calc(100% / 3);
+    }
+
+    .col-4 .filter-group {
+      width: 25%;
+    }
+  }
+}

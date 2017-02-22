@@ -5,9 +5,18 @@
     {{!-- one col --}}
     {{#> section-one-col}}
       {{#*inline "content-section" }}
-          {{> heading/heading background="#509bf4" color="#fff" }}
+        {{> react-listing-with-filter/react-listing-with-filter
+          dev = true
+        }}
       {{/inline}}
     {{/section-one-col }}
-    
+
+    {{!-- one col --}}
+    {{#> section-one-col}}
+      {{#*inline "content-section" }}
+        {{> heading/heading background="#509bf4" color="#fff" }}
+      {{/inline}}
+    {{/section-one-col }}
+
   {{/inline}}
 {{/master }}

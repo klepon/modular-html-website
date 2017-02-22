@@ -43,8 +43,9 @@ input {
   border: solid 1px $field-border;
   border-radius: $border-radius;
   padding: $field-padding;
-  box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: $box-shadow-field;
   width: 100%;
+  line-height: $base-line-height;
 
   &:focus {
     box-shadow: $box-shadow;
