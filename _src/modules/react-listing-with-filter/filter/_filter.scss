@@ -5,6 +5,7 @@ $transition: all 0.18s ease-in-out;
     .filter-group {
       position: relative;
       width: 100%;
+      margin-bottom:  $content-padding-xs;
     }
 
     .filter-group:hover .title,
@@ -32,7 +33,7 @@ $transition: all 0.18s ease-in-out;
     .filter-group:hover .filter-item-con,
     .filter-group.hover .filter-item-con {
       max-height: 1000px;
-      margin-top: $content-padding-xs * -1;
+      // margin-top: $content-padding-xs * -1;
     }
 
     .title {
@@ -45,7 +46,7 @@ $transition: all 0.18s ease-in-out;
       transition: $transition;
       border: solid 1px $field-border;
       box-shadow: inset 1px 1px 2px rgba(0,0,0,.2);
-      margin: 0 $border-radius $content-padding-xs 0;
+      margin: 0 $border-radius 0 0;
       border-radius: $border-radius;
       display: flex;
       align-items: center;
@@ -61,7 +62,7 @@ $transition: all 0.18s ease-in-out;
     .filter-item-con {
       display: flex;
       flex-direction: column;
-      padding: 0 $content-padding-xs;
+      padding: 0;
       position: absolute;
       z-index: 1;
       background: $white;
@@ -74,8 +75,7 @@ $transition: all 0.18s ease-in-out;
 
     .filter-item {
       position: relative;
-      padding-left: $content-padding-xs * 2;
-      margin-bottom: $content-padding-xs;
+      padding: $content-padding-xs / 2 $content-padding-xs $content-padding-xs / 2 $content-padding-xs * 3;
 
       &:before {
         content: "";
@@ -84,19 +84,19 @@ $transition: all 0.18s ease-in-out;
         height: $content-padding-xs;
         border: solid 2px $icon-color;
         position: absolute;
-        left: 0;
-        top: ($base-line-height - $content-padding-xs) / 4;
+        left: $content-padding-xs;
+        top: ($base-line-height - $content-padding-xs) / 4 + $content-padding-xs / 2;
       }
 
-      &:first-child {
-        margin-top: $content-padding-xs;
+      &:hover {
+        background-color: $shades-1;
       }
     }
 
     .filter-item .tick {
       position: absolute;
-      left: $content-padding-xs / 5;
-      top: 0px;
+      left: $content-padding-xs / 5 + $content-padding-xs;
+      top: $content-padding-xs / 2;
       height: $content-padding-xs * 5 / 4;
       width: $content-padding-xs * 5 / 4;
       display: none;

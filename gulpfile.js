@@ -37,15 +37,17 @@ dist = {
 	htmls 	: 'dist/',
 },
 
-watch = [dist.scripts +'*.js', dist.images +'**.**', dist.fonts +'**.**'];
-
 fileName = {
 	styleLib	: 'style.min.lib.css',
 	style			: 'style.min.css',
 	scriptLib	: 'script.lib.js',
 	script		: 'script.min.js',
-	reactJs		: 'react-app.js'
+	reactJs		: 'react-app.js',
+	react			: '01.react.js',
+	react-dom	: '02.react-dom.js'
 }
+
+watch = [dist.scripts +'*.js', dist.images +'**.**', dist.fonts +'**.**'];
 
 // include required plugin
 const	clean = require('gulp-clean'),
@@ -69,13 +71,15 @@ const	clean = require('gulp-clean'),
 	svgSymbols = require('gulp-svg-symbols'),
 	gulpHandlebars = require('gulp-handlebars-html')(handlebars),
 	browserSync = require('browser-sync'),
-	reload = browserSync.reload,
 	sourcemaps = require('gulp-sourcemaps'),
-	newer = require('gulp-newer')
-	download = require("gulp-download")
-	;
+	download = require("gulp-download"),
+	reload = browserSync.reload;
 
 gulp.task('default', ['del-dist', 'sprites'], function(){
+	return gulp.start('compile');
+});
+
+gulp.task('build', ['del-react-source'], ['del-dist', 'sprites'], function(){
 	return gulp.start('compile');
 });
 
@@ -137,7 +141,14 @@ gulp.task('serve-and-watch', ['server'], function(){
 
 // remove dist
 gulp.task('del-dist', function(){
-	return gulp.src(dist.htmls, {read: false})
+	return gulp.src([dist.htmls], {read: false})
+		.pipe(clean());
+		// .pipe(notify("Remove dist folder"));
+});
+
+// remove react source
+gulp.task('del-react-source', function(){
+	return gulp.src([src.scriptsLibFolder + fileName.react, src.scriptsLibFolder + fileName.react-dom], {read: false})
 		.pipe(clean());
 		// .pipe(notify("Remove dist folder"));
 });
@@ -206,7 +217,7 @@ gulp.task('styles', function(){
 });
 
 // compile scriptsLib
-gulp.task('scriptsLib', ['copy-react', 'copy-react-dom'], function(){
+gulp.task('scriptsLib', ['copy-jquery', 'copy-react', 'copy-react-dom'], function(){
   return gulp.src(src.scriptsLib)
     .pipe(uglify())
     .pipe(concat(fileName.scriptLib))
@@ -242,8 +253,7 @@ gulp.task('scriptsJsx', function() {
     return gulp.src(src.scriptsJsx)
 			// .pipe(sourcemaps.init())
 			.pipe(babel({
-          plugins: ['transform-react-jsx'],
-					presets: ['es2015']
+					presets: ['es2015', 'react', 'stage-0']
       }))
 			.pipe(uglify())
       .pipe(concat(fileName.reactJs))
@@ -272,31 +282,44 @@ gulp.task('compile-hbs', function() {
 	.pipe(notify("Html compiled"));
 });
 
-// copy react from npm modules
+// copy react from cdn
 gulp.task('copy-react', function() {
 	let fs = require('fs'),
       file = src.scriptsLibFolder +'01.react.js';
 
   if (!fs.existsSync(file)) {
-		return download('https://unpkg.com/react@15/dist/react.min.js')
-			// .pipe(newer(src.scriptsLibFolder +'01.react.js'))
+		// return download('https://unpkg.com/react/dist/react.min.js') // prod
+		return download('https://unpkg.com/react/dist/react.js') // dev
 			.pipe(concat('01.react.js'))
 			.pipe(gulp.dest(src.scriptsLibFolder))
 			.pipe(notify("React copied"));
   }
 });
 
-// copy react-dom from npm modules
+// copy react-dom from cdn
 gulp.task('copy-react-dom', function() {
 	let fs = require('fs'),
-      file = src.scriptsLibFolder +'01.react.js';
+      file = src.scriptsLibFolder +'02.react-dom.js';
 
 	if (!fs.existsSync(file)) {
-		return download('https://unpkg.com/react-dom@15/dist/react-dom.min.js')
-	    // .pipe(newer(src.scriptsLibFolder +'02.react-dom.js'))
+		// return download('https://unpkg.com/react-dom/dist/react-dom.min.js') // prod
+		return download('https://unpkg.com/react-dom/dist/react-dom.js') // dev
 			.pipe(concat('02.react-dom.js'))
 	    .pipe(gulp.dest(src.scriptsLibFolder))
 			.pipe(notify("React DOM copied"));
+	}
+});
+
+// copy jquery from npm modules
+gulp.task('copy-jquery', function() {
+	let fs = require('fs'),
+      file = src.scriptsLibFolder +'jquery.js';
+
+	if (!fs.existsSync(file)) {
+		return download('https://code.jquery.com/jquery-3.1.1.js')
+			.pipe(concat('jquery.js'))
+		  .pipe(gulp.dest(src.scriptsLibFolder))
+			.pipe(notify("Jquery copied"));
 	}
 });
 
