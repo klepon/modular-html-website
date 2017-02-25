@@ -1,28 +1,11 @@
-/*
-* reverse: will reverse flex order
-* vertical: set true for vertical image text
-* overlay: set true to show text overlay on hover image, automatic vertical true, reverse false, background null
-* thumbnail: square bg image for side panel
-* background: detail background-color
-* title: h2 title
-* link: target link
-* smallTitle: set true to use small title
-* subTitle: subtitle text
-* subTitleLink: sub title target link
-* text: description text, text area non rich text
-* buttonText: text on cta button, use same link as title
-* buttonLink: button link target, will use link as default if buttonLink not set
-* footer: display footer item with price, discount, rating, button
-* price: product price, automaticaly set line trough if discount exist
-* discPrice: product price after discount
-* discount: discount text ie: 0% off
-* rating: product rating 0 - 5, increament 0.5
-*/
-
 class TextImageItem extends React.Component {
-  isExist(data) {
+  isExist(data, isTrue) {
     if(data === undefined || data === "") {
       return false;
+    }
+
+    if(isTrue !== undefined) {
+      return data;
     }
 
     return true;
@@ -32,17 +15,33 @@ class TextImageItem extends React.Component {
     return this.props.data.options.panelReverse === "reverse" ? "reverse" : "";
   }
 
-  getVertical = () => {
-    return this.props.data.options.panelType === "vertical" ? "" : "col-50";
+  getRowSpacer = () => {
+    return this.props.data.options.panelType === "vertical" ? "" : "";
   }
 
-  getPadded = () => {
+  getOverlay = () => {
+    return this.props.data.options.panelType === "overlay" ? "overlay" : "";
+  }
+
+  getThumbnail = () => {
+    return this.props.data.options.panelType === "thumbnail" ? "with-thumbnail" : "";
+  }
+
+  getItemType = (colOne) => {
+    return this.props.data.options.panelType === "vertical"
+      ? ""
+      : (this.props.data.options.panelType === "thumbnail"
+        ? (colOne ? "col-one" : "col-two")
+        : (this.props.data.options.panelType === "overlay"
+          ? "" : "col-50"));
+  }
+
+  getDetailPadded = () => {
     return !this.isExist(this.props.item.background) ? "" : "padded";
   }
 
   getBackground = () => {
-    return !this.isExist(this.props.item.background) ? {}
-      : { 'background-color': this.props.item.background };
+    return !this.isExist(this.props.item.background) ? "" : this.props.item.background;
   }
 
   getUseFooter = () => {
@@ -62,7 +61,7 @@ class TextImageItem extends React.Component {
 
     if( this.isExist(this.props.item.detailUrl) ) {
       return (
-        <h2 className="small">
+        <h2 className = {this.isExist(this.props.data.options.smallTitle, true) ? "small" : ""}>
             <a href = { this.props.item.detailUrl }
               title={ this.props.item.title }>
               { this.props.item.title }
@@ -71,38 +70,61 @@ class TextImageItem extends React.Component {
       )
     } else {
       return (
-        <h2 className="small">
+        <h2 className = {this.isExist(this.props.data.options.smallTitle) ? "small" : ""}>
           { this.props.item.title }
         </h2>
       )
     }
   }
 
-  getCategory = () => {
-    if(!this.isExist(this.props.item.category)) {
+  getTags = () => {
+    if(!this.isExist(this.props.item.tagIDs)) {
       return null;
     }
 
-    if(this.isExist(this.props.data.categories[this.props.item.category])) {
+    return (
+      <span>
+        {this.props.item.tagIDs.map((tag, index) => {
+          if(this.isExist(this.props.data.tags[tag])) {
+            return (
+              <span key = { index }>,&nbsp;
+                <a href={ this.props.data.tags[tag][1] }
+                  title={ this.props.data.tags[tag][0] }>
+                  { this.props.data.tags[tag][0] }
+                </a>
+              </span>
+            );
+          }
+        })}
+      </span>
+    );
+  }
+
+  getCategory = () => {
+    if(!this.isExist(this.props.item.categoryID)) {
+      return null;
+    }
+
+    if(this.isExist(this.props.data.categories[this.props.item.categoryID])) {
       return (
         <p className="small">
-          <a href={ this.props.data.categories[this.props.item.category][1] }
-            title={ this.props.data.categories[this.props.item.category][0] }>
-            { this.props.data.categories[this.props.item.category][0] }
+          <a href={ this.props.data.categories[this.props.item.categoryID][1] }
+            title={ this.props.data.categories[this.props.item.categoryID][0] }>
+            { this.props.data.categories[this.props.item.categoryID][0] }
           </a>
-        </p>
-      )
-    } else {
-      return (
-        <p className="small">
-          { this.props.data.categories[this.props.item.category][0] }
+
+          { this.getTags() }
         </p>
       )
     }
   }
 
   getDescription = () => {
-    return !this.isExist(this.props.item.description) ? "" : this.props.item.description;
+    if( this.isExist(this.props.item.description) ) {
+      return (
+        <p>{ this.props.item.description }</p>
+      )
+    }
   }
 
   getPrice = () => {
@@ -111,7 +133,13 @@ class TextImageItem extends React.Component {
         <span className="price">
           { this.getDiscountPrice() }
 
-          <span className={ this.getDiscount() }>{ this.props.data.options.currency } { this.props.item.price }</span>
+          <span
+            className={ this.getDiscount() }>
+            <FormatMoney
+              currency = { this.props.data.options.currency }
+              value = { this.props.item.price }
+            />
+          </span>
         </span>
       )
     }
@@ -120,16 +148,23 @@ class TextImageItem extends React.Component {
   getDiscountPrice = () => {
     if( this.isExist(this.props.item.discount) ) {
       return (
-        <span>{ this.props.data.options.currency } {this.props.item.price - ( this.props.item.price * this.props.item.discount / 100 )}</span>
-      )
+        <FormatMoney
+          currency = { this.props.data.options.currency }
+          value = { this.props.item.price - ( this.props.item.price * this.props.item.discount / 100 ) }
+        />
+      );
     }
   }
 
   getRating = () => {
     if( this.isExist(this.props.item.rating) ) {
       return (
-        <span className="rating">
-          <span style="width:calc(100% * { this.props.item.rating } / 5)">&nbsp;</span>
+        <span className="rating" style = {{width: "calc(20px * "+ this.props.item.rating +")"}}>
+          <Icon icon = "star" />
+          <Icon icon = "star" />
+          <Icon icon = "star" />
+          <Icon icon = "star" />
+          <Icon icon = "star" />
         </span>
       )
     }
@@ -139,7 +174,7 @@ class TextImageItem extends React.Component {
     if( this.isExist(this.props.item.discount) ) {
       return (
         <span className="discount">
-          <span className="discount-text">{ this.props.item.discount }</span>
+          <span className="discount-text">{ this.props.item.discount }{ this.props.data.options.discountSuffix}</span>
           { this.getRating() }
         </span>
       )
@@ -156,39 +191,63 @@ class TextImageItem extends React.Component {
 
   getCTA = () => {
     if( this.isExist(this.props.item.ctaText) ) {
-      <a href="{ this.getCTALink() }" title="{ this.props.item.ctaText }" className="btn">{ this.props.item.ctaText }</a>
+      return (
+        <a href="{ this.getCTALink() }" title="{ this.props.item.ctaText }" className="btn">{ this.props.item.ctaText }</a>
+      )
     }
   }
 
   getFooter = () => {
-    <p className={ this.getUseFooter() }>
+    return (
+      <p className={ this.getUseFooter() }>
       { this.getPrice() }
 
       { this.getDiscountAndRating() }
 
       { this.getCTA() }
-    </p>
+      </p>
+    );
+  }
+
+  getThumbnailCon = () => {
+    return (
+      <div className = {` thumbnail-container ${ this.getItemType(true) } `}>
+        <div className="thumbnail" style = {{backgroundImage : "url("+ this.props.item.thumbnail +")"}}>&nbsp;</div>
+      </div>
+    );
+  }
+
+  getDetailCon = () => {
+    return (
+      <div className = {` detail ${ this.getItemType() } ${ this.getDetailPadded() } `}
+        style = {{backgroundColor: this.getBackground()}}>
+
+        { this.getTitle() }
+
+        { this.getCategory() }
+
+        { this.getDescription() }
+
+        { this.getFooter() }
+      </div>
+    );
   }
 
   render() {
-    return (
-      <div className = {` row ${ this.getReverse() } `}>
-        <div className = {` thumbnail-container ${ this.getVertical() } `}>
-          <div className="thumbnail" style="background-image:url({ this.props.item.thumbnail })">&nbsp;</div>
+    if(this.props.data.options.panelType === "overlay" && this.isExist(this.props.item.detailUrl)) {
+      return (
+        <a href = {this.props.item.detailUrl} className = {`row ${ this.getReverse() }  ${ this.getRowSpacer() } ${ this.getOverlay() } ${ this.getThumbnail() }`}>
+          { this.getThumbnailCon() }
+          { this.getDetailCon() }
+        </a>
+      );
+    } else {
+      return (
+        <div className = {`row ${ this.getReverse() }  ${ this.getRowSpacer() } ${ this.getOverlay() } ${ this.getThumbnail() }`}>
+          { this.getThumbnailCon() }
+          { this.getDetailCon() }
         </div>
-
-        <div className = {` detail ${ this.getVertical() } ${ this.getPadded() } `}
-          style={ this.getBackground() }>
-
-          { this.getTitle() }
-
-          { this.getCategory() }
-
-          { this.getDescription() }
-
-          { this.getFooter() }
-        </div>
-      </div>
-    );
+      );
+    }
   }
 }

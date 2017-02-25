@@ -1,10 +1,39 @@
 .text-image-panel.vertical {
-  .row {
-    margin-bottom: $content-padding-md;
+  .detail:not(.padded) {
+    @include paddingQueryScreenAll(0, 0, 0, 0);
+    @include paddingPosQueryScreen("top");
+  }
+
+  .reverse .detail:not(.padded) {
+    @include paddingPosQueryScreen("top", $content-padding-xs, 0, 0, 0);
+    @include paddingPosQueryScreen("bottom", 0);
+    @include paddingPosQueryScreen("right", 0, 0, 0, 0);
   }
 }
 
 .text-image-panel {
+  .row {
+    @include marginPosQueryScreen("bottom");
+    position: relative;
+  }
+
+  .row.overlay:hover,
+  .row.overlay.hover,
+  .row.padded-content:hover,
+  .row.padded-content.hover {
+    box-shadow: $box-shadow;
+    z-index: 1;
+  }
+
+  .row.no-spacer-bottom {
+    @include marginPosQueryScreen("bottom", 0, 0, 0, 0);
+  }
+
+  .row.overlay .item-footer,
+  .row.overlay .small {
+    display: none;
+  }
+
   .thumbnail-container {
     min-height: 60vw;
     position: relative;
@@ -28,12 +57,22 @@
     }
   }
 
-  .padding-bottom .detail:not(.padded) {
-    padding-top: 0;
+  .row.no-spacer-bottom + .row .detail:not(.padded) {
+    @include paddingPosQueryScreen("top");
+  }
+
+  .row.no-spacer-bottom .detail:not(.padded) {
+    @include paddingPosQueryScreen("bottom", 0);
+  }
+
+  .reverse .detail:not(.padded) {
+    @include paddingPosQueryScreen("left", 0, 0, 0, 0);
+    @include paddingPosQueryScreen("right", 0);
   }
 
   .detail:not(.padded) {
-    padding: $content-padding-xs 0;
+    @include paddingPosQueryScreen("top", $content-padding-xs, 0, 0, 0);
+    @include paddingPosQueryScreen("left", 0 );
   }
 
   .detail h2 {
@@ -87,16 +126,15 @@
   .item-footer .rating {
     width: 100%;
     display: flex;
-    background: $white;
-    height: $content-padding-xs;
-    border: solid 1px $shades-2;
-    border-radius: $border-radius;
     margin: ($base-line-height - $content-padding-xs) / 2 0;
+    overflow: hidden;
   }
 
-  .item-footer .rating span {
-    display: block;
-    background: $yellow;
+  .item-footer .rating .icon {
+    color: $yellow;
+    width: 20px;
+    height: 20px;
+    flex: 0 0 20px;
   }
 
   .item-footer .btn {
@@ -135,63 +173,18 @@
 
     .detail {
       height: 100%;
+      display: flex;
+      flex-direction: column;
     }
 
-    .reverse .detail:not(.padded),
-    .detail:not(.padded) {
-      padding-left: 0;
-      padding-right: 0;
-    }
-
-    .reverse .detail:not(.padded) {
-      padding-top: 0;
-    }
-
-    .overlay {
-      position: relative;
-      overflow: hidden;
-      display: table;
-    }
-
-    .overlay .thumbnail:hover {
-      width: 100%;
-      height: 100%;
-    }
-
-    .overlay .detail {
-      background: transparent !important;
-      position: absolute;
-      @include overlay();
-      @include pullOverlayBack();
-      top: auto;
-      bottom: -70px;
-      height: auto;
-      max-height: 70px;
-      overflow: hidden;
-      padding: 10px;
-      transition: all 0.28s ease-in-out;
-    }
-
-    .overlay:hover .detail {
-      bottom: 0;
-    }
-
-    .overlay .detail > * {
-      color: $white;
+    .item-footer {
+      margin-top: auto;
     }
   }
 
   .text-image-panel {
     .thumbnail-container {
       min-height: 0;
-    }
-
-    .reverse .detail:not(.padded) {
-      padding: $content-padding-sm $content-padding-sm $content-padding-sm 0;
-    }
-
-    .detail:not(.padded) {
-      padding: $content-padding-sm 0 $content-padding-sm $content-padding-sm;
     }
 
     .with-thumbnail .item-footer .discount,
@@ -222,26 +215,44 @@
       height: 150px;
     }
   }
+}
 
-  .text-image-panel {
-    .reverse .detail:not(.padded) {
-      padding: $content-padding-md $content-padding-md $content-padding-md 0;
+@media screen and (min-width: $screen-md + 1) {
+  .text-image-panel.vertical {
+    .overlay {
+      overflow: hidden;
+      display: table;
     }
 
-    .detail:not(.padded) {
-      padding: $content-padding-md 0 $content-padding-md $content-padding-md;
+    .overlay .thumbnail:hover {
+      width: 100%;
+      height: 100%;
+    }
+
+    .overlay .detail:not(.padded),
+    .overlay .detail {
+      background: transparent !important;
+      position: absolute;
+      @include overlay();
+      @include pullOverlayBack();
+      top: auto;
+      bottom: -70px;
+      height: auto;
+      max-height: 70px;
+      overflow: hidden;
+      @include paddingQueryScreenAll(0, 0, 10px, 10px, 1);
+      transition: all 0.28s ease-in-out;
+    }
+
+    .overlay:hover .detail {
+      bottom: 0;
+    }
+
+    .overlay .detail > * {
+      color: $white;
     }
   }
 }
 
 @media screen and (min-width: $screen-lg) {
-  .text-image-panel {
-    .reverse .detail:not(.padded) {
-      padding: $content-padding-lg $content-padding-lg $content-padding-lg 0;
-    }
-
-    .detail:not(.padded) {
-      padding: $content-padding-lg 0 $content-padding-lg $content-padding-lg;
-    }
-  }
 }

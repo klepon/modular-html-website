@@ -45,3 +45,67 @@
     z-index: 2;
   }
 }
+
+@mixin paddingQueryScreenAll($xs: $content-padding-xs, $sm: $content-padding-sm, $md: $content-padding-md, $lg: $content-padding-lg, $mdPlus: 0) {
+  padding: $xs;
+
+  @media screen and (min-width: $screen-sm) {
+    padding: $sm;
+  }
+
+  @media screen and (min-width: $screen-md + $mdPlus) {
+    padding: $md;
+  }
+
+  @media screen and (min-width: $screen-lg) {
+    padding: $lg;
+  }
+}
+
+@mixin paddingPosQueryScreen($pos, $xs: $content-padding-xs, $sm: $content-padding-sm, $md: $content-padding-md, $lg: $content-padding-lg, $mdPlus: 0) {
+  padding-#{$pos}: $xs;
+
+  @media screen and (min-width: $screen-sm) {
+    padding-#{$pos}: $sm;
+  }
+
+  @media screen and (min-width: $screen-md + $mdPlus) {
+    padding-#{$pos}: $md;
+  }
+
+  @media screen and (min-width: $screen-lg) {
+    padding-#{$pos}: $lg;
+  }
+}
+
+@mixin marginQueryScreenAll($xs: $content-padding-xs, $sm: $content-padding-sm, $md: $content-padding-md, $lg: $content-padding-lg, $mdPlus: 0) {
+  margin: $xs;
+
+  @media screen and (min-width: $screen-sm) {
+    margin: $sm;
+  }
+
+  @media screen and (min-width: $screen-md + $mdPlus) {
+    margin: $md;
+  }
+
+  @media screen and (min-width: $screen-lg) {
+    margin: $lg;
+  }
+}
+
+@mixin marginPosQueryScreen($pos, $xs: $content-padding-xs, $sm: $content-padding-sm, $md: $content-padding-md, $lg: $content-padding-lg, $mdPlus: 0) {
+  margin-#{$pos}: $xs;
+
+  @media screen and (min-width: $screen-sm) {
+    margin-#{$pos}: $sm;
+  }
+
+  @media screen and (min-width: $screen-md + $mdPlus) {
+    margin-#{$pos}: $md;
+  }
+
+  @media screen and (min-width: $screen-lg) {
+    margin-#{$pos}: $lg;
+  }
+}

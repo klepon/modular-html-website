@@ -38,7 +38,7 @@ class ListFilter extends React.Component {
     return (
       <div className="filter-group">
         <label
-          for="react-search-keyword"
+          htmlFor="react-search-keyword"
           className="sr-only">{this.props.data.options.keywordPlaceholder}</label>
         <input
           id="react-search-keyword"

@@ -1,5 +1,6 @@
 {{!--
 * reverse: will reverse flex order
+* noSpacerBottom: remove margin bottom pairing with reverse
 * thumbnail: square bg image for side panel
 * background: detail background-color
 * title: h2 title
@@ -16,7 +17,7 @@
 * discount: discount text ie: 0% off
 * rating: product rating 0 - 5, increament 0.5
 --}}
-<div class="row padding-bottom {{reverse}} with-thumbnail">
+<div class="row {{reverse}} with-thumbnail {{#if noSpacerBottom}}no-spacer-bottom{{/if}}{{#if background}} padded-content{{/if}}">
   <div class="thumbnail-container col-one">
     <div class="thumbnail" style="background-image:url({{thumbnail}})">&nbsp;</div>
   </div>

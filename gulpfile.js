@@ -1,5 +1,8 @@
+// set tru for production
+let production = false,
+
 // source files
-let src = {
+src = {
 	stylesLib						:	['_src/assets/styles/lib/*.scss',
 													'_src/assets/styles/lib/*.less',
 													'_src/assets/styles/lib/*.css'
@@ -29,6 +32,7 @@ let src = {
 	svgIconImage				:	'_src/assets/images/'
 },
 
+// dist files
 dist = {
 	styles	: 'dist/assets/styles/',
 	scripts	: 'dist/assets/scripts/',
@@ -37,6 +41,7 @@ dist = {
 	htmls 	: 'dist/',
 },
 
+// files name
 fileName = {
 	styleLib	: 'style.min.lib.css',
 	style			: 'style.min.css',
@@ -44,9 +49,10 @@ fileName = {
 	script		: 'script.min.js',
 	reactJs		: 'react-app.js',
 	react			: '01.react.js',
-	react-dom	: '02.react-dom.js'
-}
+	reactDom	: '02.react-dom.js'
+},
 
+// watch list
 watch = [dist.scripts +'*.js', dist.images +'**.**', dist.fonts +'**.**'];
 
 // include required plugin
@@ -75,11 +81,20 @@ const	clean = require('gulp-clean'),
 	download = require("gulp-download"),
 	reload = browserSync.reload;
 
+// default, use this after use clean
 gulp.task('default', ['del-dist', 'sprites'], function(){
 	return gulp.start('compile');
 });
 
-gulp.task('build', ['del-react-source'], ['del-dist', 'sprites'], function(){
+// re-download source, use this to develop after build
+gulp.task('clean', ['del-react-source', 'del-dist', 'sprites'], function(){
+	return gulp.start('compile');
+});
+
+// re-download production source
+gulp.task('build', ['del-react-source', 'del-dist', 'sprites'], function(){
+	production = true;
+
 	return gulp.start('compile');
 });
 
@@ -148,7 +163,7 @@ gulp.task('del-dist', function(){
 
 // remove react source
 gulp.task('del-react-source', function(){
-	return gulp.src([src.scriptsLibFolder + fileName.react, src.scriptsLibFolder + fileName.react-dom], {read: false})
+	return gulp.src([src.scriptsLibFolder + fileName.react, src.scriptsLibFolder + fileName.reactDom], {read: false})
 		.pipe(clean());
 		// .pipe(notify("Remove dist folder"));
 });
@@ -285,12 +300,12 @@ gulp.task('compile-hbs', function() {
 // copy react from cdn
 gulp.task('copy-react', function() {
 	let fs = require('fs'),
-      file = src.scriptsLibFolder +'01.react.js';
+      file = src.scriptsLibFolder + fileName.react,
+			source = production ? 'https://unpkg.com/react/dist/react.min.js' : 'https://unpkg.com/react/dist/react.js';
 
   if (!fs.existsSync(file)) {
-		// return download('https://unpkg.com/react/dist/react.min.js') // prod
-		return download('https://unpkg.com/react/dist/react.js') // dev
-			.pipe(concat('01.react.js'))
+		return download(source)
+			.pipe(concat( fileName.react ))
 			.pipe(gulp.dest(src.scriptsLibFolder))
 			.pipe(notify("React copied"));
   }
@@ -299,12 +314,12 @@ gulp.task('copy-react', function() {
 // copy react-dom from cdn
 gulp.task('copy-react-dom', function() {
 	let fs = require('fs'),
-      file = src.scriptsLibFolder +'02.react-dom.js';
+      file = src.scriptsLibFolder + fileName.reactDom,
+			source = production ? 'https://unpkg.com/react-dom/dist/react-dom.min.js' : 'https://unpkg.com/react-dom/dist/react-dom.js';
 
 	if (!fs.existsSync(file)) {
-		// return download('https://unpkg.com/react-dom/dist/react-dom.min.js') // prod
-		return download('https://unpkg.com/react-dom/dist/react-dom.js') // dev
-			.pipe(concat('02.react-dom.js'))
+		return download(source)
+			.pipe(concat( fileName.reactDom ))
 	    .pipe(gulp.dest(src.scriptsLibFolder))
 			.pipe(notify("React DOM copied"));
 	}
