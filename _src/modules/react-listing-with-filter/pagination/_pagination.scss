@@ -21,7 +21,7 @@
         &:first-child,
         &:last-child {
           width: auto;
-          padding: 0 $content-padding-xs;
+          border: none;
         }
     }
 

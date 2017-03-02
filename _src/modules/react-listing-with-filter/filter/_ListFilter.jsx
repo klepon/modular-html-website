@@ -4,20 +4,18 @@ class ListFilter extends React.Component {
       return;
     }
 
-    let lookup, index = 0, filters = [];
+    let lookup, filters = [];
 
     for( lookup in this.props.data.filters) {
       filters.push (
         <FilterGroup
-          key = { index }
+          key = { lookup }
           lookup = { lookup }
           filter = { this.props.data.filters[lookup] }
           selectedFilters = { this.props.selectedFilters }
           onClickFilter = { this.props.onClickFilter }
         />
       );
-
-      index++;
     }
 
     return filters;

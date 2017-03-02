@@ -84,6 +84,8 @@ class TextImageItem extends React.Component {
       return null;
     }
 
+    this.props.item.tagIDs.sort();
+
     return (
       <span>
         {this.props.item.tagIDs.map((tag, index) => {

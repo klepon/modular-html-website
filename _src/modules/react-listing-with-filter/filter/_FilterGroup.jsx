@@ -1,10 +1,10 @@
 class FilterGroup extends React.Component {
   renderDropdown = () => {
-    let id, index = 0, options = [];
+    let id, options = [];
     for( id in this.props.filter.options ) {
       options.push(
         <FilterItem
-          key = { index}
+          key = { id * 1}
           lookup = { this.props.lookup }
           id = { id * 1 }
           name = { this.props.filter.options[id] }
@@ -12,8 +12,6 @@ class FilterGroup extends React.Component {
           onClickFilter = { this.props.onClickFilter }
         />
       );
-
-      index++;
     }
 
     return options;

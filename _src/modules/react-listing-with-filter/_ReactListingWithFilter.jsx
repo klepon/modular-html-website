@@ -28,6 +28,11 @@
 *** categories, tags list, filter see json data sample
 */
 class App extends React.Component {
+  staticData = {
+    items: [],
+    updateItem: false
+  }
+
   constructor(props) {
     super(props);
 
@@ -40,9 +45,34 @@ class App extends React.Component {
       sort: "default"
     }
 
+    this.updateValidItems();
+
     this.onClickFilter = this.onClickFilter.bind(this);
     this.onChangeKeyword = this.onChangeKeyword.bind(this);
     this.onChangeSort = this.onChangeSort.bind(this);
+    this.updatePage = this.updatePage.bind(this);
+  }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    // on update staticData.items if required
+    if(this.staticData.updateItem) {
+      this.updateValidItems();
+      this.staticData.updateItem = false;
+    }
+
+    return true;
+  }
+
+  updateValidItems = () => {
+    this.staticData.items = [];
+
+    this.state.data.items.map((item, index) => {
+      if(!this.isPassFilter(item) || !this.isPassKeyword(item)) {
+        return;
+      }
+
+      this.staticData.items.push(item);
+    });
   }
 
   onClickFilter(e, lookup, val) {
@@ -70,12 +100,15 @@ class App extends React.Component {
     }
 
     // update state
+    this.staticData.updateItem = true;
     this.setState({
-      selectedFilters: this.state.selectedFilters
+      selectedFilters: this.state.selectedFilters,
+      page: 1
     });
   }
 
   onChangeKeyword(e) {
+    this.staticData.updateItem = true;
     this.setState({
       keyword: e.target.value.toLowerCase()
     })
@@ -84,7 +117,6 @@ class App extends React.Component {
   onChangeSort(e){
     this.setState({sort: e.target.value});
   }
-
 
   isPassFilter = (item) => {
     if(isEmpty(this.state.selectedFilters)) {
@@ -140,20 +172,6 @@ class App extends React.Component {
     return false;
   }
 
-  countTotal = () => {
-    let listing = 0;
-
-    this.state.data.items.map((item, index) => {
-      if(!this.isPassFilter(item) || !this.isPassKeyword(item)) {
-        return;
-      }
-
-      listing++;
-    });
-
-    return listing;
-  }
-
   sortListing = (listing) => {
     if( this.state.data.sorts[ this.state.sort ] === undefined ) {
       return listing;
@@ -195,47 +213,37 @@ class App extends React.Component {
     return listing;
   }
 
-  getValidItem = () => {
+  getItems = () => {
     let even = true,
-      last = false,
       listing = [],
-      i = 0,
-      items = this.sortListing(this.state.data.items),
-      n = items.length;
+      end = this.state.page * this.state.data.options.perPage,
+      start = end - this.state.data.options.perPage,
+      items = this.sortListing(this.staticData.items);
 
-    for(i; i < n; i++) {
-      if(!this.isPassFilter(items[i]) || !this.isPassKeyword(items[i])) {
-        continue;
-      }
-
-      // limit perpage
-      if(i === this.state.data.options.perPage) {
+    for(start; start < end; start++) {
+      if( items[start] === undefined ) {
         break;
       }
 
       even = even === true ? false : true;
 
-      if(i === items.length - 1) {
-        last = true;
-      }
-
       if(this.state.data.panelType === 'thumbnail') {
         listing.push(
           <TextImageItemThumbnail
-          key = { i }
+          key = { start }
           even = { even }
-          last = { last }
-          item = { items[i] }
+          last = { start === end - 1 }
+          item = { items[start] }
           data = { this.state.data }
           />
         );
       } else {
         listing.push(
           <TextImageItem
-          key = { i }
+          key = { start }
           even = { even }
-          last = { last }
-          item = { items[i] }
+          last = { start === end - 1 }
+          item = { items[start] }
           data = { this.state.data }
           />
         );
@@ -249,19 +257,21 @@ class App extends React.Component {
     return listing;
   }
 
+  updatePage = (event, page) => {
+    event.preventDefault();
+
+    if(page > 0 && page <= Math.ceil(this.staticData.items.length / this.state.data.options.perPage)) {
+      this.setState({ page: page });
+    }
+
+    $('html, body').animate({
+        scrollTop: $(".listing-con").offset().top
+    }, 500);
+  }
+
   render() {
     return (
       <div>
-
-
-        <strong>next: </strong>
-        <ul>
-          <li>pagination</li>
-          <li>show total</li>
-        </ul>
-
-
-
         <ListFilter
           data = { this.state.data }
           page = { this.state.page }
@@ -272,16 +282,18 @@ class App extends React.Component {
         />
 
         <ListingItems
-          items = { this.getValidItem() }
+          items = { this.getItems() }
           onChangeSort = { this.onChangeSort }
           data = { this.state.data }
           page = { this.state.page }
-          total = { this.countTotal() }
+          total = { this.staticData.items.length }
         />
 
         <Pagination
           data = { this.state.data }
           page = { this.state.page }
+          total = { this.staticData.items.length }
+          updatePage = { this.updatePage }
         />
       </div>
     );
