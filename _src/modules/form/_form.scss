@@ -84,7 +84,14 @@ button {
     border-color: $button-border-hover;
     background-color: $button-background-hover;
   }
+
+  &.white {
+    border: solid 1px $shades-4;
+    background-color: $white;
+    color: $dark;
+  }
 }
+
 
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
   color: $shades-2;

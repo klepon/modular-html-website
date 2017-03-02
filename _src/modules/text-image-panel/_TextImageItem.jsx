@@ -20,7 +20,9 @@ class TextImageItem extends React.Component {
   }
 
   getOverlay = () => {
-    return this.props.data.options.panelType === "overlay" ? "overlay" : "";
+    return this.props.data.options.panelType === "overlay"
+      ? (this.isExist(this.props.item.background) ? "shadow-hover overlay" : "overlay")
+      : (this.isExist(this.props.item.background) ? "shadow-hover" : "");
   }
 
   getThumbnail = () => {
@@ -233,17 +235,28 @@ class TextImageItem extends React.Component {
     );
   }
 
+  getEvenOdd = () => {
+    if(this.props.data.options.panelType === "even-odd") {
+      let last = this.props.last ? "" : "no-spacer-bottom";
+
+      return this.props.data.options.panelType === "even-odd" && this.props.even ? last + " reverse" : last;
+    }
+
+    return "";
+  }
+
   render() {
     if(this.props.data.options.panelType === "overlay" && this.isExist(this.props.item.detailUrl)) {
       return (
-        <a href = {this.props.item.detailUrl} className = {`row ${ this.getReverse() }  ${ this.getRowSpacer() } ${ this.getOverlay() } ${ this.getThumbnail() }`}>
+        <a className = {`row ${ this.getReverse() }  ${ this.getRowSpacer() } ${ this.getOverlay() } ${ this.getThumbnail() } ${ this.getEvenOdd() }`}
+          href = {this.props.item.detailUrl}>
           { this.getThumbnailCon() }
           { this.getDetailCon() }
         </a>
       );
     } else {
       return (
-        <div className = {`row ${ this.getReverse() }  ${ this.getRowSpacer() } ${ this.getOverlay() } ${ this.getThumbnail() }`}>
+        <div className = {`row ${ this.getReverse() }  ${ this.getRowSpacer() } ${ this.getOverlay() } ${ this.getThumbnail() } ${ this.getEvenOdd() }`}>
           { this.getThumbnailCon() }
           { this.getDetailCon() }
         </div>

@@ -1,0 +1,21 @@
+.meta-sort {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    margin-bottom: 2rem;
+
+    select {
+      min-width: 150px;
+    }
+}
+
+@media screen and (min-width: $screen-sm) {
+  .meta-sort {
+    flex-direction: row;
+    align-items: center;
+
+    p {
+      margin: 0;
+    }
+  }
+}

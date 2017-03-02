@@ -4,18 +4,23 @@ class ListFilter extends React.Component {
       return;
     }
 
-    return (
-      this.props.data.filters.map((filter, index) => {
-        return (
-          <FilterGroup
-            key = { index }
-            filter = { filter }
-            selectedFilters = {this.props.selectedFilters}
-            onClickFilter = {this.props.onClickFilter}
-          />
-        )
-      })
-    );
+    let lookup, index = 0, filters = [];
+
+    for( lookup in this.props.data.filters) {
+      filters.push (
+        <FilterGroup
+          key = { index }
+          lookup = { lookup }
+          filter = { this.props.data.filters[lookup] }
+          selectedFilters = { this.props.selectedFilters }
+          onClickFilter = { this.props.onClickFilter }
+        />
+      );
+
+      index++;
+    }
+
+    return filters;
   }
 
   filterLength() {
@@ -24,10 +29,10 @@ class ListFilter extends React.Component {
     }
 
     if(this.props.data.options.keywordLookUp === undefined) {
-      return this.props.data.filters.length
+      return Object.size(this.props.data.filters);
     }
 
-    return this.props.data.filters.length + 1;
+    return Object.size(this.props.data.filters) + 1;
   }
 
   keywordSearch = () => {
@@ -50,12 +55,52 @@ class ListFilter extends React.Component {
     )
   }
 
+  selectedFilters = () => {
+    if(isEmpty(this.props.selectedFilters)) {
+      return null;
+    }
+
+    return (
+      <div className="selected-filter">
+        { this.getSelectedFilter() }
+      </div>
+    );
+  }
+
+  getSelectedFilter = () => {
+    let lookup, index = 0, filters = [];
+    for ( lookup in this.props.data.filters ) {
+      if( this.props.selectedFilters[lookup] !== undefined ) {
+        this.props.selectedFilters[lookup].map((filterId) => {
+          let copyLookup = lookup; // make sure it use current lookup, not reference
+          filters.push (
+            <button className="selected-item white" key={index}
+              onClick={(e) => this.props.onClickFilter(e, copyLookup, filterId)}>
+              <span>{this.props.data.filters[lookup].options[filterId]}</span>
+              <Icon icon="cross" />
+            </button>
+          );
+
+          index++;
+        });
+
+        filters.push(<span key={lookup} className="separator" />);
+      }
+    }
+
+    return filters;
+  }
+
   render() {
     return (
-      <div className={`filter-con col-${this.filterLength()}`}>
-        {this.filterDropdown()}
+      <div className={`filter-section`}>
+        <div className={`filter-con col-${this.filterLength()}`}>
+          { this.filterDropdown() }
 
-        {this.keywordSearch()}
+          { this.keywordSearch() }
+        </div>
+
+        { this.selectedFilters() }
       </div>
     );
   }

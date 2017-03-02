@@ -107,6 +107,37 @@ $transition: all 0.18s ease-in-out;
     }
 }
 
+.filtered-listing .selected-filter {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: $content-padding-xs;
+
+    .separator {
+        display: block;
+        width: $content-padding-xs / 2;
+    }
+
+    .selected-item {
+      display: flex;
+      align-items: center;
+      height: $content-padding-xs * 3 / 2;
+      margin: 0 $content-padding-xs / 4 $content-padding-xs / 4 0;
+      padding: 0 $content-padding-xs / 2;
+      font-size: $content-padding-xs * 3 / 4;
+      cursor: pointer;
+    }
+
+    .selected-item .icon {
+      width: $content-padding-xs;
+      height: $content-padding-xs;
+      margin-left: $content-padding-xs / 2;
+    }
+
+    .selected-item span {
+      line-height: $content-padding-xs * 3 / 2;
+    }
+}
+
 @media screen and (min-width: $screen-sm) {
   .filtered-listing .filter-con {
     display: flex;

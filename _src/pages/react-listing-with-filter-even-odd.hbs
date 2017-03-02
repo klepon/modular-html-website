@@ -1,0 +1,17 @@
+{{#> master
+  title="React listing with filter even odd" }}
+  {{#*inline "content-body" }}
+
+    {{!-- one col --}}
+    {{#> section-one-col}}
+      {{#*inline "content-section" }}
+          {{#> react-listing-with-filter/react-listing-with-filter dev = false }}
+            {{#*inline "json-data-content" }}
+              {{> react-listing-with-filter/data/json-text-data-even-odd }}
+            {{/inline}}
+          {{/react-listing-with-filter/react-listing-with-filter }}
+      {{/inline}}
+    {{/section-one-col }}
+
+  {{/inline}}
+{{/master }}

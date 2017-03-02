@@ -17,14 +17,6 @@
     position: relative;
   }
 
-  .row.overlay:hover,
-  .row.overlay.hover,
-  .row.padded-content:hover,
-  .row.padded-content.hover {
-    box-shadow: $box-shadow;
-    z-index: 1;
-  }
-
   .row.no-spacer-bottom {
     @include marginPosQueryScreen("bottom", 0, 0, 0, 0);
   }
@@ -215,6 +207,14 @@
       height: 150px;
     }
   }
+
+  .text-image-panel {
+    .row.shadow-hover:hover,
+    .row.shadow-hover.hover {
+      box-shadow: $box-shadow;
+      z-index: 1;
+    }
+  }
 }
 
 @media screen and (min-width: $screen-md + 1) {
@@ -250,6 +250,14 @@
 
     .overlay .detail > * {
       color: $white;
+    }
+  }
+
+  .text-image-panel {
+    .row.overlay:hover,
+    .row.overlay.hover {
+      box-shadow: $box-shadow;
+      z-index: 1;
     }
   }
 }
