@@ -1,0 +1,43 @@
+.pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: $content-padding-xs;
+
+    a {
+        border: solid 1px $shades-4;
+        margin: 0.25rem;
+        width: 4rem;
+        height: 4rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 3px;
+
+        &:hover {
+          box-shadow: $box-shadow;
+        }
+
+        &:first-child,
+        &:last-child {
+          width: auto;
+          border: none;
+        }
+    }
+
+    a.active {
+      background-color: $shades-3;
+      box-shadow: $box-shadow;
+    }
+
+    a.disabled {
+      opacity: 0.3;
+      cursor: default;
+
+      &:hover {
+        box-shadow: none;
+        text-decoration: none;
+        color: $link-color;
+      }
+    }
+}

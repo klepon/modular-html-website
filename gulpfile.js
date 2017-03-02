@@ -1,30 +1,38 @@
+// set tru for production
+let production = false,
+
 // source files
-let src = {
-	stylesLib			: ['_src/assets/styles/lib/*.scss', '_src/assets/styles/lib/*.less', '_src/assets/styles/lib/*.css'],
-	styles				: ['_src/assets/styles/*.scss',
-										'_src/modules/**/*.scss',
-									],
-	scriptsLib		: ['_src/assets/scripts/lib/*.js'],
-	scripts				: ['_src/assets/scripts/*.js',
-										'_src/modules/**/*.js',
-										'_src/modules/**/*.jsx',
-									],
-	images				: '_src/assets/images/**',
-	allHtmls			: ['_src/pages/*.hbs',
-										'_src/modules/**/*.hbs',
-										'_src/master/**/*.hbs',
-										'_src/section/**/*.hbs',
-									],
-	pages					: '_src/pages/*.hbs',
-	fonts					: '_src/fonts/**',
-	htmlsCheck		: 'dist/*.html',
-	master				: '_src/master/',
-	modules				: ['_src/master/', '_src/modules/', '_src/section/'],
-	svgIcons			:	'_src/svg/*.svg',
-	svgSprite			:	'_src/svg/dist/',
-	svgIconImage	:	'_src/assets/images/'
+src = {
+	stylesLib						:	['_src/assets/styles/lib/*.scss',
+													'_src/assets/styles/lib/*.less',
+													'_src/assets/styles/lib/*.css'
+												],
+	styles							:	['_src/assets/styles/*.scss',
+													'_src/modules/**/*.scss',
+												],
+	scriptsLibFolder		:	'_src/assets/scripts/lib/',
+	scriptsLib					:	['_src/assets/scripts/lib/*.js'],
+	scripts							:	['_src/assets/scripts/*.js',
+													'_src/modules/**/*.js',
+												],
+	scriptsJsx					:	['_src/modules/**/*.jsx'],
+	images							:	'_src/assets/images/**',
+	allHtmls						:	['_src/pages/*.hbs',
+													'_src/modules/**/*.hbs',
+													'_src/master/**/*.hbs',
+													'_src/section/**/*.hbs',
+												],
+	pages								:	'_src/pages/*.hbs',
+	fonts								:	'_src/fonts/**',
+	htmlsCheck					:	'dist/*.html',
+	master							:	'_src/master/',
+	modules							:	['_src/master/', '_src/modules/', '_src/section/'],
+	svgIcons						:	'_src/svg/*.svg',
+	svgSprite						:	'_src/svg/dist/',
+	svgIconImage				:	'_src/assets/images/'
 },
 
+// dist files
 dist = {
 	styles	: 'dist/assets/styles/',
 	scripts	: 'dist/assets/scripts/',
@@ -33,14 +41,19 @@ dist = {
 	htmls 	: 'dist/',
 },
 
-watch = [dist.scripts +'*.js', dist.images +'**.**', dist.fonts +'**.**'];
-
+// files name
 fileName = {
 	styleLib	: 'style.min.lib.css',
 	style			: 'style.min.css',
 	scriptLib	: 'script.lib.js',
-	script		: 'script.min.js'
-}
+	script		: 'script.min.js',
+	reactJs		: 'react-app.js',
+	react			: '01.react.js',
+	reactDom	: '02.react-dom.js'
+},
+
+// watch list
+watch = [dist.scripts +'*.js', dist.images +'**.**', dist.fonts +'**.**'];
 
 // include required plugin
 const	clean = require('gulp-clean'),
@@ -64,13 +77,28 @@ const	clean = require('gulp-clean'),
 	svgSymbols = require('gulp-svg-symbols'),
 	gulpHandlebars = require('gulp-handlebars-html')(handlebars),
 	browserSync = require('browser-sync'),
+	sourcemaps = require('gulp-sourcemaps'),
+	download = require("gulp-download"),
 	reload = browserSync.reload;
 
+// default, use this after use clean
 gulp.task('default', ['del-dist', 'sprites'], function(){
 	return gulp.start('compile');
 });
 
-gulp.task('compile', ['stylesLib', 'styles', 'scriptsLib', 'scripts', 'handlebars', 'copy-fonts', 'copy-images'], function(){
+// re-download source, use this to develop after build
+gulp.task('clean', ['del-react-source', 'del-dist', 'sprites'], function(){
+	return gulp.start('compile');
+});
+
+// re-download production source
+gulp.task('build', ['del-react-source', 'del-dist', 'sprites'], function(){
+	production = true;
+
+	return gulp.start('compile');
+});
+
+gulp.task('compile', ['stylesLib', 'styles', 'scriptsLib', 'scripts', 'scriptsJsx', 'handlebars', 'copy-fonts', 'copy-images'], function(){
 	return gulp.start('validate');
 });
 
@@ -93,6 +121,10 @@ gulp.task('serve-and-watch', ['server'], function(){
 
 	gulpWatch(src.scripts, function() {
 			gulp.start('scripts');
+	});
+
+	gulpWatch(src.scriptsJsx, function() {
+			gulp.start('scriptsJsx');
 	});
 
 	gulpWatch(src.allHtmls, function() {
@@ -124,7 +156,14 @@ gulp.task('serve-and-watch', ['server'], function(){
 
 // remove dist
 gulp.task('del-dist', function(){
-	return gulp.src(dist.htmls, {read: false})
+	return gulp.src([dist.htmls], {read: false})
+		.pipe(clean());
+		// .pipe(notify("Remove dist folder"));
+});
+
+// remove react source
+gulp.task('del-react-source', function(){
+	return gulp.src([src.scriptsLibFolder + fileName.react, src.scriptsLibFolder + fileName.reactDom], {read: false})
 		.pipe(clean());
 		// .pipe(notify("Remove dist folder"));
 });
@@ -193,29 +232,49 @@ gulp.task('styles', function(){
 });
 
 // compile scriptsLib
-gulp.task('scriptsLib', function(){
-    return gulp.src(src.scriptsLib)
-      .pipe(uglify())
-      .pipe(concat(fileName.scriptLib))
-      .pipe(gulp.dest(dist.scripts));
-      // .pipe(notify("Scripts library compiled"));
+gulp.task('scriptsLib', ['copy-jquery', 'copy-react', 'copy-react-dom'], function(){
+  return gulp.src(src.scriptsLib)
+    .pipe(uglify())
+    .pipe(concat(fileName.scriptLib))
+    .pipe(gulp.dest(dist.scripts))
+    // .pipe(notify("Scripts library compiled"))
+		;
 });
 
 // compile scripts
 gulp.task('scripts', function(){
-    let handleError = function (error) {
+  let handleError = function (error) {
+      notify().write("ERROR: Compile scripts");
+      this.emit('end');
+  };
+
+  return gulp.src(src.scripts)
+		.pipe(babel({
+				presets: ['es2015']
+		}))
+    .pipe(uglify())
+    .pipe(concat(fileName.script))
+    .pipe(gulp.dest(dist.scripts))
+    .pipe(notify("Scripts compiled"));
+});
+
+// compile react jsx
+gulp.task('scriptsJsx', function() {
+    var handleJsHintError = function (error) {
         notify().write("ERROR: Compile scripts");
         this.emit('end');
     };
 
-    return gulp.src(src.scripts)
+    return gulp.src(src.scriptsJsx)
+			// .pipe(sourcemaps.init())
 			.pipe(babel({
-					presets: ['es2015']
-			}))
-      .pipe(uglify())
-      .pipe(concat(fileName.script))
+					presets: ['es2015', 'react', 'stage-0']
+      }))
+			.pipe(uglify())
+      .pipe(concat(fileName.reactJs))
+			// .pipe(sourcemaps.write('./'))
       .pipe(gulp.dest(dist.scripts))
-      .pipe(notify("Scripts compiled"));
+      .pipe(notify("Scripts Jsx compiled"));
 });
 
 // include handlebars
@@ -238,6 +297,47 @@ gulp.task('compile-hbs', function() {
 	.pipe(notify("Html compiled"));
 });
 
+// copy react from cdn
+gulp.task('copy-react', function() {
+	let fs = require('fs'),
+      file = src.scriptsLibFolder + fileName.react,
+			source = production ? 'https://unpkg.com/react/dist/react.min.js' : 'https://unpkg.com/react/dist/react.js';
+
+  if (!fs.existsSync(file)) {
+		return download(source)
+			.pipe(concat( fileName.react ))
+			.pipe(gulp.dest(src.scriptsLibFolder))
+			.pipe(notify("React copied"));
+  }
+});
+
+// copy react-dom from cdn
+gulp.task('copy-react-dom', function() {
+	let fs = require('fs'),
+      file = src.scriptsLibFolder + fileName.reactDom,
+			source = production ? 'https://unpkg.com/react-dom/dist/react-dom.min.js' : 'https://unpkg.com/react-dom/dist/react-dom.js';
+
+	if (!fs.existsSync(file)) {
+		return download(source)
+			.pipe(concat( fileName.reactDom ))
+	    .pipe(gulp.dest(src.scriptsLibFolder))
+			.pipe(notify("React DOM copied"));
+	}
+});
+
+// copy jquery from npm modules
+gulp.task('copy-jquery', function() {
+	let fs = require('fs'),
+      file = src.scriptsLibFolder +'jquery.js';
+
+	if (!fs.existsSync(file)) {
+		return download('https://code.jquery.com/jquery-3.1.1.js')
+			.pipe(concat('jquery.js'))
+		  .pipe(gulp.dest(src.scriptsLibFolder))
+			.pipe(notify("Jquery copied"));
+	}
+});
+
 // copy fonts
 gulp.task('copy-fonts', function(){
 	return gulp.src(src.fonts)
@@ -254,6 +354,8 @@ gulp.task('copy-images', function(){
 
 // check accessibility
 gulp.task('test-accessibility', function() {
+	return;
+
 	let option = { // https://github.com/yargalot/AccessSniff
 		force: true,
 		accessibilityLevel: 'WCAG2AA', //WCAG2A, WCAG2AA, and WCAG2AAA
@@ -275,6 +377,8 @@ gulp.task('test-accessibility', function() {
 
 // w3c validator
 gulp.task('html-validator', function () {
+	return;
+
   return gulp.src(src.htmlsCheck)
     .pipe(htmlv())
     .pipe(gulp.dest('_reports/W3C'));

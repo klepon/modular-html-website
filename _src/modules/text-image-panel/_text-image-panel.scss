@@ -1,10 +1,31 @@
 .text-image-panel.vertical {
-  .row {
-    margin-bottom: $content-padding-md;
+  .detail:not(.padded) {
+    @include paddingQueryScreenAll(0, 0, 0, 0);
+    @include paddingPosQueryScreen("top");
+  }
+
+  .reverse .detail:not(.padded) {
+    @include paddingPosQueryScreen("top", $content-padding-xs, 0, 0, 0);
+    @include paddingPosQueryScreen("bottom", 0);
+    @include paddingPosQueryScreen("right", 0, 0, 0, 0);
   }
 }
 
 .text-image-panel {
+  .row {
+    @include marginPosQueryScreen("bottom");
+    position: relative;
+  }
+
+  .row.no-spacer-bottom {
+    @include marginPosQueryScreen("bottom", 0, 0, 0, 0);
+  }
+
+  .row.overlay .item-footer,
+  .row.overlay .small {
+    display: none;
+  }
+
   .thumbnail-container {
     min-height: 60vw;
     position: relative;
@@ -28,24 +49,90 @@
     }
   }
 
-  .padding-bottom .detail:not(.padded) {
-    padding-top: 0;
+  .row.no-spacer-bottom + .row .detail:not(.padded) {
+    @include paddingPosQueryScreen("top");
+  }
+
+  .row.no-spacer-bottom .detail:not(.padded) {
+    @include paddingPosQueryScreen("bottom", 0);
+  }
+
+  .reverse .detail:not(.padded) {
+    @include paddingPosQueryScreen("left", 0, 0, 0, 0);
+    @include paddingPosQueryScreen("right", 0);
   }
 
   .detail:not(.padded) {
-    padding: $content-padding-xs 0;
+    @include paddingPosQueryScreen("top", $content-padding-xs, 0, 0, 0);
+    @include paddingPosQueryScreen("left", 0 );
   }
 
   .detail h2 {
     margin-bottom: 0;
   }
 
-  .detail .small {
+  .detail h2.small {
+    font-size: $h4-size;
+    line-height: $h4-line-height;
+  }
+
+  .detail .small:not(h2) {
     opacity: 0.7;
   }
 
   .detail p:last-of-type {
     margin-bottom: 0;
+  }
+
+  .item-footer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+  }
+
+  .item-footer .price {
+    display: flex;
+    flex-direction: column-reverse;
+    margin-right: $content-padding-xs;
+  }
+
+  .item-footer .discount,
+  .item-footer .rating {
+    width: 50%;
+    max-width: 150px;
+    display: flex;
+    flex-shrink: 0;
+  }
+
+  .item-footer .discount {
+    flex-direction: column;
+  }
+
+  .item-footer .discount-text {
+    font-size: 150%;
+    font-weight: bold;
+    color: $red;
+  }
+
+  .item-footer .discount .rating,
+  .item-footer .rating {
+    width: 100%;
+    display: flex;
+    margin: ($base-line-height - $content-padding-xs) / 2 0;
+    overflow: hidden;
+  }
+
+  .item-footer .rating .icon {
+    color: $yellow;
+    width: 20px;
+    height: 20px;
+    flex: 0 0 20px;
+  }
+
+  .item-footer .btn {
+    flex-shrink: 0;
+    margin-right: 100%;
+    margin-top: $content-padding-xs;
   }
 }
 
@@ -78,49 +165,12 @@
 
     .detail {
       height: 100%;
+      display: flex;
+      flex-direction: column;
     }
 
-    .reverse .detail:not(.padded),
-    .detail:not(.padded) {
-      padding-left: 0;
-      padding-right: 0;
-    }
-
-    .reverse .detail:not(.padded) {
-      padding-top: 0;
-    }
-
-    .overlay {
-      position: relative;
-      overflow: hidden;
-      display: table;
-    }
-
-    .overlay .thumbnail:hover {
-      width: 100%;
-      height: 100%;
-    }
-
-    .overlay .detail {
-      background: transparent !important;
-      position: absolute;
-      @include overlay();
-      @include pullOverlayBack();
-      top: auto;
-      bottom: -70px;
-      height: auto;
-      max-height: 70px;
-      overflow: hidden;
-      padding: 10px;
-      transition: all 0.28s ease-in-out;
-    }
-
-    .overlay:hover .detail {
-      bottom: 0;
-    }
-
-    .overlay .detail > * {
-      color: $white;
+    .item-footer {
+      margin-top: auto;
     }
   }
 
@@ -129,12 +179,18 @@
       min-height: 0;
     }
 
-    .reverse .detail:not(.padded) {
-      padding: $content-padding-sm $content-padding-sm $content-padding-sm 0;
+    .with-thumbnail .item-footer .discount,
+    .with-thumbnail .item-footer .rating {
+        margin-right: $content-padding-xs;
     }
 
-    .detail:not(.padded) {
-      padding: $content-padding-sm 0 $content-padding-sm $content-padding-sm;
+    .with-thumbnail .item-footer .discount .rating {
+      margin-right: 0;
+    }
+
+    .with-thumbnail .item-footer .btn {
+      margin-right: 0;
+      margin-bottom: ($base-line-height - $content-padding-xs) / 2;
     }
   }
 }
@@ -153,24 +209,58 @@
   }
 
   .text-image-panel {
-    .reverse .detail:not(.padded) {
-      padding: $content-padding-md $content-padding-md $content-padding-md 0;
+    .row.shadow-hover:hover,
+    .row.shadow-hover.hover {
+      box-shadow: $box-shadow;
+      z-index: 1;
+    }
+  }
+}
+
+@media screen and (min-width: $screen-md + 1) {
+  .text-image-panel.vertical {
+    .overlay {
+      overflow: hidden;
+      display: table;
     }
 
-    .detail:not(.padded) {
-      padding: $content-padding-md 0 $content-padding-md $content-padding-md;
+    .overlay .thumbnail:hover {
+      width: 100%;
+      height: 100%;
+    }
+
+    .overlay .detail:not(.padded),
+    .overlay .detail {
+      background: transparent !important;
+      position: absolute;
+      @include overlay();
+      @include pullOverlayBack();
+      top: auto;
+      bottom: -70px;
+      height: auto;
+      max-height: 70px;
+      overflow: hidden;
+      @include paddingQueryScreenAll(0, 0, 10px, 10px, 1);
+      transition: all 0.28s ease-in-out;
+    }
+
+    .overlay:hover .detail {
+      bottom: 0;
+    }
+
+    .overlay .detail > * {
+      color: $white;
+    }
+  }
+
+  .text-image-panel {
+    .row.overlay:hover,
+    .row.overlay.hover {
+      box-shadow: $box-shadow;
+      z-index: 1;
     }
   }
 }
 
 @media screen and (min-width: $screen-lg) {
-  .text-image-panel {
-    .reverse .detail:not(.padded) {
-      padding: $content-padding-lg $content-padding-lg $content-padding-lg 0;
-    }
-
-    .detail:not(.padded) {
-      padding: $content-padding-lg 0 $content-padding-lg $content-padding-lg;
-    }
-  }
 }

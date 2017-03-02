@@ -1,0 +1,27 @@
+{{!--
+* dependency: text-image-panel, use for the listing item
+--}}
+<div class="filtered-listing">
+  <div class="react-app" id="react-app">
+    If you see this, ReactJs is not working.
+  </div>
+
+  <div id="json-text-data" style="display:none;">
+    {{#> json-data-content }}
+      {}
+    {{/json-data-content }}
+  </div>
+</div>
+
+{{#if dev}}
+  <hr />
+  <h2>static view</h2>
+  <p>for developer only, set 'dev = false' to remove this</p>
+  <div class="filtered-listing">
+    <div class="react-app">
+      {{> react-listing-with-filter/filter/filter }}
+      {{> react-listing-with-filter/listing/listing }}
+      {{> react-listing-with-filter/pagination/pagination }}
+    </div>
+  </div>
+{{/if}}

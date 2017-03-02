@@ -1,0 +1,94 @@
+<div class="filter-section">
+  <div class="filter-con col-4">
+    <div class="filter-group">
+      <h3 class="title">filter title 1 {{> svg/svg icon="chevron-down" }}</h3>
+      <p class="filter-item-con">
+        <span class="filter-item checked">
+          {{> svg/svg icon="tick" }}
+          filter name 1 with long name
+        </span>
+        <span class="filter-item">
+          {{> svg/svg icon="tick" }}
+          filter name 2
+        </span>
+        <span class="filter-item">
+          {{> svg/svg icon="tick" }}
+          filter name 3
+        </span>
+        <span class="filter-item">
+          {{> svg/svg icon="tick" }}
+          filter name 4
+        </span>
+      </p>
+    </div>
+
+    <div class="filter-group">
+      <h3 class="title">filter title 2 {{> svg/svg icon="chevron-down" }}</h3>
+      <p class="filter-item-con">
+        <span class="filter-item">
+          {{> svg/svg icon="tick" }}
+          filter name 1
+        </span>
+        <span class="filter-item checked">
+          {{> svg/svg icon="tick" }}
+          filter name 2
+        </span>
+        <span class="filter-item">
+          {{> svg/svg icon="tick" }}
+          filter name 3
+        </span>
+        <span class="filter-item">
+          {{> svg/svg icon="tick" }}
+          filter name 4
+        </span>
+      </p>
+    </div>
+
+    <div class="filter-group">
+      <h3 class="title">filter title 3 {{> svg/svg icon="chevron-down" }}</h3>
+      <p class="filter-item-con">
+        <span class="filter-item">
+          {{> svg/svg icon="tick" }}
+          filter name 1
+        </span>
+        <span class="filter-item">
+          {{> svg/svg icon="tick" }}
+          filter name 2
+        </span>
+        <span class="filter-item checked">
+          {{> svg/svg icon="tick" }}
+          filter name 3
+        </span>
+        <span class="filter-item">
+          {{> svg/svg icon="tick" }}
+          filter name 4
+        </span>
+      </p>
+    </div>
+
+    <div class="filter-group">
+      <label for="react-search-keyword" class="sr-only">Search by keyword</label>
+      <input type="text" id="react-search-keyword" placeholder="search..." />
+    </div>
+  </div>
+
+  <div class="selected-filter">
+    <button class="selected-item white">
+      <span>selected filter 11</span>
+      {{> svg/svg icon="cross" }}
+    </button>
+    <button class="selected-item white">
+      <span>selected filter 12</span>
+      {{> svg/svg icon="cross" }}
+    </button>
+    <span class="separator">&nbsp;</span>
+    <button class="selected-item white">
+      <span>selected filter 21</span>
+      {{> svg/svg icon="cross" }}
+    </button>
+    <button class="selected-item white">
+      <span>selected filter 21</span>
+      {{> svg/svg icon="cross" }}
+    </button>
+  </div>
+</div>

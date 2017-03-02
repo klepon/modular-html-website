@@ -134,6 +134,11 @@ section {
   font-size: 90%;
 }
 
+.through {
+  text-decoration: line-through;
+  opacity: 0.7;
+}
+
 .content-container {
   max-width: $max-width;
   margin-left: auto;
@@ -141,11 +146,11 @@ section {
 }
 
 .padded {
-  padding: $content-padding-xs;
+  @include paddingQueryScreenAll();
 }
 
 .padding-bottom {
-  padding-bottom: $content-padding-xs;
+  @include paddingPosQueryScreen('bottom');
 }
 
 .no-padding {
@@ -185,27 +190,11 @@ section {
   section {
     padding: 0 $content-padding-sm $content-padding-sm;
   }
-
-  .padded {
-      padding: $content-padding-sm;
-  }
-
-  .padding-bottom {
-    padding-bottom: $content-padding-sm;
-  }
 }
 
 @media screen and (min-width: $screen-md) {
   section {
     padding: 0 $content-padding-sm $content-padding-md;
-  }
-
-  .padded {
-      padding: $content-padding-md;
-  }
-
-  .padding-bottom {
-    padding-bottom: $content-padding-md;
   }
 }
 
@@ -219,14 +208,6 @@ section {
   .no-padding,
   section {
     padding: 0 $content-padding-sm $content-padding-lg;
-  }
-
-  .padded {
-      padding: $content-padding-lg;
-  }
-
-  .padding-bottom {
-    padding-bottom: $content-padding-lg;
   }
 }
 

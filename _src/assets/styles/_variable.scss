@@ -16,6 +16,7 @@ $dark         : #222;
 $shades-1     : #f4f4f4;
 $shades-2     : #666;
 $shades-3     : #fefefe;
+$shades-4     : #eee;
 $red          : #ff5930;
 $red-2        : #f06e57;
 $yellow       : #ffcc33;
@@ -46,20 +47,19 @@ $field-border-error       : $red;
 $field-background         : $white;
 $field-background-disabled: $shades-1;
 
-
 // padding and margin
 $content-padding-xs : 2.0rem;
 $content-padding-sm : 2.5rem;
 $content-padding-md : 3.0rem;
 $content-padding-lg : 3.0rem;
 $field-padding      : 1rem;
-$button-padding     : 0 1rem;
+$button-padding     : 0 2rem;
 
 // size
 $icon-size      : 3.5rem;
 $border-radius  : 0.3rem;
 $field-heigth   : 3rem;
-$select-height  : 4rem;
+$select-height  : 5rem;
 
 // font and heading
 $base-font-family : Arimo, sans-serif;
@@ -82,4 +82,5 @@ $base-font-size   : 1.6rem;
 $base-line-height : 2.8rem;
 
 // other
-$box-shadow : 0 5px 12px 0 rgba(34, 34, 34, 0.3);
+$box-shadow       : 0 5px 12px 0 rgba(34, 34, 34, 0.3);
+$box-shadow-field : inset 1px 1px 2px rgba(0, 0, 0, 0.2);

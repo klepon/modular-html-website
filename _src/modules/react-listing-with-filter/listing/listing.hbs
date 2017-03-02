@@ -1,0 +1,85 @@
+<div class="listing-con">
+  <div class="meta-sort">
+    <p>showing 1 - 10 from 100</p>
+    <select>
+      <option val="">sort by</option>
+      <option val="1">sort 1</option>
+      <option val="2">sort 2</option>
+      <option val="3">sort 3</option>
+    </select>
+  </div>
+  
+  {{#> text-image-panel/text-image-panel vertical = true }}
+    {{#*inline "double-side-row" }}
+
+      {{> text-image-panel/text-image-row
+        vertical = true
+        thumbnail = "/assets/images/dummy-content/image-1.jpg"
+        title = "title item 1"
+        link = "#heading-link"
+        smallTitle = true
+        subTitle = "category"
+        subTitleLink = "#sub-title-link"
+        footer = true
+        price = "USD 102.00"
+        discPrice = "USD 99.00"
+        discount = "20% off"
+        rating = 4.5
+        buttonText = "Buy two pay one now"
+        buttonLink = "#button-link"
+        text = "Lorem ipsum dolor sit amet, id has quem dicam. Eam at stet verear expetendis. Odio elit liber per an, delectus apeirian vel ea. Ad vero adipisci vituperata sed, summo docendi accusata et mea."
+      }}
+
+      {{> text-image-panel/text-image-row
+        vertical = true
+        background = "#fcde9c"
+        thumbnail = "/assets/images/dummy-content/image-1.jpg"
+        title = "title item 2"
+        smallTitle = true
+        subTitle = "category"
+        footer = true
+        price = "USD 1,000.00"
+        rating = 2
+        buttonText = "Buy now"
+        buttonLink = "#button-link"
+      }}
+
+    {{/inline}}
+  {{/text-image-panel/text-image-panel }}
+
+  {{#> text-image-panel/text-image-panel}}
+    {{#*inline "double-side-row" }}
+      {{> text-image-panel/text-image-thumbnail
+        reverse = "reverse"
+        thumbnail = "/assets/images/dummy-content/image-1.jpg"
+        title = "item title 1"
+        link = "#heading-link"
+        subTitle = "category"
+        subTitleLink = "#sub-title-link"
+        footer = true
+        price = "USD 102.00"
+        discPrice = "USD 99.00"
+        discount = "20% off"
+        rating = 4.5
+        buttonText = "Buy two pay one now"
+        buttonLink = "#button-link"
+
+        text = "Lorem ipsum dolor sit amet, id has quem dicam. Eam at stet verear expetendis. Odio elit liber per an, delectus apeirian vel ea. Ad vero adipisci vituperata sed, summo docendi accusata et mea."
+      }}
+
+      {{> text-image-panel/text-image-thumbnail
+        reverse = "reverse"
+        background = "#fcde9c"
+        thumbnail = "/assets/images/dummy-content/image-1.jpg"
+        title = "title item 2"
+        smallTitle = true
+        subTitle = "category"
+        footer = true
+        price = "USD 1,000.00"
+        rating = 2
+        buttonText = "Buy now"
+        buttonLink = "#button-link"
+      }}
+    {{/inline}}
+  {{/text-image-panel/text-image-panel }}
+</div>
