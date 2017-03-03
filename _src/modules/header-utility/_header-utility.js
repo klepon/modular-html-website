@@ -87,9 +87,21 @@ function toggleMenu() {
   });
 }
 
+function copyMainMenu() {
+  let mainNav = $('header .main-menu ul'),
+    mainNavMobile = $('header .main-menu-mobile');
+  if( mainNav.length === 0 ) {
+    return;
+  }
+
+  mainNavMobile.html("");
+  mainNav.clone().appendTo(mainNavMobile);
+}
+
 $(function(){
   selectLanguage();
   doSearch();
   showSearch();
   toggleMenu();
+  copyMainMenu();
 });

@@ -131,3 +131,65 @@ header {
     transform: rotate(180deg);
   }
 }
+
+header .main-menu-mobile {
+  a {
+    font-weight: bold;
+  }
+}
+
+header .main-menu {
+  ul {
+      display: none;
+      justify-content: flex-end;
+      padding-top: 10px;
+      margin-bottom: 0;
+      text-transform: uppercase;
+      font-size: 90%;
+      font-weight: bold;
+  }
+
+  li {
+      list-style: none;
+  }
+
+  a {
+      margin-left: 20px;
+  }
+}
+
+
+@media screen and (min-width: $screen-sm) {
+  header {
+    .site-identity {
+        display: flex;
+    }
+
+    .logo {
+        margin-right: $content-padding-xs;
+    }
+
+    .text {
+        display: block;
+    }
+
+    .text p {
+        margin: 0;
+    }
+
+    .text .site-desc {
+        font-size: 80%;
+        line-height: 1.8rem; /* relay on logo height */
+    }
+  }
+
+  header .main-menu-mobile {
+    display: none;
+  }
+
+  header .main-menu {
+    ul {
+        display: flex;
+    }
+  }
+}
