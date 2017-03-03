@@ -37,7 +37,7 @@ dist = {
 	styles	: 'dist/assets/styles/',
 	scripts	: 'dist/assets/scripts/',
 	images	: 'dist/assets/images/',
-	fonts		: 'dist/fonts/',
+	fonts		: 'dist/assets/fonts/',
 	htmls 	: 'dist/',
 },
 

@@ -12,6 +12,8 @@
 header {
   margin-top: $content-padding-xs * -2;
 
+  .site-identity img,
+  .site-identity svg,
   .logo {
     width: auto;
     height: 50px;
@@ -165,6 +167,8 @@ header .main-menu {
         display: flex;
     }
 
+    .site-identity img,
+    .site-identity svg,
     .logo {
         margin-right: $content-padding-xs;
     }
