@@ -107,8 +107,9 @@ img {
   height: auto;
 }
 
-section {
-  padding: 0 $content-padding-xs $content-padding-xs;
+.section {
+  @include paddingQueryScreenAll();
+  @include paddingPosQueryScreen('top', 0, 0, 0, 0);
 }
 
 .hide {
@@ -183,18 +184,6 @@ section {
   &::before {
     z-index: 5;
     opacity: 0.4;
-  }
-}
-
-@media screen and (min-width: $screen-sm) {
-  section {
-    padding: 0 $content-padding-sm $content-padding-sm;
-  }
-}
-
-@media screen and (min-width: $screen-md) {
-  section {
-    padding: 0 $content-padding-sm $content-padding-md;
   }
 }
 

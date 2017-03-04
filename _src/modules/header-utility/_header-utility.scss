@@ -1,6 +1,6 @@
 .show-search-form {
   .header-utility-search {
-    max-height: 84px;
+    max-height: 150px;
   }
 
   .overlay-button {
@@ -21,13 +21,13 @@
   transition: max-height 0.18s ease-in;
   z-index: 10;
   position: relative;
-  padding-bottom: 0;
+  @include paddingPosQueryScreen('bottom', 0, 0, 0, 0);
 
   .content-container {
     padding-top: $content-padding-sm;
     padding-bottom: $content-padding-sm;
     display: flex;
-    height: 84px;
+    align-items: center;
   }
 
   label {
@@ -52,8 +52,8 @@
 }
 
 .header-utility-link {
-  padding-bottom: 0;
-  padding-top: $content-padding-xs;
+  @include paddingPosQueryScreen('bottom', 0, 0, 0, 0);
+  @include paddingPosQueryScreen('top');
 
   .content-container {
     display: flex;
@@ -79,23 +79,5 @@
 
   select {
     height: $field-heigth;
-  }
-}
-
-@media screen and (min-width: $screen-sm) {
-  .header-utility-link {
-    padding-top: $content-padding-sm;
-  }
-}
-
-@media screen and (min-width: $screen-md) {
-  .header-utility-link {
-    padding-top: $content-padding-md;
-  }
-}
-
-@media screen and (min-width: $screen-lg) {
-  .header-utility-link {
-    padding-top: $content-padding-lg;
   }
 }
