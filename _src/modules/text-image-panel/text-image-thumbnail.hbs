@@ -24,7 +24,7 @@
 
   <div class="detail col-two {{#if background}} padded{{/if}}"{{#if background}} style="background-color:{{background}};"{{/if}}>
     {{#if title }}
-      <h2>
+      <h2{{#if smallTitle }} class="small"{{/if}}>
         {{#if link}}
           <a href="{{link}}" title="{{title}}">
         {{/if }}

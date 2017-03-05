@@ -10,7 +10,9 @@
 }
 
 header {
-  margin-top: $content-padding-xs * -2;
+  &.site-header {
+    margin-top: $content-padding-xs * -2;
+  }
 
   .site-identity img,
   .site-identity svg,

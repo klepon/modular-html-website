@@ -45,11 +45,11 @@
       width: calc(50% - #{$content-padding-sm / 2});
     }
 
-    &.two-col-sidebar .col-one {
+    &.two-col-sidebar .col-one:not(.thumbnail-container) {
       width: calc(30% - #{$content-padding-sm / 2});
     }
 
-    &.two-col-sidebar .col-two {
+    &.two-col-sidebar .col-two:not(.detail) {
       width: calc(70% - #{$content-padding-sm / 2});
     }
 
@@ -65,8 +65,4 @@
       width: calc(25% - #{$content-padding-md / 2});
     }
   }
-}
-
-@media screen and (min-width: $screen-lg) {
-
 }
