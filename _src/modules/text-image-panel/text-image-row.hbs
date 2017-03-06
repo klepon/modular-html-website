@@ -22,7 +22,13 @@
 --}}
 <div class="row {{ reverse }}{{#if overlay }} overlay{{/if}} {{#if noSpacerBottom}}no-spacer-bottom{{/if}}{{#if background}} shadow-hover{{/if}}">
   <div class="thumbnail-container{{#unless vertical }} col-50{{/unless}}">
-    <div class="thumbnail" style="background-image:url({{ thumbnail }})">&nbsp;</div>
+    {{#if link}}
+      <a href="{{link}}" title="{{title}}" class="thumbnail" style="background-image:url({{ thumbnail }})">&nbsp;</a>
+    {{/if}}
+
+    {{#unless link}}
+      <div class="thumbnail" style="background-image:url({{ thumbnail }})">&nbsp;</div>
+    {{/unless}}
   </div>
 
   <div class="detail{{#unless vertical }} col-50{{/unless}}{{#if background }} padded{{/if}}"{{#if background }} style="background-color:{{ background }};"{{/if}}>
