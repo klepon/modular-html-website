@@ -62,9 +62,17 @@
     @include paddingPosQueryScreen("right", 0);
   }
 
+  .reverse.full-detail .detail:not(.padded) {
+    @include paddingPosQueryScreen("right", 0, 0, 0, 0);
+  }
+
   .detail:not(.padded) {
     @include paddingPosQueryScreen("top", $content-padding-xs, 0, 0, 0);
     @include paddingPosQueryScreen("left", 0 );
+  }
+
+  .full-detail .detail:not(.padded) {
+    @include paddingPosQueryScreen("left", 0, 0, 0, 0);
   }
 
   .detail h2 {

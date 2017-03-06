@@ -17,7 +17,7 @@
 * discount: discount text ie: 0% off
 * rating: product rating 0 - 5, increament 0.5
 --}}
-<div class="row {{reverse}} with-thumbnail {{#if noSpacerBottom}}no-spacer-bottom{{/if}}{{#if background}} shadow-hover{{/if}}">
+<div class="row{{#if thumbnail}} with-thumbnail{{/if}}{{#unless thumbnail}} full-detail{{/unless}}{{#if noSpacerBottom}} no-spacer-bottom{{/if}}{{#if background}} shadow-hover{{/if}} {{reverse}}">
   <div class="thumbnail-container col-one">
     <div class="thumbnail" style="background-image:url({{thumbnail}})">&nbsp;</div>
   </div>

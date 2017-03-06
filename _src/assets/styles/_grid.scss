@@ -56,6 +56,14 @@
     &.three-cols .col-item {
       width: calc(100% / 3 - #{$content-padding-sm / 2});
     }
+
+    &.full-detail .col-one {
+      display: none;
+    }
+
+    &.full-detail .col-two {
+      width: 100%;
+    }
   }
 }
 
@@ -63,6 +71,14 @@
   .row {
     &.four-cols .col-item {
       width: calc(25% - #{$content-padding-md / 2});
+    }
+
+    &.full-detail .col-one {
+      display: none;
+    }
+
+    &.full-detail .col-two {
+      width: 100%;
     }
   }
 }
