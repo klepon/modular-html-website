@@ -1,0 +1,31 @@
+.btn-text {
+    text-decoration: underline;
+}
+
+.btn:not(.btn-text),
+button:not(.btn-text) {
+  display: inline-block;
+  border: none;
+  padding: $button-padding;
+  box-sizing: content-box;
+  border-radius: $border-radius;
+  background-color: $button-background;
+  color: $button-color;
+  height: $select-height;
+  line-height: $select-height;
+
+  &:hover {
+    box-shadow: $box-shadow;
+    border-color: $button-border-hover;
+    background-color: $button-background-hover;
+    color: $button-color;
+  }
+
+  &.white {
+    border: solid 1px $shades-4;
+    background-color: $white;
+    color: $dark;
+
+
+  }
+}

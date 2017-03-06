@@ -83,10 +83,6 @@ a {
   &:hover:not(.disabled) svg.icon {
     color: $link-color-hover;
   }
-
-  &.btn:hover {
-    color: $button-color;
-  }
 }
 
 svg.icon {
@@ -125,10 +121,6 @@ img {
   overflow: hidden;
   clip: rect(0,0,0,0);
   border: 0;
-}
-
-.btn {
-  display: inline-block;
 }
 
 .small {
