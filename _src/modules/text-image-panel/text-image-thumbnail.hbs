@@ -17,15 +17,30 @@
 * discPrice: product price after discount
 * discount: discount text ie: 0% off
 * rating: product rating 0 - 5, increament 0.5
+* trueImage: set true to use real image insted of image background
 --}}
-<div class="row{{#if thumbnail}} with-thumbnail{{/if}}{{#unless thumbnail}} full-detail{{/unless}}{{#if noSpacerBottom}} no-spacer-bottom{{/if}}{{#if background}} shadow-hover{{/if}} {{reverse}}">
+<div class="row{{#if trueImage}} still-image{{/if}}{{#if thumbnail}} with-thumbnail{{/if}}{{#unless thumbnail}} full-detail{{/unless}}{{#if noSpacerBottom}} no-spacer-bottom{{/if}}{{#if background}} shadow-hover{{/if}} {{reverse}}">
   <div class="thumbnail-container col-one">
-    {{#if link}}
-      <a href="{{link}}" title="{{title}}" class="thumbnail" style="background-image:url({{ thumbnail }})">&nbsp;</a>
+    {{#if trueImage}}
+      {{#if link}}
+        <a href="{{link}}" title="{{title}}" class="thumbnail">
+          <img src="{{ thumbnail }}" alt="{{title}}" />
+        </a>
+      {{/if}}
+
+      {{#unless link}}
+        <img src="{{ thumbnail }}" alt="" />
+      {{/unless}}
     {{/if}}
 
-    {{#unless link}}
-      <div class="thumbnail" style="background-image:url({{ thumbnail }})">&nbsp;</div>
+    {{#unless trueImage}}
+      {{#if link}}
+        <a href="{{link}}" title="{{title}}" class="thumbnail" style="background-image:url({{ thumbnail }})">&nbsp;</a>
+      {{/if}}
+
+      {{#unless link}}
+        <div class="thumbnail" style="background-image:url({{ thumbnail }})">&nbsp;</div>
+      {{/unless}}
     {{/unless}}
   </div>
 

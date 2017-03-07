@@ -1,4 +1,4 @@
-.text-image-panel.vertical {
+.tiles.vertical {
   .detail:not(.padded) {
     @include paddingQueryScreenAll(0, 0, 0, 0);
     @include paddingPosQueryScreen("top");
@@ -11,7 +11,7 @@
   }
 }
 
-.text-image-panel {
+.tiles {
   .row {
     @include marginPosQueryScreen("bottom");
     position: relative;
@@ -42,11 +42,11 @@
     top: 50%;
     transform: translate(-50%, -50%);
     transition: all 0.18s ease-in;
+  }
 
-    &:hover {
-      width: 130%;
-      height: 130%;
-    }
+  .row:not(.still-image):hover .thumbnail {
+    width: 130%;
+    height: 130%;
   }
 
   .row.no-spacer-bottom + .row .detail:not(.padded) {
@@ -145,7 +145,7 @@
 }
 
 @media screen and (min-width: $screen-sm) {
-  .one-col .text-image-panel.vertical {
+  .one-col .tiles.vertical {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -155,7 +155,7 @@
     }
   }
 
-  .text-image-panel.vertical {
+  .tiles.vertical {
     .row {
       flex-direction: column;
       justify-content: flex-start;
@@ -182,7 +182,7 @@
     }
   }
 
-  .text-image-panel {
+  .tiles {
     .thumbnail-container {
       min-height: 0;
     }
@@ -204,19 +204,19 @@
 }
 
 @media screen and (min-width: $screen-md) {
-  .one-col .text-image-panel.vertical {
+  .one-col .tiles.vertical {
     .row {
       width: calc(100% / 3 - #{$content-padding-sm / 2});
     }
   }
 
-  .four-cols .text-image-panel.vertical {
+  .four-cols .tiles.vertical {
     .thumbnail-container {
       height: 150px;
     }
   }
 
-  .text-image-panel {
+  .tiles {
     .row.shadow-hover:hover,
     .row.shadow-hover.hover {
       box-shadow: $box-shadow;
@@ -226,7 +226,7 @@
 }
 
 @media screen and (min-width: $screen-md + 1) {
-  .text-image-panel.vertical {
+  .tiles.vertical {
     .overlay {
       overflow: hidden;
       display: table;
@@ -261,14 +261,11 @@
     }
   }
 
-  .text-image-panel {
+  .tiles {
     .row.overlay:hover,
     .row.overlay.hover {
       box-shadow: $box-shadow;
       z-index: 1;
     }
   }
-}
-
-@media screen and (min-width: $screen-lg) {
 }

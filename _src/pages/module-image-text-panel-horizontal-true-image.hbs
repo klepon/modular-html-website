@@ -1,0 +1,224 @@
+{{#> master
+  title="Image text horizontal Template" }}
+  {{#*inline "content-body" }}
+
+    {{#> section-one-col cssModifier = "no-padding-bottom"}}
+      {{#*inline "content-section" }}
+
+        {{> heading/title
+          h3 = true
+          title="horizontal image text in one col"
+        }}
+      {{/inline}}
+    {{/section-one-col }}
+
+    {{!-- one col --}}
+    {{#> section-one-col}}
+      {{#*inline "content-section" }}
+
+        {{#> text-image-panel/text-image-panel}}
+          {{#*inline "double-side-row" }}
+            {{> text-image-panel/text-image-row
+              thumbnail = "/assets/images/dummy-content/image-1.jpg"
+              title = ""
+              smallTitel = true
+              background = "#fff"
+              buttonText = "read more"
+              buttonLink = "#"
+              buttonClass = "white"
+              text = "Lorem ipsum dolor sit amet, id has quem dicam. Eam at stet verear expetendis. Odio elit liber per an, delectus apeirian vel ea. Ad vero adipisci vituperata sed, summo docendi accusata et mea."
+            }}
+
+            {{> text-image-panel/text-image-row
+              reverse = "reverse"
+              thumbnail = "/assets/images/dummy-content/image-1.jpg"
+              title = "panel heading 1"
+              link = "#title-link"
+              smallTitle = true
+              subTitle = "category"
+              subTitleLink = "#sub-title-link"
+              footer = true
+              price = "USD 102.00"
+              discPrice = "USD 99.00"
+              discount = "20% off"
+              rating = 4.5
+              buttonText = "Buy two pay one now"
+              buttonLink = "?addProductID=1"
+              text = "Lorem ipsum dolor sit amet, id has quem dicam. Eam at stet verear expetendis. Odio elit liber per an, delectus apeirian vel ea. Ad vero adipisci vituperata sed, summo docendi accusata et mea."
+            }}
+
+            {{> text-image-panel/text-image-row
+              thumbnail = "/assets/images/dummy-content/image-1.jpg"
+              title = "panel heading 2"
+              subTitle = "sub title text"
+              text = "Lorem ipsum dolor sit amet, id has quem dicam. Eam at stet verear expetendis. Odio elit liber per an, delectus apeirian vel ea. Ad vero adipisci vituperata sed, summo docendi accusata et mea."
+              buttonText = "read more"
+              buttonLink = "#"
+              buttonClass = "btn-text"
+            }}
+
+            {{> text-image-panel/text-image-row
+              thumbnail = "/assets/images/dummy-content/image-1.jpg"
+              title = ""
+              text = "Panel with no padding bottom lorem ipsum dolor sit amet, id has quem dicam. Eam at stet verear expetendis. Odio elit liber per an, delectus apeirian vel ea. Ad vero adipisci vituperata sed, summo docendi accusata et mea."
+              noSpacerBottom = true
+            }}
+
+            {{> text-image-panel/text-image-row
+              reverse = "reverse"
+              thumbnail = "/assets/images/dummy-content/image-1.jpg"
+              title = ""
+              text = "Panel with no padding bottom lorem ipsum dolor sit amet, id has quem dicam. Eam at stet verear expetendis. Odio elit liber per an, delectus apeirian vel ea. Ad vero adipisci vituperata sed, summo docendi accusata et mea."
+              noSpacerBottom = true
+            }}
+
+            {{> text-image-panel/text-image-row
+              thumbnail = "/assets/images/dummy-content/image-1.jpg"
+              title = ""
+              text = "Panel with no padding bottom lorem ipsum dolor sit amet, id has quem dicam. Eam at stet verear expetendis. Odio elit liber per an, delectus apeirian vel ea. Ad vero adipisci vituperata sed, summo docendi accusata et mea."
+              background = "#fff"
+              noSpacerBottom = true
+            }}
+
+            {{> text-image-panel/text-image-row
+              reverse = "reverse"
+              thumbnail = "/assets/images/dummy-content/image-1.jpg"
+              title = ""
+              text = "Panel with no padding bottom lorem ipsum dolor sit amet, id has quem dicam. Eam at stet verear expetendis. Odio elit liber per an, delectus apeirian vel ea. Ad vero adipisci vituperata sed, summo docendi accusata et mea."
+              background = "#fff"
+            }}
+          {{/inline}}
+        {{/text-image-panel/text-image-panel }}
+
+      {{/inline}}
+    {{/section-one-col }}
+
+    {{#> section-one-col cssModifier = "no-padding-bottom"}}
+      {{#*inline "content-section" }}
+
+        {{> heading/title
+          h3 = true
+          title="horizontal image text in one col with thumbnail image"
+        }}
+      {{/inline}}
+    {{/section-one-col }}
+
+    {{!-- one col --}}
+    {{#> section-one-col}}
+      {{#*inline "content-section" }}
+
+        {{#> text-image-panel/text-image-panel}}
+          {{#*inline "double-side-row" }}
+            {{> text-image-panel/text-image-thumbnail
+              trueImage = "true"
+              reverse = "reverse"
+              thumbnail = "/assets/images/dummy-content/image-1.jpg"
+              title = ""
+              background = "#fff"
+              text = "Lorem ipsum dolor sit amet, id has quem dicam. Eam at stet verear expetendis. Odio elit liber per an, delectus apeirian vel ea. Ad vero adipisci vituperata sed, summo docendi accusata et mea."
+            }}
+
+            {{> text-image-panel/text-image-thumbnail
+              trueImage = "true"
+              thumbnail = "/assets/images/dummy-content/image-1.jpg"
+              title = "panel heading 1"
+              link = "#"
+              subTitle = "sub title text"
+              footer = true
+              price = "USD 102.00"
+              discPrice = "USD 99.00"
+              discount = "20% off"
+              rating = 4.5
+              buttonText = "Buy two pay one now"
+              buttonLink = "?addProductID=1"
+              text = "Lorem ipsum dolor sit amet, id has quem dicam. Eam at stet verear expetendis. Odio elit liber per an, delectus apeirian vel ea. Ad vero adipisci vituperata sed, summo docendi accusata et mea."
+            }}
+
+            {{> text-image-panel/text-image-thumbnail
+              trueImage = "true"
+              thumbnail = "/assets/images/dummy-content/image-1.jpg"
+              title = "panel heading 2"
+              subTitle = "sub title text"
+              text = "Lorem ipsum dolor sit amet, id has quem dicam. Eam at stet verear expetendis. Odio elit liber per an, delectus apeirian vel ea. Ad vero adipisci vituperata sed, summo docendi accusata et mea."
+            }}
+
+            {{> text-image-panel/text-image-thumbnail
+              trueImage = "true"
+              title = "panel heading 3"
+              subTitle = "sub title text"
+              text = "Lorem ipsum dolor sit amet, id has quem dicam. Eam at stet verear expetendis. Odio elit liber per an, delectus apeirian vel ea. Ad vero adipisci vituperata sed, summo docendi accusata et mea."
+            }}
+
+            {{> text-image-panel/text-image-thumbnail
+              trueImage = "true"
+              reverse = "reverse"
+              title = "panel heading 4"
+              subTitle = "sub title text"
+              text = "Lorem ipsum dolor sit amet, id has quem dicam. Eam at stet verear expetendis. Odio elit liber per an, delectus apeirian vel ea. Ad vero adipisci vituperata sed, summo docendi accusata et mea."
+            }}
+          {{/inline}}
+        {{/text-image-panel/text-image-panel }}
+
+      {{/inline}}
+    {{/section-one-col }}
+
+    {{#> section-one-col cssModifier = "no-padding-bottom"}}
+      {{#*inline "content-section" }}
+
+        {{> heading/title
+          h3 = true
+          title="horizontal image text in two col sidebar"
+        }}
+      {{/inline}}
+    {{/section-one-col }}
+
+    {{!-- two col sidebar --}}
+    {{#> section-two-col ratio="sidebar"}}
+      {{#*inline "content-section-one" }}
+        {{> wysiwyg/simple-lorem title="two col" }}
+      {{/inline}}
+
+      {{#*inline "content-section-two" }}
+
+        {{#> text-image-panel/text-image-panel}}
+          {{#*inline "double-side-row" }}
+
+            {{> text-image-panel/text-image-row
+              thumbnail = "/assets/images/dummy-content/image-1.jpg"
+              title = ""
+              background = "#fff"
+              text = "Lorem ipsum dolor sit amet, id has quem dicam. Eam at stet verear expetendis. Odio elit liber per an, delectus apeirian vel ea. Ad vero adipisci vituperata sed, summo docendi accusata et mea."
+            }}
+
+            {{> text-image-panel/text-image-row
+              reverse = "reverse"
+              thumbnail = "/assets/images/dummy-content/image-1.jpg"
+              title = ""
+              background = "#fff"
+              text = "Lorem ipsum dolor sit amet, id has quem dicam. Eam at stet verear expetendis. Odio elit liber per an, delectus apeirian vel ea. Ad vero adipisci vituperata sed, summo docendi accusata et mea."
+            }}
+
+            {{> text-image-panel/text-image-thumbnail
+              trueImage = "true"
+              thumbnail = "/assets/images/dummy-content/image-1.jpg"
+              title = "thumbnail panel heading 1"
+              link = "#"
+              subTitle = "sub title text"
+              footer = true
+              price = "USD 102.00"
+              discPrice = "USD 99.00"
+              discount = "20% off"
+              rating = 4.5
+              buttonText = "Buy two pay one now"
+              buttonLink = "?addProductID=1"
+              text = "Lorem ipsum dolor sit amet, id has quem dicam. Eam at stet verear expetendis. Odio elit liber per an, delectus apeirian vel ea. Ad vero adipisci vituperata sed, summo docendi accusata et mea."
+            }}
+
+          {{/inline}}
+        {{/text-image-panel/text-image-panel }}
+
+      {{/inline}}
+    {{/section-two-col}}
+
+  {{/inline}}
+{{/master }}
