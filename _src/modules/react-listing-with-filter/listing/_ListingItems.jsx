@@ -33,7 +33,7 @@ class ListingItems extends React.Component {
           { this.renderSort() }
         </div>
 
-        <div className={`text-image-panel ${this.getPanelType()}`}>
+        <div className={`tiles ${this.getPanelType()}`}>
           {this.props.items}
         </div>
       </div>

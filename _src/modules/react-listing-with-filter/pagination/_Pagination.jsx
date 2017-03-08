@@ -6,7 +6,7 @@ class Pagination extends React.Component {
 
     let nav = [],
       disabled = "",
-      active = "",
+      current = "",
       i = 1,
       n = Math.ceil(this.props.total / this.props.data.options.perPage)
       ;
@@ -15,11 +15,11 @@ class Pagination extends React.Component {
     nav.push(<a onClick={(event) => this.props.updatePage(event, this.props.page - 1)} key="0" href="#" title="" className={`previous ${disabled}`}><Icon icon="chevron-left" /></a>);
 
     for(i; i <= n; i++) {
-      active = i === this.props.page ? "active" : "";
+      current = i === this.props.page ? "current" : "";
       let pageLink = i;
 
       nav.push(
-        <a onClick={(event) => this.props.updatePage(event, pageLink)} key={i} href="#" title="" className={active}>{i}</a>
+        <a onClick={(event) => this.props.updatePage(event, pageLink)} key={i} href="#" title="" className={current}>{i}</a>
       );
     }
 
