@@ -175,10 +175,6 @@
     {{!-- two col sidebar --}}
     {{#> section-two-col ratio="sidebar"}}
       {{#*inline "content-section-one" }}
-        {{> wysiwyg/simple-lorem title="two col" }}
-      {{/inline}}
-
-      {{#*inline "content-section-two" }}
 
         {{#> text-image-panel/text-image-panel}}
           {{#*inline "double-side-row" }}
@@ -216,7 +212,10 @@
 
           {{/inline}}
         {{/text-image-panel/text-image-panel }}
+      {{/inline}}
 
+      {{#*inline "content-section-two" }}
+        {{> wysiwyg/simple-lorem title="two col" }}
       {{/inline}}
     {{/section-two-col}}
 

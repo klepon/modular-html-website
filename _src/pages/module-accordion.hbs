@@ -54,10 +54,6 @@
     {{!-- two col sidebar --}}
     {{#> section-two-col ratio="sidebar"}}
       {{#*inline "content-section-one" }}
-        {{> wysiwyg/simple-lorem title="two col" }}
-      {{/inline}}
-
-      {{#*inline "content-section-two" }}
         {{#> accordion/accordion }}
           {{#*inline "accordion-item-content"}}
 
@@ -79,6 +75,10 @@
 
           {{/inline}}
         {{/accordion/accordion }}
+      {{/inline}}
+
+      {{#*inline "content-section-two" }}
+        {{> wysiwyg/simple-lorem title="two col" }}
       {{/inline}}
     {{/section-two-col}}
 
