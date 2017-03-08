@@ -9,12 +9,6 @@
 }
 @media screen and (min-width: $screen-sm) {
   .section-inner.row {
-    flex-direction: row-reverse;
-
-    &.reverse {
-      flex-direction: row;
-    }
-
     > .col-one {
       width: 70%;
     }
