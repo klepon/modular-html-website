@@ -61,11 +61,13 @@ select {
   height: $select-height;
   background: transparent;
   border-radius: $border-radius;
+  width: 100%;
 }
 
 textarea {
   min-height: $content-padding-xs * 5;
   padding: $field-padding;
+  width: 100%;
 }
 
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
