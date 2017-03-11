@@ -1,0 +1,22 @@
+{{#> master
+  title="Pagination Template" }}
+  {{#*inline "content-body" }}
+
+    {{!-- one col --}}
+    {{#> section-one-col}}
+      {{#*inline "content-section" }}
+        <h3>number pagination</h3>
+        {{> react-listing-with-filter/pagination/pagination }}
+      {{/inline}}
+    {{/section-one-col }}
+
+    {{!-- one col --}}
+    {{#> section-one-col}}
+      {{#*inline "content-section" }}
+        <h3>prev next pagination</h3>
+        {{> prev-next/prev-next }}
+      {{/inline}}
+    {{/section-one-col }}
+
+  {{/inline}}
+{{/master }}

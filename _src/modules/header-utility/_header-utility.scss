@@ -48,6 +48,10 @@
 
   .icon.cross {
     cursor: pointer;
+
+    &:hover {
+      color: $link-color-hover;
+    }
   }
 }
 

@@ -44,7 +44,6 @@ input {
   border-radius: $border-radius;
   padding: $field-padding;
   box-shadow: $box-shadow-field;
-  width: 100%;
   line-height: $base-line-height;
 
   &:focus {
@@ -54,6 +53,10 @@ input {
   &:disabled {
     background: $field-background-disabled;
   }
+}
+
+input:not([type="submit"]) {
+  width: 100%;
 }
 
 select {

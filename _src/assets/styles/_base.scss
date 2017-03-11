@@ -180,6 +180,10 @@ img {
   }
 }
 
+.box-shadow {
+  box-shadow: $box-shadow;
+}
+
 @media screen and (min-width: $screen-md + 1) {
   .no-padding {
     padding: 0 $content-padding-sm $content-padding-md;
@@ -187,8 +191,7 @@ img {
 }
 
 @media screen and (min-width: $screen-lg) {
-  .no-padding,
-  section {
+  .no-padding {
     padding: 0 $content-padding-sm $content-padding-lg;
   }
 }

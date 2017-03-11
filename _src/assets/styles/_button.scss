@@ -3,7 +3,8 @@
 }
 
 .btn:not(.btn-text),
-button:not(.btn-text) {
+button:not(.btn-text),
+input[type="submit"] {
   display: inline-block;
   border: none;
   padding: $button-padding;

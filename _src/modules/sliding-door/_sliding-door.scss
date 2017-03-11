@@ -36,10 +36,10 @@
     align-items: center;
     padding: 0 $content-padding-xs;
     transition: width 0.18s ease-in-out;
-    box-shadow: -2px 4px 8px 0px rgba(0,0,0,.2);
 
     &:hover {
       @include activeState();
+      color: inherit;
     }
   }
 
@@ -48,7 +48,11 @@
   }
 
   .dark {
-    color: $white
+    color: $white;
+
+    &:hover {
+      color: $white;
+    }
   }
 
   .active {

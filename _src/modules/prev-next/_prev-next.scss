@@ -1,0 +1,13 @@
+.prev-next {
+    display: flex;
+    justify-content: space-between;
+
+    a {
+        display: flex;
+        align-items: center;
+    }
+
+    a h4 {
+        margin-bottom: 0;
+    }
+}
