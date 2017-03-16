@@ -21,20 +21,24 @@ $ gulp test-accessibility
 $ gulp html-validator
 
 # modules
-accordion
+Accordion
 
-article text
+Article text
 
-slick carousel
+Slick carousel
 
-form
+Generic form
 
-popup
+Modal popup
 
-sliding door
+Sliding door
 
-tabs
+Tabs
 
-multi implementation text image panel
+Multi implementation text image panel
 
-rich text editor / wysiwyg
+Rich text editor / wysiwyg
+
+Prev-next navigation
+
+React listing with filter
