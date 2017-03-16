@@ -1,4 +1,4 @@
-footer {
+.footer {
   border-top: solid 3px $primary;
   background-color: $base-content-background;
 
@@ -65,7 +65,7 @@ footer {
 }
 
 @media screen and (min-width: $screen-sm) {
-  footer {
+  .footer {
     .link-container {
       padding-top: $content-padding-sm;
       flex-wrap: wrap;
@@ -80,7 +80,7 @@ footer {
 }
 
 @media screen and (min-width: $screen-md) {
-  footer {
+  .footer {
     .link-container {
       padding-top: $content-padding-md;
     }
@@ -109,7 +109,7 @@ footer {
 }
 
 @media screen and (min-width: $screen-lg) {
-  footer {
+  .footer {
     .link-container {
       padding-top: $content-padding-lg;
     }

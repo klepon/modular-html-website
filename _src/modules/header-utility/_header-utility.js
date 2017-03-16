@@ -8,8 +8,8 @@ function selectLanguage() {
 }
 
 function doSearch() {
-  let uri = '?s=',
-    input = $('#site-search');
+  let input = $('#site-search'),
+    uri = input.data('url') +'?s=';
 
   $('.header-utility-search button').click(function(e){
     window.location.href = uri + input.val();
