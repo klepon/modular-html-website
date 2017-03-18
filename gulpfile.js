@@ -282,9 +282,6 @@ gulp.task('handlebars', ['compile-hbs'], function() {
 });
 
 gulp.task('compile-hbs', function() {
-
-	console.log(production);
-
 	const templateData = {
 			dev: production
 		},
