@@ -1,3 +1,26 @@
+.link-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: $content-padding-xs;
+
+  &:not(.icon-group) a {
+    border-bottom: solid 1px $secondary-2;
+
+    &:first-of-type {
+      border-top: solid 1px $secondary-2;
+    }
+  }
+
+  a {
+    padding: $content-padding-xs;
+    @include hover-block-a();
+  }
+
+  strong {
+    padding: $content-padding-xs $content-padding-xs / 2 $content-padding-xs / 2;
+  }
+}
+
 .footer {
   border-top: solid 3px $primary;
   background-color: $base-content-background;
@@ -6,29 +29,6 @@
     padding-top: $content-padding-xs;
     display: flex;
     flex-direction: column;
-  }
-
-  .link-group {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: $content-padding-xs;
-  }
-
-  .link-group a {
-    padding: $content-padding-xs;
-    @include hover-block-a();
-  }
-
-  .link-group:not(.icon-group) a {
-    border-bottom: solid 1px $secondary-2;
-
-    &:first-of-type {
-      border-top: solid 1px $secondary-2;
-    }
-  }
-
-  .link-group strong {
-    padding: $content-padding-xs $content-padding-xs / 2 $content-padding-xs / 2;
   }
 
   .with-icon a {
