@@ -1,5 +1,5 @@
-// set tru for production
-let production = false,
+// set true for production
+let production = true,
 
 // source files
 src = {
@@ -284,7 +284,7 @@ gulp.task('handlebars', ['compile-hbs'], function() {
 
 gulp.task('compile-hbs', function() {
 	const templateData = {
-			dev: true
+			dev: false
 		},
 		options = {
 			partialsDirectory : src.modules
@@ -303,7 +303,7 @@ gulp.task('copy-react', function() {
       file = src.scriptsLibFolder + fileName.react,
 			source = production ? 'https://unpkg.com/react/dist/react.min.js' : 'https://unpkg.com/react/dist/react.js';
 
-  if (!fs.existsSync(file)) {
+  if (!fs.existsSync(file) || production) {
 		return download(source)
 			.pipe(concat( fileName.react ))
 			.pipe(gulp.dest(src.scriptsLibFolder))
@@ -317,7 +317,7 @@ gulp.task('copy-react-dom', function() {
       file = src.scriptsLibFolder + fileName.reactDom,
 			source = production ? 'https://unpkg.com/react-dom/dist/react-dom.min.js' : 'https://unpkg.com/react-dom/dist/react-dom.js';
 
-	if (!fs.existsSync(file)) {
+	if (!fs.existsSync(file) || production) {
 		return download(source)
 			.pipe(concat( fileName.reactDom ))
 	    .pipe(gulp.dest(src.scriptsLibFolder))

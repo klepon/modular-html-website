@@ -8,7 +8,11 @@ $ npm install
 $ gulp
 
 # build for production
+set production to true
+
 set templateData.dev == false on gulp task "handlebars"
+
+on production build, reactjs for production downloaded to source folder, delete those 2 react file in _src/assets/scripts/lib to get development version if build for development
 
 $ gulp
 
