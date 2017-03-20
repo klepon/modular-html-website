@@ -40,6 +40,7 @@
 
     &.four-cols {
       flex-wrap: wrap;
+      margin-bottom: $content-padding-sm * -1;
     }
 
     &.reverse {
@@ -71,6 +72,10 @@
       width: calc(50% - #{$content-padding-sm / 2});
     }
 
+    &.four-cols .col-item {
+      margin-bottom: $content-padding-sm;
+    }
+
     &.two-col-sidebar .col-one:not(.thumbnail-container) {
       width: calc(30% - #{$content-padding-sm / 2});
     }
@@ -95,8 +100,13 @@
 
 @media screen and (min-width: $screen-md) {
   .row {
+    &.four-cols {
+      margin-bottom: 0;
+    }
+
     &.four-cols .col-item {
       width: calc(25% - #{$content-padding-md / 2});
+      margin-bottom: 0;
     }
   }
 }
