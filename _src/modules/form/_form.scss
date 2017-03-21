@@ -55,7 +55,7 @@ input {
   }
 }
 
-input:not([type="submit"]) {
+input:not([type="radio"]):not([type="checkbox"]):not([type="submit"]) {
   width: 100%;
 }
 
