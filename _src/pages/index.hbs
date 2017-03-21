@@ -1,4 +1,5 @@
 {{#> master
+  dev = true
   title="Started Template" }}
   {{#*inline "content-body" }}
 
@@ -12,7 +13,7 @@
     {{!-- one col --}}
     {{#> section-one-col}}
       {{#*inline "content-section" }}
-        {{#> react-listing-with-filter/react-listing-with-filter dev = true }}
+        {{#> react-listing-with-filter/react-listing-with-filter dev = false }}
           {{#*inline "json-data-content" }}
             {{> react-listing-with-filter/data/json-text-data-thumbnail }}
           {{/inline}}
