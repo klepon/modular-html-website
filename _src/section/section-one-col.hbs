@@ -1,7 +1,7 @@
 {{!--
 * no-padding-bottom: cssModifier remove pading bottom
 --}}
-<section class="section {{cssModifier}}">
+<section class="section {{cssModifier}}"{{#if sectionBackground}} style="background-color:{{sectionBackground}};"{{/if}}>
   <div class="content-container row one-col">
     <div class="col-item">
       {{#> content-section }}

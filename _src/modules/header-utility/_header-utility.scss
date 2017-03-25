@@ -22,6 +22,7 @@
   z-index: 10;
   position: relative;
   @include paddingPosQueryScreen('bottom', 0, 0, 0, 0);
+  @include paddingPosQueryScreen('top', 0, 0, 0, 0);
 
   .content-container {
     padding-top: $content-padding-sm;
