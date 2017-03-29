@@ -59,6 +59,10 @@ input:not([type="radio"]):not([type="checkbox"]):not([type="submit"]) {
   width: 100%;
 }
 
+input[type="checkbox"] {
+  margin-right: 10px;
+}
+
 select {
   line-height: $select-height;
   height: $select-height;
