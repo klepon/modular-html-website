@@ -2,9 +2,7 @@
     text-decoration: underline;
 }
 
-.btn:not(.btn-text),
-button:not(.btn-text),
-input[type="submit"] {
+.btn:not(.btn-text) {
   display: inline-block;
   border: none;
   padding: $button-padding;

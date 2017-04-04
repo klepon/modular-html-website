@@ -26,6 +26,11 @@
   margin-bottom: $content-padding-xs / 2;
   display: flex;
   flex-direction: column;
+  width: 100%;
+
+  input:not([type="radio"]):not([type="checkbox"]):not([type="submit"]) {
+    width: 100%;
+  }
 }
 
 .error {
@@ -55,10 +60,7 @@ input {
   }
 }
 
-input:not([type="radio"]):not([type="checkbox"]):not([type="submit"]) {
-  width: 100%;
-}
-
+input[type="radio"],
 input[type="checkbox"] {
   margin-right: 10px;
 }
